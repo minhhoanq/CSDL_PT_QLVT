@@ -128,7 +128,7 @@ namespace QLTVT
             // hOLabel
             // 
             hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(383, 37);
+            hOLabel.Location = new System.Drawing.Point(383, 33);
             hOLabel.Name = "hOLabel";
             hOLabel.Size = new System.Drawing.Size(31, 16);
             hOLabel.TabIndex = 2;
@@ -328,7 +328,7 @@ namespace QLTVT
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 600);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 613);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.barDockControlBottom.Size = new System.Drawing.Size(1071, 20);
@@ -340,7 +340,7 @@ namespace QLTVT
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 50);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 550);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 563);
             // 
             // barDockControlRight
             // 
@@ -349,7 +349,7 @@ namespace QLTVT
             this.barDockControlRight.Location = new System.Drawing.Point(1071, 50);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 550);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 563);
             // 
             // panelControl1
             // 
@@ -550,7 +550,7 @@ namespace QLTVT
             this.panelNhapLieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNhapLieu.Location = new System.Drawing.Point(0, 421);
             this.panelNhapLieu.Name = "panelNhapLieu";
-            this.panelNhapLieu.Size = new System.Drawing.Size(1071, 179);
+            this.panelNhapLieu.Size = new System.Drawing.Size(1071, 192);
             this.panelNhapLieu.TabIndex = 9;
             // 
             // dteNGAYSINH
@@ -640,7 +640,7 @@ namespace QLTVT
             // txtHO
             // 
             this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "HO", true));
-            this.txtHO.Location = new System.Drawing.Point(450, 33);
+            this.txtHO.Location = new System.Drawing.Point(450, 30);
             this.txtHO.MenuManager = this.barManager1;
             this.txtHO.Name = "txtHO";
             this.txtHO.Size = new System.Drawing.Size(216, 22);
@@ -686,7 +686,7 @@ namespace QLTVT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 620);
+            this.ClientSize = new System.Drawing.Size(1071, 633);
             this.Controls.Add(this.panelNhapLieu);
             this.Controls.Add(this.gcNhanVien);
             this.Controls.Add(this.panelControl1);

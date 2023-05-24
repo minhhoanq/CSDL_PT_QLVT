@@ -399,7 +399,6 @@ namespace QLTVT
             Console.WriteLine(cauTruyVanHoanTac);
             undoList.Push(cauTruyVanHoanTac);
 
-
             /*Step 2*/
             if ( MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này không ?","Thông báo",
                 MessageBoxButtons.OKCancel) == DialogResult.OK)

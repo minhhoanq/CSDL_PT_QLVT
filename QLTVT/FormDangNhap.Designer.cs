@@ -125,7 +125,7 @@ namespace QLTVT
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(104, 9);
+            this.label4.Location = new System.Drawing.Point(93, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(252, 33);
             this.label4.TabIndex = 8;
@@ -133,6 +133,8 @@ namespace QLTVT
             // 
             // FormDangNhap
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 350);

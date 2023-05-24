@@ -362,5 +362,10 @@ namespace QLTVT
                 form.Show();
             }
         }
+
+        private void NHOM_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
