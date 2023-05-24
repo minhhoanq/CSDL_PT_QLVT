@@ -1,0 +1,93 @@
+*Mục đích: Lấy ra chi tiết số lượng và trị giá hàng hóa nhập | xuất
+
+*Cú pháp:
+
+CREATE PROCEDURE [dbo].[sp_ChiTietSoLuongTriGiaHangHoaNhapXuat]
+@ROLE NVARCHAR(8),
+@TYPE NVARCHAR(4),
+@DATEFROM DATETIME,
+@DATETO DATETIME
+AS
+BEGIN
+	IF( @ROLE = 'CONGTY')
+	BEGIN
+		IF(@TYPE = 'NHAP')--NHAP
+		BEGIN
+				SELECT FORMAT(NGAY,'MM-yyyy') AS THANGNAM, 
+						TENVT, 
+						SUM(SOLUONG) AS TONGSOLUONG,
+						SUM(SOLUONG * DONGIA) AS TRIGIA
+				FROM
+					( SELECT NGAY,MAPN 
+						FROM LINK2.QLVT_DATHANG.DBO.PhieuNhap
+						WHERE NGAY BETWEEN @DATEFROM AND @DATETO   )PHIEU,
+					( SELECT TENVT,MAVT FROM Vattu ) VT,
+					( SELECT SOLUONG, DONGIA, MAPN,MAVT FROM LINK2.QLVT_DATHANG.DBO.CTPN) CT
+				WHERE PHIEU.MAPN = CT.MAPN
+				AND VT.MAVT = CT.MAVT
+				GROUP BY FORMAT(NGAY,'MM-yyyy'), TENVT
+				ORDER BY FORMAT(NGAY,'MM-yyyy'), TENVT
+		END
+
+		ELSE--@TYPE = 'XUAT'
+		BEGIN
+					SELECT FORMAT(NGAY,'MM-yyyy') AS THANGNAM, 
+						TENVT, 
+						SUM(SOLUONG) AS TONGSOLUONG,
+						SUM(SOLUONG * DONGIA) AS TRIGIA
+					FROM
+						( SELECT NGAY,MAPX
+							FROM LINK2.QLVT_DATHANG.DBO.PhieuXuat
+							WHERE NGAY BETWEEN @DATEFROM  AND @DATETO   )PHIEU,
+						( SELECT TENVT,MAVT FROM Vattu ) VT,
+						( SELECT SOLUONG, DONGIA, MAPX,MAVT FROM LINK2.QLVT_DATHANG.DBO.CTPX) CT
+					WHERE PHIEU.MAPX = CT.MAPX
+					AND VT.MAVT = CT.MAVT
+					GROUP BY FORMAT(NGAY,'MM-yyyy'), TENVT
+					ORDER BY FORMAT(NGAY,'MM-yyyy'), TENVT
+		END
+	END
+
+	ELSE -- CHI NHANH & USER
+	BEGIN
+		IF(@TYPE = 'NHAP')
+		BEGIN
+				SELECT FORMAT(NGAY,'MM-yyyy') AS THANGNAM, 
+						TENVT, 
+						SUM(SOLUONG) AS TONGSOLUONG,
+						SUM(SOLUONG * DONGIA) AS TRIGIA
+				FROM
+					( SELECT NGAY,MAPN 
+						FROM PhieuNhap
+						WHERE NGAY BETWEEN @DATEFROM  AND @DATETO )PHIEU,
+					( SELECT TENVT,MAVT FROM Vattu ) VT,
+					( SELECT SOLUONG, DONGIA, MAPN,MAVT FROM CTPN) CT
+				WHERE PHIEU.MAPN = CT.MAPN
+				AND VT.MAVT = CT.MAVT
+				GROUP BY FORMAT(NGAY,'MM-yyyy'), TENVT
+				ORDER BY FORMAT(NGAY,'MM-yyyy'), TENVT
+		END
+		ELSE -- @LOAI = 'XUAT'
+		BEGIN
+					SELECT FORMAT(NGAY,'MM-yyyy') AS THANGNAM, 
+						TENVT, 
+						SUM(SOLUONG) AS TONGSOLUONG,
+						SUM(SOLUONG * DONGIA) AS TRIGIA
+					FROM
+						( SELECT NGAY,MAPX
+							FROM PhieuXuat
+							WHERE NGAY BETWEEN @DATEFROM AND @DATETO   )PHIEU,
+						( SELECT TENVT,MAVT FROM Vattu ) VT,
+						( SELECT SOLUONG, DONGIA, MAPX,MAVT FROM CTPX) CT
+					WHERE PHIEU.MAPX = CT.MAPX
+					AND VT.MAVT = CT.MAVT
+					GROUP BY FORMAT(NGAY,'MM-yyyy'), TENVT
+					ORDER BY FORMAT(NGAY,'MM-yyyy'), TENVT
+		END
+	END
+END
+
+*Chú ý: câu lênh này có lẽ hơi khác bình thường bởi mình viết nó nhằm mục đích thực hiện ý đồ "TỐI ƯU HÓA TRUY VẤN". Thời điểm mình đang viết - tức Thứ 4, 29-09-2021 này, mình đã học qua buổi học thứ 6, nên bắt buộc phải có 1 số câu lệnh truy vấn kiểu này để ăn thêm điểm.
+
+*Hủy và chạy thử với 2 lệnh sau:
+DROP PROCEDURE sp_ChiTietSoLuongTriGiaHangHoaNhapXuat
