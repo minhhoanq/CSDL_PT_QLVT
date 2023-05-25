@@ -1,7 +1,7 @@
 ﻿
 namespace QLTVT
 {
-    partial class FormNhanVien
+    partial class frmStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -38,17 +38,17 @@ namespace QLTVT
             System.Windows.Forms.Label lUONGLabel;
             System.Windows.Forms.Label trangThaiXoaLabel;
             System.Windows.Forms.Label nGAYSINHLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNhanVien));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStaff));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btnTHEM = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
-            this.btnXOA = new DevExpress.XtraBars.BarButtonItem();
-            this.btnGHI = new DevExpress.XtraBars.BarButtonItem();
-            this.btnHOANTAC = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnLAMMOI = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCHUYENCHINHANH = new DevExpress.XtraBars.BarButtonItem();
-            this.btnTHOAT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBranchTransfer = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExit = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -72,14 +72,14 @@ namespace QLTVT
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrangThaiXoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelNhapLieu = new DevExpress.XtraEditors.PanelControl();
-            this.dteNGAYSINH = new DevExpress.XtraEditors.DateEdit();
-            this.trangThaiXoaCheckBox = new System.Windows.Forms.CheckBox();
-            this.txtLUONG = new DevExpress.XtraEditors.SpinEdit();
-            this.txtDIACHI = new DevExpress.XtraEditors.TextEdit();
-            this.txtMACN = new DevExpress.XtraEditors.TextEdit();
-            this.txtTEN = new DevExpress.XtraEditors.TextEdit();
-            this.txtHO = new DevExpress.XtraEditors.TextEdit();
-            this.txtMANV = new System.Windows.Forms.TextBox();
+            this.dteBirth = new DevExpress.XtraEditors.DateEdit();
+            this.cbDStatus = new System.Windows.Forms.CheckBox();
+            this.txtSalary = new DevExpress.XtraEditors.SpinEdit();
+            this.txtAddress = new DevExpress.XtraEditors.TextEdit();
+            this.txtIDBranch = new DevExpress.XtraEditors.TextEdit();
+            this.txtLname = new DevExpress.XtraEditors.TextEdit();
+            this.txtFname = new DevExpress.XtraEditors.TextEdit();
+            this.txtIDStaff = new System.Windows.Forms.TextBox();
             this.bdsDatHang = new System.Windows.Forms.BindingSource(this.components);
             this.datHangTableAdapter = new QLTVT.DataSetTableAdapters.DatHangTableAdapter();
             this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
@@ -104,13 +104,13 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNhapLieu)).BeginInit();
             this.panelNhapLieu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNGAYSINH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNGAYSINH.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLUONG.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMACN.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalary.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIDBranch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLname.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuXuat)).BeginInit();
@@ -119,74 +119,74 @@ namespace QLTVT
             // mANVLabel
             // 
             mANVLabel.AutoSize = true;
-            mANVLabel.Location = new System.Drawing.Point(88, 33);
+            mANVLabel.Location = new System.Drawing.Point(101, 24);
             mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(53, 16);
+            mANVLabel.Size = new System.Drawing.Size(28, 16);
             mANVLabel.TabIndex = 0;
-            mANVLabel.Text = "Mã NV :";
+            mANVLabel.Text = "ID :";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(383, 33);
+            hOLabel.Location = new System.Drawing.Point(379, 21);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(31, 16);
+            hOLabel.Size = new System.Drawing.Size(78, 16);
             hOLabel.TabIndex = 2;
-            hOLabel.Text = "Họ :";
+            hOLabel.Text = "First Name :";
             // 
             // tENLabel
             // 
             tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(383, 71);
+            tENLabel.Location = new System.Drawing.Point(379, 62);
             tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(38, 16);
+            tENLabel.Size = new System.Drawing.Size(76, 16);
             tENLabel.TabIndex = 4;
-            tENLabel.Text = "Tên :";
+            tENLabel.Text = "Last Name :";
             // 
             // mACNLabel
             // 
             mACNLabel.AutoSize = true;
-            mACNLabel.Location = new System.Drawing.Point(719, 37);
+            mACNLabel.Location = new System.Drawing.Point(379, 101);
             mACNLabel.Name = "mACNLabel";
-            mACNLabel.Size = new System.Drawing.Size(53, 16);
+            mACNLabel.Size = new System.Drawing.Size(71, 16);
             mACNLabel.TabIndex = 6;
-            mACNLabel.Text = "Mã CN :";
+            mACNLabel.Text = "ID Branch :";
             // 
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
-            dIACHILabel.Location = new System.Drawing.Point(90, 152);
+            dIACHILabel.Location = new System.Drawing.Point(101, 143);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(55, 16);
+            dIACHILabel.Size = new System.Drawing.Size(62, 16);
             dIACHILabel.TabIndex = 8;
-            dIACHILabel.Text = "Địa chỉ :";
+            dIACHILabel.Text = "Address :";
             // 
             // lUONGLabel
             // 
             lUONGLabel.AutoSize = true;
-            lUONGLabel.Location = new System.Drawing.Point(90, 110);
+            lUONGLabel.Location = new System.Drawing.Point(101, 98);
             lUONGLabel.Name = "lUONGLabel";
-            lUONGLabel.Size = new System.Drawing.Size(51, 16);
+            lUONGLabel.Size = new System.Drawing.Size(52, 16);
             lUONGLabel.TabIndex = 12;
-            lUONGLabel.Text = "Lương :";
+            lUONGLabel.Text = "Salary :";
             // 
             // trangThaiXoaLabel
             // 
             trangThaiXoaLabel.AutoSize = true;
-            trangThaiXoaLabel.Location = new System.Drawing.Point(719, 110);
+            trangThaiXoaLabel.Location = new System.Drawing.Point(740, 21);
             trangThaiXoaLabel.Name = "trangThaiXoaLabel";
-            trangThaiXoaLabel.Size = new System.Drawing.Size(99, 16);
+            trangThaiXoaLabel.Size = new System.Drawing.Size(92, 16);
             trangThaiXoaLabel.TabIndex = 14;
-            trangThaiXoaLabel.Text = "Trạng thái xóa :";
+            trangThaiXoaLabel.Text = "Delete Status :";
             // 
             // nGAYSINHLabel
             // 
             nGAYSINHLabel.AutoSize = true;
-            nGAYSINHLabel.Location = new System.Drawing.Point(88, 68);
+            nGAYSINHLabel.Location = new System.Drawing.Point(101, 59);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(71, 16);
+            nGAYSINHLabel.Size = new System.Drawing.Size(42, 16);
             nGAYSINHLabel.TabIndex = 15;
-            nGAYSINHLabel.Text = "Ngày sinh :";
+            nGAYSINHLabel.Text = "Birth :";
             // 
             // barManager1
             // 
@@ -199,13 +199,13 @@ namespace QLTVT
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnTHEM,
-            this.btnXOA,
-            this.btnGHI,
-            this.btnHOANTAC,
+            this.btnAdd,
+            this.btnDelete,
+            this.btnSave,
+            this.btnUndo,
             this.btnLAMMOI,
-            this.btnCHUYENCHINHANH,
-            this.btnTHOAT});
+            this.btnBranchTransfer,
+            this.btnExit});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 7;
             this.barManager1.StatusBar = this.bar3;
@@ -217,90 +217,88 @@ namespace QLTVT
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTHEM, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXOA, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGHI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHOANTAC, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUndo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLAMMOI, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCHUYENCHINHANH, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTHOAT, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnBranchTransfer, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExit, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // btnTHEM
+            // btnAdd
             // 
-            this.btnTHEM.ActAsDropDown = true;
-            this.btnTHEM.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnTHEM.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.btnTHEM.Caption = "Thêm nhân viên";
-            this.btnTHEM.DropDownControl = this.galleryDropDown1;
-            this.btnTHEM.Id = 0;
-            this.btnTHEM.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTHEM.ImageOptions.SvgImage")));
-            this.btnTHEM.Name = "btnTHEM";
-            this.btnTHEM.Size = new System.Drawing.Size(0, 40);
-            this.btnTHEM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTHEM_ItemClick);
+            this.btnAdd.ActAsDropDown = true;
+            this.btnAdd.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnAdd.Caption = "Add Staff";
+            this.btnAdd.DropDownControl = this.galleryDropDown1;
+            this.btnAdd.Id = 0;
+            this.btnAdd.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAdd.ImageOptions.SvgImage")));
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(0, 40);
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // galleryDropDown1
             // 
             this.galleryDropDown1.Manager = this.barManager1;
             this.galleryDropDown1.Name = "galleryDropDown1";
             // 
-            // btnXOA
+            // btnDelete
             // 
-            this.btnXOA.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnXOA.Caption = "Xoá";
-            this.btnXOA.Id = 1;
-            this.btnXOA.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXOA.ImageOptions.SvgImage")));
-            this.btnXOA.Name = "btnXOA";
-            this.btnXOA.Size = new System.Drawing.Size(70, 0);
-            this.btnXOA.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXOA_ItemClick);
+            this.btnDelete.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnDelete.Caption = "Delete";
+            this.btnDelete.Id = 1;
+            this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
-            // btnGHI
+            // btnSave
             // 
-            this.btnGHI.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnGHI.Caption = "Ghi";
-            this.btnGHI.Id = 2;
-            this.btnGHI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGHI.ImageOptions.SvgImage")));
-            this.btnGHI.Name = "btnGHI";
-            this.btnGHI.Size = new System.Drawing.Size(70, 0);
-            this.btnGHI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGHI_ItemClick);
+            this.btnSave.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnSave.Caption = "Save";
+            this.btnSave.Id = 2;
+            this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(70, 0);
+            this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
-            // btnHOANTAC
+            // btnUndo
             // 
-            this.btnHOANTAC.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnHOANTAC.Caption = "Hoàn Tác";
-            this.btnHOANTAC.Id = 3;
-            this.btnHOANTAC.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHOANTAC.ImageOptions.SvgImage")));
-            this.btnHOANTAC.Name = "btnHOANTAC";
-            this.btnHOANTAC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHOANTAC_ItemClick);
+            this.btnUndo.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnUndo.Caption = "Undo";
+            this.btnUndo.Id = 3;
+            this.btnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUndo.ImageOptions.SvgImage")));
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUndo_ItemClick);
             // 
             // btnLAMMOI
             // 
             this.btnLAMMOI.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnLAMMOI.Caption = "Làm Mới";
+            this.btnLAMMOI.Caption = "Refresh";
             this.btnLAMMOI.Id = 4;
             this.btnLAMMOI.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLAMMOI.ImageOptions.SvgImage")));
             this.btnLAMMOI.Name = "btnLAMMOI";
             this.btnLAMMOI.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLAMMOI_ItemClick);
             // 
-            // btnCHUYENCHINHANH
+            // btnBranchTransfer
             // 
-            this.btnCHUYENCHINHANH.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnCHUYENCHINHANH.Caption = "Chuyển Chi Nhánh";
-            this.btnCHUYENCHINHANH.Id = 5;
-            this.btnCHUYENCHINHANH.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCHUYENCHINHANH.ImageOptions.SvgImage")));
-            this.btnCHUYENCHINHANH.Name = "btnCHUYENCHINHANH";
-            this.btnCHUYENCHINHANH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCHUYENCHINHANH_ItemClick);
+            this.btnBranchTransfer.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnBranchTransfer.Caption = "Branch Transfer";
+            this.btnBranchTransfer.Id = 5;
+            this.btnBranchTransfer.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBranchTransfer.ImageOptions.SvgImage")));
+            this.btnBranchTransfer.Name = "btnBranchTransfer";
+            this.btnBranchTransfer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBranchTransfer_ItemClick);
             // 
-            // btnTHOAT
+            // btnExit
             // 
-            this.btnTHOAT.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnTHOAT.Caption = "Thoát";
-            this.btnTHOAT.Id = 6;
-            this.btnTHOAT.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTHOAT.ImageOptions.SvgImage")));
-            this.btnTHOAT.Name = "btnTHOAT";
-            this.btnTHOAT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
+            this.btnExit.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnExit.Caption = "Exit";
+            this.btnExit.Id = 6;
+            this.btnExit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExit.ImageOptions.SvgImage")));
+            this.btnExit.Name = "btnExit";
+            this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExit_ItemClick);
             // 
             // bar3
             // 
@@ -376,11 +374,12 @@ namespace QLTVT
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 25);
+            this.label1.Location = new System.Drawing.Point(71, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 23);
+            this.label1.Size = new System.Drawing.Size(70, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Chi Nhánh";
+            this.label1.Text = "Branch";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataSet
             // 
@@ -441,7 +440,7 @@ namespace QLTVT
             // 
             // colMANV
             // 
-            this.colMANV.Caption = "Mã nhân viên";
+            this.colMANV.Caption = "ID Staff";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
@@ -452,7 +451,7 @@ namespace QLTVT
             // 
             // colHO
             // 
-            this.colHO.Caption = "Họ";
+            this.colHO.Caption = "First Name";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 25;
             this.colHO.Name = "colHO";
@@ -463,7 +462,7 @@ namespace QLTVT
             // 
             // colTEN
             // 
-            this.colTEN.Caption = "Tên";
+            this.colTEN.Caption = "Last Name";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 25;
             this.colTEN.Name = "colTEN";
@@ -474,7 +473,7 @@ namespace QLTVT
             // 
             // colDIACHI
             // 
-            this.colDIACHI.Caption = "Địa chỉ";
+            this.colDIACHI.Caption = "Address";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
@@ -485,7 +484,7 @@ namespace QLTVT
             // 
             // colNGAYSINH
             // 
-            this.colNGAYSINH.Caption = "Ngày sinh";
+            this.colNGAYSINH.Caption = "Birth";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -496,7 +495,7 @@ namespace QLTVT
             // 
             // colLUONG
             // 
-            this.colLUONG.Caption = "Lương";
+            this.colLUONG.Caption = "Salary";
             this.colLUONG.DisplayFormat.FormatString = "n0";
             this.colLUONG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colLUONG.FieldName = "LUONG";
@@ -509,7 +508,7 @@ namespace QLTVT
             // 
             // colMACN
             // 
-            this.colMACN.Caption = "Mã chi nhánh";
+            this.colMACN.Caption = "ID Branch";
             this.colMACN.FieldName = "MACN";
             this.colMACN.MinWidth = 25;
             this.colMACN.Name = "colMACN";
@@ -520,7 +519,7 @@ namespace QLTVT
             // 
             // colTrangThaiXoa
             // 
-            this.colTrangThaiXoa.Caption = "Trạng thái";
+            this.colTrangThaiXoa.Caption = "Delete Status";
             this.colTrangThaiXoa.FieldName = "TrangThaiXoa";
             this.colTrangThaiXoa.MinWidth = 25;
             this.colTrangThaiXoa.Name = "colTrangThaiXoa";
@@ -532,127 +531,127 @@ namespace QLTVT
             // panelNhapLieu
             // 
             this.panelNhapLieu.Controls.Add(nGAYSINHLabel);
-            this.panelNhapLieu.Controls.Add(this.dteNGAYSINH);
+            this.panelNhapLieu.Controls.Add(this.dteBirth);
             this.panelNhapLieu.Controls.Add(trangThaiXoaLabel);
-            this.panelNhapLieu.Controls.Add(this.trangThaiXoaCheckBox);
+            this.panelNhapLieu.Controls.Add(this.cbDStatus);
             this.panelNhapLieu.Controls.Add(lUONGLabel);
-            this.panelNhapLieu.Controls.Add(this.txtLUONG);
+            this.panelNhapLieu.Controls.Add(this.txtSalary);
             this.panelNhapLieu.Controls.Add(dIACHILabel);
-            this.panelNhapLieu.Controls.Add(this.txtDIACHI);
+            this.panelNhapLieu.Controls.Add(this.txtAddress);
             this.panelNhapLieu.Controls.Add(mACNLabel);
-            this.panelNhapLieu.Controls.Add(this.txtMACN);
+            this.panelNhapLieu.Controls.Add(this.txtIDBranch);
             this.panelNhapLieu.Controls.Add(tENLabel);
-            this.panelNhapLieu.Controls.Add(this.txtTEN);
+            this.panelNhapLieu.Controls.Add(this.txtLname);
             this.panelNhapLieu.Controls.Add(hOLabel);
-            this.panelNhapLieu.Controls.Add(this.txtHO);
+            this.panelNhapLieu.Controls.Add(this.txtFname);
             this.panelNhapLieu.Controls.Add(mANVLabel);
-            this.panelNhapLieu.Controls.Add(this.txtMANV);
+            this.panelNhapLieu.Controls.Add(this.txtIDStaff);
             this.panelNhapLieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNhapLieu.Location = new System.Drawing.Point(0, 421);
             this.panelNhapLieu.Name = "panelNhapLieu";
             this.panelNhapLieu.Size = new System.Drawing.Size(1071, 192);
             this.panelNhapLieu.TabIndex = 9;
             // 
-            // dteNGAYSINH
+            // dteBirth
             // 
-            this.dteNGAYSINH.AllowDrop = true;
-            this.dteNGAYSINH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "NGAYSINH", true));
-            this.dteNGAYSINH.EditValue = new System.DateTime(2023, 5, 22, 0, 0, 0, 0);
-            this.dteNGAYSINH.Location = new System.Drawing.Point(190, 65);
-            this.dteNGAYSINH.MenuManager = this.barManager1;
-            this.dteNGAYSINH.Name = "dteNGAYSINH";
-            this.dteNGAYSINH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteBirth.AllowDrop = true;
+            this.dteBirth.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "NGAYSINH", true));
+            this.dteBirth.EditValue = new System.DateTime(2023, 5, 22, 0, 0, 0, 0);
+            this.dteBirth.Location = new System.Drawing.Point(203, 56);
+            this.dteBirth.MenuManager = this.barManager1;
+            this.dteBirth.Name = "dteBirth";
+            this.dteBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteNGAYSINH.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteBirth.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteNGAYSINH.Properties.CalendarTimeProperties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.dteNGAYSINH.Properties.MaxValue = new System.DateTime(2021, 12, 31, 23, 59, 0, 0);
-            this.dteNGAYSINH.Properties.MinValue = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
-            this.dteNGAYSINH.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dteNGAYSINH.Size = new System.Drawing.Size(125, 22);
-            this.dteNGAYSINH.TabIndex = 16;
-            this.dteNGAYSINH.EditValueChanged += new System.EventHandler(this.dteNGAYSINH_EditValueChanged);
-            this.dteNGAYSINH.Validating += new System.ComponentModel.CancelEventHandler(this.dteNGAYSINH_Validating);
+            this.dteBirth.Properties.CalendarTimeProperties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
+            this.dteBirth.Properties.MaxValue = new System.DateTime(2021, 12, 31, 23, 59, 0, 0);
+            this.dteBirth.Properties.MinValue = new System.DateTime(1980, 1, 1, 0, 0, 0, 0);
+            this.dteBirth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dteBirth.Size = new System.Drawing.Size(125, 22);
+            this.dteBirth.TabIndex = 16;
+            this.dteBirth.EditValueChanged += new System.EventHandler(this.dteNGAYSINH_EditValueChanged);
+            this.dteBirth.Validating += new System.ComponentModel.CancelEventHandler(this.dteNGAYSINH_Validating);
             // 
-            // trangThaiXoaCheckBox
+            // cbDStatus
             // 
-            this.trangThaiXoaCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsNhanVien, "TrangThaiXoa", true));
-            this.trangThaiXoaCheckBox.Location = new System.Drawing.Point(835, 107);
-            this.trangThaiXoaCheckBox.Name = "trangThaiXoaCheckBox";
-            this.trangThaiXoaCheckBox.Size = new System.Drawing.Size(104, 24);
-            this.trangThaiXoaCheckBox.TabIndex = 15;
-            this.trangThaiXoaCheckBox.UseVisualStyleBackColor = true;
-            this.trangThaiXoaCheckBox.CheckedChanged += new System.EventHandler(this.trangThaiXoaCheckBox_CheckedChanged);
+            this.cbDStatus.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsNhanVien, "TrangThaiXoa", true));
+            this.cbDStatus.Location = new System.Drawing.Point(855, 18);
+            this.cbDStatus.Name = "cbDStatus";
+            this.cbDStatus.Size = new System.Drawing.Size(104, 24);
+            this.cbDStatus.TabIndex = 15;
+            this.cbDStatus.UseVisualStyleBackColor = true;
+            this.cbDStatus.CheckedChanged += new System.EventHandler(this.trangThaiXoaCheckBox_CheckedChanged);
             // 
-            // txtLUONG
+            // txtSalary
             // 
-            this.txtLUONG.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "LUONG", true));
-            this.txtLUONG.EditValue = new decimal(new int[] {
+            this.txtSalary.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "LUONG", true));
+            this.txtSalary.EditValue = new decimal(new int[] {
             4000000,
             0,
             0,
             0});
-            this.txtLUONG.Location = new System.Drawing.Point(190, 106);
-            this.txtLUONG.MenuManager = this.barManager1;
-            this.txtLUONG.Name = "txtLUONG";
-            this.txtLUONG.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtSalary.Location = new System.Drawing.Point(203, 97);
+            this.txtSalary.MenuManager = this.barManager1;
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtLUONG.Properties.DisplayFormat.FormatString = "n0";
-            this.txtLUONG.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtLUONG.Properties.EditFormat.FormatString = "n0";
-            this.txtLUONG.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtLUONG.Properties.Increment = new decimal(new int[] {
+            this.txtSalary.Properties.DisplayFormat.FormatString = "n0";
+            this.txtSalary.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSalary.Properties.EditFormat.FormatString = "n0";
+            this.txtSalary.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSalary.Properties.Increment = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.txtLUONG.Size = new System.Drawing.Size(125, 24);
-            this.txtLUONG.TabIndex = 13;
+            this.txtSalary.Size = new System.Drawing.Size(125, 24);
+            this.txtSalary.TabIndex = 13;
             // 
-            // txtDIACHI
+            // txtAddress
             // 
-            this.txtDIACHI.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "DIACHI", true));
-            this.txtDIACHI.Location = new System.Drawing.Point(190, 146);
-            this.txtDIACHI.MenuManager = this.barManager1;
-            this.txtDIACHI.Name = "txtDIACHI";
-            this.txtDIACHI.Size = new System.Drawing.Size(476, 22);
-            this.txtDIACHI.TabIndex = 9;
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "DIACHI", true));
+            this.txtAddress.Location = new System.Drawing.Point(203, 140);
+            this.txtAddress.MenuManager = this.barManager1;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(476, 22);
+            this.txtAddress.TabIndex = 9;
             // 
-            // txtMACN
+            // txtIDBranch
             // 
-            this.txtMACN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "MACN", true));
-            this.txtMACN.Enabled = false;
-            this.txtMACN.Location = new System.Drawing.Point(835, 33);
-            this.txtMACN.MenuManager = this.barManager1;
-            this.txtMACN.Name = "txtMACN";
-            this.txtMACN.Size = new System.Drawing.Size(113, 22);
-            this.txtMACN.TabIndex = 7;
+            this.txtIDBranch.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "MACN", true));
+            this.txtIDBranch.Enabled = false;
+            this.txtIDBranch.Location = new System.Drawing.Point(463, 98);
+            this.txtIDBranch.MenuManager = this.barManager1;
+            this.txtIDBranch.Name = "txtIDBranch";
+            this.txtIDBranch.Size = new System.Drawing.Size(113, 22);
+            this.txtIDBranch.TabIndex = 7;
             // 
-            // txtTEN
+            // txtLname
             // 
-            this.txtTEN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "TEN", true));
-            this.txtTEN.Location = new System.Drawing.Point(450, 68);
-            this.txtTEN.MenuManager = this.barManager1;
-            this.txtTEN.Name = "txtTEN";
-            this.txtTEN.Size = new System.Drawing.Size(216, 22);
-            this.txtTEN.TabIndex = 5;
+            this.txtLname.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "TEN", true));
+            this.txtLname.Location = new System.Drawing.Point(463, 59);
+            this.txtLname.MenuManager = this.barManager1;
+            this.txtLname.Name = "txtLname";
+            this.txtLname.Size = new System.Drawing.Size(216, 22);
+            this.txtLname.TabIndex = 5;
             // 
-            // txtHO
+            // txtFname
             // 
-            this.txtHO.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "HO", true));
-            this.txtHO.Location = new System.Drawing.Point(450, 30);
-            this.txtHO.MenuManager = this.barManager1;
-            this.txtHO.Name = "txtHO";
-            this.txtHO.Size = new System.Drawing.Size(216, 22);
-            this.txtHO.TabIndex = 3;
+            this.txtFname.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNhanVien, "HO", true));
+            this.txtFname.Location = new System.Drawing.Point(463, 21);
+            this.txtFname.MenuManager = this.barManager1;
+            this.txtFname.Name = "txtFname";
+            this.txtFname.Size = new System.Drawing.Size(216, 22);
+            this.txtFname.TabIndex = 3;
             // 
-            // txtMANV
+            // txtIDStaff
             // 
-            this.txtMANV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "MANV", true));
-            this.txtMANV.Location = new System.Drawing.Point(190, 30);
-            this.txtMANV.Name = "txtMANV";
-            this.txtMANV.Size = new System.Drawing.Size(125, 23);
-            this.txtMANV.TabIndex = 1;
+            this.txtIDStaff.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNhanVien, "MANV", true));
+            this.txtIDStaff.Location = new System.Drawing.Point(203, 21);
+            this.txtIDStaff.Name = "txtIDStaff";
+            this.txtIDStaff.Size = new System.Drawing.Size(125, 23);
+            this.txtIDStaff.TabIndex = 1;
             // 
             // bdsDatHang
             // 
@@ -682,7 +681,7 @@ namespace QLTVT
             // 
             this.phieuXuatTableAdapter.ClearBeforeFill = true;
             // 
-            // FormNhanVien
+            // frmStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -696,10 +695,10 @@ namespace QLTVT
             this.Controls.Add(this.barDockControlTop);
             this.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.Name = "FormNhanVien";
-            this.Text = "Nhân Viên";
+            this.Name = "frmStaff";
+            this.Text = "Staff";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormNhanVien_Load);
+            this.Load += new System.EventHandler(this.frmStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -712,13 +711,13 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.panelNhapLieu)).EndInit();
             this.panelNhapLieu.ResumeLayout(false);
             this.panelNhapLieu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNGAYSINH.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNGAYSINH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLUONG.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDIACHI.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMACN.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTEN.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHO.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSalary.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIDBranch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLname.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuXuat)).EndInit();
@@ -731,13 +730,13 @@ namespace QLTVT
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem btnTHEM;
-        private DevExpress.XtraBars.BarButtonItem btnXOA;
-        private DevExpress.XtraBars.BarButtonItem btnGHI;
-        private DevExpress.XtraBars.BarButtonItem btnHOANTAC;
+        private DevExpress.XtraBars.BarButtonItem btnAdd;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
+        private DevExpress.XtraBars.BarButtonItem btnUndo;
         private DevExpress.XtraBars.BarButtonItem btnLAMMOI;
-        private DevExpress.XtraBars.BarButtonItem btnCHUYENCHINHANH;
-        private DevExpress.XtraBars.BarButtonItem btnTHOAT;
+        private DevExpress.XtraBars.BarButtonItem btnBranchTransfer;
+        private DevExpress.XtraBars.BarButtonItem btnExit;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -753,12 +752,12 @@ namespace QLTVT
         private DevExpress.XtraGrid.GridControl gcNhanVien;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.PanelControl panelNhapLieu;
-        private DevExpress.XtraEditors.SpinEdit txtLUONG;
-        private DevExpress.XtraEditors.TextEdit txtDIACHI;
-        private DevExpress.XtraEditors.TextEdit txtMACN;
-        private DevExpress.XtraEditors.TextEdit txtTEN;
-        private DevExpress.XtraEditors.TextEdit txtHO;
-        private System.Windows.Forms.TextBox txtMANV;
+        private DevExpress.XtraEditors.SpinEdit txtSalary;
+        private DevExpress.XtraEditors.TextEdit txtAddress;
+        private DevExpress.XtraEditors.TextEdit txtIDBranch;
+        private DevExpress.XtraEditors.TextEdit txtLname;
+        private DevExpress.XtraEditors.TextEdit txtFname;
+        private System.Windows.Forms.TextBox txtIDStaff;
         private DevExpress.XtraGrid.Columns.GridColumn colMANV;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
@@ -767,14 +766,14 @@ namespace QLTVT
         private DevExpress.XtraGrid.Columns.GridColumn colLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private DevExpress.XtraGrid.Columns.GridColumn colTrangThaiXoa;
-        private System.Windows.Forms.CheckBox trangThaiXoaCheckBox;
+        private System.Windows.Forms.CheckBox cbDStatus;
         private System.Windows.Forms.BindingSource bdsDatHang;
         private DataSetTableAdapters.DatHangTableAdapter datHangTableAdapter;
         private System.Windows.Forms.BindingSource bdsPhieuNhap;
         private DataSetTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
         private System.Windows.Forms.BindingSource bdsPhieuXuat;
         private DataSetTableAdapters.PhieuXuatTableAdapter phieuXuatTableAdapter;
-        private DevExpress.XtraEditors.DateEdit dteNGAYSINH;
+        private DevExpress.XtraEditors.DateEdit dteBirth;
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
     }
 }

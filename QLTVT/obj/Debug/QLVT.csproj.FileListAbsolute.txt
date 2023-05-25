@@ -621,10 +621,8 @@ C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLVT.csproj.AssemblyReference.cache
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLVT.csproj.SuggestedBindingRedirects.cache
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormChinh.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormDangNhap.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormDonDatHang.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormKho.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormNhanVien.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormPhieuNhap.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormPhieuXuat.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormTaoTaiKhoan.resources
@@ -725,3 +723,5 @@ C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\bin\Debug\DevExpress.XtraPivotGrid.v22.2.xml
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\bin\Debug\DevExpress.XtraDiagram.v22.2.xml
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\bin\Debug\DevExpress.Diagram.v22.2.Core.xml
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.frmStaff.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.frmLogin.resources

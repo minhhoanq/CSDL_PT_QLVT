@@ -53,8 +53,8 @@ namespace QLTVT.SubForm
 
         /************************************************************
          * tạo delegate - một cái biến mà khi được gọi, nó sẽ thực hiện 1 hàm(function) khác
-         * Ví dụ: ở class formNhanVien, ta có hàm chuyển chi nhánh, hàm này cần 1 tham số, chính
-         * là tên server được chọn ở formChuyenChiNhanh này. Để gọi được hàm chuyển chi nhánh ở formNHANVIEN
+         * Ví dụ: ở class frmStaff, ta có hàm chuyển chi nhánh, hàm này cần 1 tham số, chính
+         * là tên server được chọn ở formChuyenChiNhanh này. Để gọi được hàm chuyển chi nhánh ở frmStaff
          * Chúng ta khai báo 1 delete là branchTransfer để gọi hàm chuyển chi nhánh về form này
          *************************************************************/
         public delegate void MyDelegate(string chiNhanh);

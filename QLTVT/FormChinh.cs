@@ -45,12 +45,10 @@ namespace QLTVT
          ************************************************************/
         public void enableButtons()
         {
-            
-            btnDangNhap.Enabled = false;
-            btnDangXuat.Enabled = true;
+            btnLogout.Enabled = true;
 
-            pageNhapXuat.Visible = true;
-            pageBaoCao.Visible = true;
+            pageMenu.Visible = true;
+            pageDetails.Visible = true;
             btnLapTaiKhoan.Enabled = true;
 
             if( Program.role == "USER")
@@ -82,32 +80,29 @@ namespace QLTVT
          * Step 2: vô hiệu hóa các tab
          * Step 3: gọi lại form đăng nhập
          ************************************************************/
-        private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
             logout();
 
-            btnDangNhap.Enabled = true;
-            btnDangXuat.Enabled = false;
+            //btnDangNhap.Enabled = true;
+            btnLogout.Enabled = false;
 
-            pageNhapXuat.Visible = false;
-            pageBaoCao.Visible = false;
+            pageMenu.Visible = false;
+            pageDetails.Visible = false;
             //pageTaiKhoan.Visible = false;
 
-            Form f = this.CheckExists(typeof(FormDangNhap));
+            Form f = this.CheckExists(typeof(frmLogin));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormDangNhap form = new FormDangNhap();
+                frmLogin form = new frmLogin();
                 //form.MdiParent = this;
                 form.Show();
             }
-
-            Program.formChinh.MANHANVIEN.Text = "MÃ NHÂN VIÊN:";
-            Program.formChinh.HOTEN.Text = "HỌ TÊN:";
-            Program.formChinh.NHOM.Text = "VAI TRÒ:";
+            this.Close();
         }
 
 
@@ -121,32 +116,33 @@ namespace QLTVT
          * 
          * f.MdiParent = this; cái form này có form cha là this - tức form chính
          ************************************************************/
-        private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Form f = this.CheckExists(typeof(FormDangNhap));
-            if (f != null)
-            {
-                f.Activate();
-            }
-            else
-            {
-                FormDangNhap form = new FormDangNhap();
-                //form.MdiParent = this;
-                form.Show();
-            }
-        }
+        //private void btnDangNhap_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    Form f = this.CheckExists(typeof(frmLogin));
+        //    if (f != null)
+        //    {
+        //        f.Activate();
+        //    }
+        //    else
+        //    {
+        //        frmLogin form = new frmLogin();
+        //        //form.MdiParent = this;
+        //        form.Show();
+        //    }
+        //}
 
         private void FormChinh_Load(object sender, EventArgs e)
         {
             //this.TopMost = true;
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
+
+            Program.formChinh.MANHANVIEN.Text = "ID : " + Program.userName;
+            Program.formChinh.HOTEN.Text = "Full name : " + Program.staff;
+            Program.formChinh.NHOM.Text = "Role : " + Program.role;
+            
         }
 
-        private void btnThoat_ItemClick(object sender, ItemClickEventArgs e)
-        { 
-            this.Close();
-        }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -168,16 +164,16 @@ namespace QLTVT
 
         }
 
-        private void btnNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnStaff_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormNhanVien));
+            Form f = this.CheckExists(typeof(frmStaff));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormNhanVien form = new FormNhanVien();
+                frmStaff form = new frmStaff();
                 form.MdiParent = this;
                 form.Show();
             }
@@ -366,6 +362,26 @@ namespace QLTVT
         private void NHOM_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogout_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnRegister_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormTaoTaiKhoan));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTaoTaiKhoan form = new FormTaoTaiKhoan();
+                //form.MdiParent = this;
+                form.Show();
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace QLTVT
 {
-    public partial class FormDangNhap : DevExpress.XtraEditors.XtraForm
+    public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         private SqlConnection connPublisher = new SqlConnection();
 
@@ -33,11 +33,11 @@ namespace QLTVT
             Program.bindingSource.DataSource = dt;
 
 
-            cmbCHINHANH.DataSource = Program.bindingSource;
-            cmbCHINHANH.DisplayMember = "TENCN";
-            cmbCHINHANH.ValueMember = "TENSERVER";
+            cmbBranch.DataSource = Program.bindingSource;
+            cmbBranch.DisplayMember = "TENCN";
+            cmbBranch.ValueMember = "TENSERVER";
         }
-        public FormDangNhap()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -89,14 +89,14 @@ namespace QLTVT
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
             // đặt sẵn mật khẩu để đỡ nhập lại nhiều lần
-            txtTAIKHOAN.Text = "LT";// nguyen long - chi nhanh
-            txtMATKHAU.Text = "123";
+            txtAccount.Text = "LT";// nguyen long - chi nhanh
+            txtPassword.Text = "123";
             if ( KetNoiDatabaseGoc() == 0 )
                 return;
             //Lấy 2 cái đầu tiên của danh sách
             layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
-            cmbCHINHANH.SelectedIndex = 0;
-            cmbCHINHANH.SelectedIndex = 1;
+            cmbBranch.SelectedIndex = 0;
+            cmbBranch.SelectedIndex = 1;
         }
 
 
@@ -109,24 +109,23 @@ namespace QLTVT
          * Step 5: gán giá trị Mã nhân viên - họ tên - vai trò ở góc màn hình
          * Step 6: ẩn form hiện tại & hiện các nút chức năng còn lại
          */
-        private void btnDANGNHAP_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             /* Step 1*/
-            if (txtTAIKHOAN.Text.Trim() == "" || txtMATKHAU.Text.Trim() == "")
+            if (txtAccount.Text.Trim() == "" || txtPassword.Text.Trim() == "")
             {
                 MessageBox.Show("Tài khoản & mật khẩu không thể bỏ trống", "Thông Báo", MessageBoxButtons.OK);
                 return;
             }
             /* Step 2*/
-            Program.loginName = txtTAIKHOAN.Text.Trim();
-            Program.loginPassword = txtMATKHAU.Text.Trim();
+            Program.loginName = txtAccount.Text.Trim();
+            Program.loginPassword = txtPassword.Text.Trim();
             if (Program.KetNoi() == 0)
                 return;
             /* Step 3*/
-            Program.brand = cmbCHINHANH.SelectedIndex;
+            Program.brand = cmbBranch.SelectedIndex;
             Program.currentLogin = Program.loginName;
             Program.currentPassword = Program.loginPassword;
-
 
             /* Step 4*/
             String statement = "EXEC sp_DangNhap '"+Program.loginName + "'";// exec sp_DangNhap 'TP'
@@ -136,7 +135,6 @@ namespace QLTVT
             // đọc một dòng của myReader - điều này là hiển nhiên vì kết quả chỉ có 1 dùng duy nhất
             Program.myReader.Read();
 
-
             /* Step 5*/
             Program.userName = Program.myReader.GetString(0);// lấy userName
             if( Convert.IsDBNull(Program.userName) )
@@ -144,27 +142,23 @@ namespace QLTVT
                 MessageBox.Show("Tài khoản này không có quyền truy cập \n Hãy thử tài khoản khác","Thông Báo",MessageBoxButtons.OK);
             }
 
-
-            
             Program.staff = Program.myReader.GetString(1);
             Program.role = Program.myReader.GetString(2);
 
             Program.myReader.Close();
             Program.conn.Close();
 
-            Program.formChinh.MANHANVIEN.Text = "MÃ NHÂN VIÊN: " + Program.userName;
-            Program.formChinh.HOTEN.Text = "HỌ TÊN: " + Program.staff;
-            Program.formChinh.NHOM.Text = "VAI TRÒ: " + Program.role;
+            //Program.formChinh.MANHANVIEN.Text = "MÃ NHÂN VIÊN: " + Program.userName;
+            //Program.formChinh.HOTEN.Text = "HỌ TÊN: " + Program.staff;
+            //Program.formChinh.NHOM.Text = "VAI TRÒ: " + Program.role;
+
+            Program.formChinh = new FormChinh();
+            Program.formChinh.Activate();
+            Program.formChinh.Show();
 
             /* Step 6*/
             this.Visible = false;
             Program.formChinh.enableButtons();
-        }
-
-        private void btnTHOAT_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Program.formChinh.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -172,11 +166,11 @@ namespace QLTVT
 
         }
 
-        private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                Program.serverName = cmbCHINHANH.SelectedValue.ToString();
+                Program.serverName = cmbBranch.SelectedValue.ToString();
                 //Console.WriteLine(cmbCHINHANH.SelectedValue.ToString());
             }
             catch( Exception )
@@ -185,7 +179,7 @@ namespace QLTVT
             }
         }
 
-        private void txtMATKHAU_TextChanged(object sender, EventArgs e)
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -133,9 +133,9 @@ namespace QLTVT
 
 
         /*các form của toàn dữ án cũng được coi như 1 một biến toàn cục*/
-        public static FormDangNhap formDangNhap;
+        public static frmLogin frmLogin;
         public static FormChinh formChinh;
-        public static FormNhanVien formNhanVien;
+        public static frmStaff frmStaff;
 
         public static FormChuyenChiNhanh formChuyenChiNhanh;
         public static FormVatTu formVatTu;
@@ -261,8 +261,8 @@ namespace QLTVT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Program.formChinh = new FormChinh();
-            Application.Run(formChinh);
+            Program.frmLogin = new frmLogin();
+            Application.Run(frmLogin);
         }
     }
 }
