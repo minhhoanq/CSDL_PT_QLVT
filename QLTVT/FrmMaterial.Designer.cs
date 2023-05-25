@@ -39,6 +39,7 @@ namespace QLTVT
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnExit = new DevExpress.XtraBars.BarButtonItem();
@@ -48,7 +49,6 @@ namespace QLTVT
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnCHUYENCHINHANH = new DevExpress.XtraBars.BarButtonItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cmbBranch = new System.Windows.Forms.ComboBox();
@@ -99,7 +99,7 @@ namespace QLTVT
             // labelMaterialId
             // 
             labelMaterialId.AutoSize = true;
-            labelMaterialId.Location = new System.Drawing.Point(53, 53);
+            labelMaterialId.Location = new System.Drawing.Point(157, 82);
             labelMaterialId.Name = "labelMaterialId";
             labelMaterialId.Size = new System.Drawing.Size(82, 16);
             labelMaterialId.TabIndex = 0;
@@ -108,7 +108,7 @@ namespace QLTVT
             // labelMaterialName
             // 
             labelMaterialName.AutoSize = true;
-            labelMaterialName.Location = new System.Drawing.Point(53, 93);
+            labelMaterialName.Location = new System.Drawing.Point(157, 122);
             labelMaterialName.Name = "labelMaterialName";
             labelMaterialName.Size = new System.Drawing.Size(99, 16);
             labelMaterialName.TabIndex = 2;
@@ -117,7 +117,7 @@ namespace QLTVT
             // dVTLabel
             // 
             dVTLabel.AutoSize = true;
-            dVTLabel.Location = new System.Drawing.Point(420, 50);
+            dVTLabel.Location = new System.Drawing.Point(524, 79);
             dVTLabel.Name = "dVTLabel";
             dVTLabel.Size = new System.Drawing.Size(38, 16);
             dVTLabel.TabIndex = 4;
@@ -126,7 +126,7 @@ namespace QLTVT
             // labelRemainQuantity
             // 
             labelRemainQuantity.AutoSize = true;
-            labelRemainQuantity.Location = new System.Drawing.Point(420, 93);
+            labelRemainQuantity.Location = new System.Drawing.Point(524, 122);
             labelRemainQuantity.Name = "labelRemainQuantity";
             labelRemainQuantity.Size = new System.Drawing.Size(110, 16);
             labelRemainQuantity.TabIndex = 6;
@@ -176,11 +176,11 @@ namespace QLTVT
             // btnAdd
             // 
             this.btnAdd.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnAdd.Caption = "Add Material";
+            this.btnAdd.Caption = "Add";
             this.btnAdd.Id = 0;
             this.btnAdd.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAdd.ImageOptions.SvgImage")));
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(0, 40);
+            this.btnAdd.Size = new System.Drawing.Size(100, 40);
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // btnDelete
@@ -190,8 +190,8 @@ namespace QLTVT
             this.btnDelete.Id = 1;
             this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
             this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 0);
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
-
             // 
             // btnSave
             // 
@@ -200,6 +200,7 @@ namespace QLTVT
             this.btnSave.Id = 2;
             this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
             this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 0);
             this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnRefresh
@@ -209,6 +210,7 @@ namespace QLTVT
             this.btnRefresh.Id = 4;
             this.btnRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefresh.ImageOptions.SvgImage")));
             this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(100, 0);
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
             // btnUndo
@@ -218,6 +220,7 @@ namespace QLTVT
             this.btnUndo.Id = 3;
             this.btnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUndo.ImageOptions.SvgImage")));
             this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(100, 0);
             this.btnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUndo_ItemClick);
             // 
             // btnExit
@@ -227,6 +230,7 @@ namespace QLTVT
             this.btnExit.Id = 6;
             this.btnExit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExit.ImageOptions.SvgImage")));
             this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(100, 0);
             this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExit_ItemClick);
             // 
             // barButtonItem1
@@ -358,7 +362,7 @@ namespace QLTVT
             this.gcVATTU.MainView = this.gridView1;
             this.gcVATTU.MenuManager = this.barManager1;
             this.gcVATTU.Name = "gcVATTU";
-            this.gcVATTU.Size = new System.Drawing.Size(1080, 341);
+            this.gcVATTU.Size = new System.Drawing.Size(1080, 275);
             this.gcVATTU.TabIndex = 16;
             this.gcVATTU.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -428,9 +432,9 @@ namespace QLTVT
             this.panelNhapLieu.Controls.Add(labelMaterialId);
             this.panelNhapLieu.Controls.Add(this.txtMaterialID);
             this.panelNhapLieu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNhapLieu.Location = new System.Drawing.Point(0, 465);
+            this.panelNhapLieu.Location = new System.Drawing.Point(0, 399);
             this.panelNhapLieu.Name = "panelNhapLieu";
-            this.panelNhapLieu.Size = new System.Drawing.Size(1080, 133);
+            this.panelNhapLieu.Size = new System.Drawing.Size(1080, 199);
             this.panelNhapLieu.TabIndex = 21;
             this.panelNhapLieu.Text = "Thông tin";
             this.panelNhapLieu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNhapLieu_Paint);
@@ -443,7 +447,7 @@ namespace QLTVT
             0,
             0,
             0});
-            this.txtRemainQuantity.Location = new System.Drawing.Point(569, 89);
+            this.txtRemainQuantity.Location = new System.Drawing.Point(673, 118);
             this.txtRemainQuantity.MenuManager = this.barManager1;
             this.txtRemainQuantity.Name = "txtRemainQuantity";
             this.txtRemainQuantity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -463,7 +467,7 @@ namespace QLTVT
             // txtUnit
             // 
             this.txtUnit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsVatTu, "DVT", true));
-            this.txtUnit.Location = new System.Drawing.Point(569, 47);
+            this.txtUnit.Location = new System.Drawing.Point(673, 76);
             this.txtUnit.MenuManager = this.barManager1;
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(153, 22);
@@ -472,7 +476,7 @@ namespace QLTVT
             // txtMaterialName
             // 
             this.txtMaterialName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsVatTu, "TENVT", true));
-            this.txtMaterialName.Location = new System.Drawing.Point(175, 90);
+            this.txtMaterialName.Location = new System.Drawing.Point(279, 119);
             this.txtMaterialName.MenuManager = this.barManager1;
             this.txtMaterialName.Name = "txtMaterialName";
             this.txtMaterialName.Size = new System.Drawing.Size(186, 22);
@@ -481,7 +485,7 @@ namespace QLTVT
             // txtMaterialID
             // 
             this.txtMaterialID.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsVatTu, "MAVT", true));
-            this.txtMaterialID.Location = new System.Drawing.Point(175, 50);
+            this.txtMaterialID.Location = new System.Drawing.Point(279, 79);
             this.txtMaterialID.MenuManager = this.barManager1;
             this.txtMaterialID.Name = "txtMaterialID";
             this.txtMaterialID.Size = new System.Drawing.Size(109, 22);
@@ -527,7 +531,7 @@ namespace QLTVT
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FrmMaterial";
-            this.Text = "Vật Tư";
+            this.Text = "Material";
             this.Load += new System.EventHandler(this.FrmMaterial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

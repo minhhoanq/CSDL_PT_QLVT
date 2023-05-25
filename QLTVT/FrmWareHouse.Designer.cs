@@ -177,11 +177,11 @@ namespace QLTVT
             // btnAdd
             // 
             this.btnAdd.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnAdd.Caption = "Add WareHouse";
+            this.btnAdd.Caption = "Add";
             this.btnAdd.Id = 0;
             this.btnAdd.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAdd.ImageOptions.SvgImage")));
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(0, 40);
+            this.btnAdd.Size = new System.Drawing.Size(100, 40);
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // btnDelete
@@ -191,6 +191,7 @@ namespace QLTVT
             this.btnDelete.Id = 1;
             this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
             this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 0);
             this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
             // btnSave
@@ -200,6 +201,7 @@ namespace QLTVT
             this.btnSave.Id = 2;
             this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
             this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 0);
             this.btnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSave_ItemClick);
             // 
             // btnUndo
@@ -209,6 +211,7 @@ namespace QLTVT
             this.btnUndo.Id = 3;
             this.btnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUndo.ImageOptions.SvgImage")));
             this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(100, 0);
             this.btnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUndo_ItemClick);
             // 
             // btnRefresh
@@ -218,6 +221,7 @@ namespace QLTVT
             this.btnRefresh.Id = 4;
             this.btnRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefresh.ImageOptions.SvgImage")));
             this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(100, 0);
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
             // btnExit
@@ -227,6 +231,7 @@ namespace QLTVT
             this.btnExit.Id = 6;
             this.btnExit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExit.ImageOptions.SvgImage")));
             this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(100, 0);
             this.btnExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExit_ItemClick);
             // 
             // bar3
