@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace QLTVT
 {
-    public partial class frmStaff : Form
+    public partial class FrmStaff : Form
     {
         /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
@@ -70,7 +70,7 @@ namespace QLTVT
                     return f;
             return null;
         }
-        public frmStaff()
+        public FrmStaff()
         {
             InitializeComponent();
         }

@@ -133,13 +133,13 @@ namespace QLTVT
 
 
         /*các form của toàn dữ án cũng được coi như 1 một biến toàn cục*/
-        public static frmLogin frmLogin;
-        public static FormChinh formChinh;
-        public static frmStaff frmStaff;
+        public static FrmLogin frmLogin;
+        public static FrmMain frmMain;
+        public static FrmStaff frmStaff;
 
         public static FormChuyenChiNhanh formChuyenChiNhanh;
-        public static FormVatTu formVatTu;
-        public static FormKho formKho;
+        public static FrmMaterial frmMaterial;
+        public static FrmWareHouse frmWareHouse;
 
         public static FormDonDatHang formDonDatHang;
         public static FormChonKhoHang formChonKhoHang;
@@ -261,7 +261,7 @@ namespace QLTVT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Program.frmLogin = new frmLogin();
+            Program.frmLogin = new FrmLogin();
             Application.Run(frmLogin);
         }
     }

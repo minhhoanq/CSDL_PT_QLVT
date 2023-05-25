@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace QLTVT
 {
-    public partial class FormVatTu : Form
+    public partial class FrmMaterial : Form
     {
 
         /* vị trí của con trỏ trên grid view*/
@@ -40,12 +40,12 @@ namespace QLTVT
          * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
          **********************************************************/
         Stack undoList = new Stack();
-        public FormVatTu()
+        public FrmMaterial()
         {
             InitializeComponent();
         }
 
-        private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Dispose();
         }
@@ -57,7 +57,7 @@ namespace QLTVT
 
         }
 
-        private void FormVatTu_Load(object sender, EventArgs e)
+        private void FrmMaterial_Load(object sender, EventArgs e)
         {
             /*Step 1*/
             /*không kiểm tra khóa ngoại nữa*/
@@ -79,24 +79,24 @@ namespace QLTVT
             //maChiNhanh = ((DataRowView)bdsVatTu[0])["MACN"].ToString();
 
             /*Step 2*/
-            cmbCHINHANH.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbCHINHANH.DisplayMember = "TENCN";
-            cmbCHINHANH.ValueMember = "TENSERVER";
-            cmbCHINHANH.SelectedIndex = Program.brand;
+            cmbBranch.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbBranch.DisplayMember = "TENCN";
+            cmbBranch.ValueMember = "TENSERVER";
+            cmbBranch.SelectedIndex = Program.brand;
 
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
             if (Program.role == "CONGTY")
             {
-                cmbCHINHANH.Enabled = true;
+                cmbBranch.Enabled = true;
 
-                this.btnTHEM.Enabled = false;
-                this.btnXOA.Enabled = false;
-                this.btnGHI.Enabled = false;
+                this.btnAdd.Enabled = false;
+                this.btnDelete.Enabled = false;
+                this.btnSave.Enabled = false;
 
-                this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnUndo.Enabled = false;
+                this.btnRefresh.Enabled = true;
+                this.btnExit.Enabled = true;
 
                 this.panelNhapLieu.Enabled = false;
             }
@@ -105,18 +105,18 @@ namespace QLTVT
              chuyen sang chi nhanh khac*/
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
-                cmbCHINHANH.Enabled = false;
+                cmbBranch.Enabled = false;
 
-                this.btnTHEM.Enabled = true;
-                this.btnXOA.Enabled = true;
-                this.btnGHI.Enabled = true;
+                this.btnAdd.Enabled = true;
+                this.btnDelete.Enabled = true;
+                this.btnSave.Enabled = true;
 
-                this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnUndo.Enabled = false;
+                this.btnRefresh.Enabled = true;
+                this.btnExit.Enabled = true;
 
                 this.panelNhapLieu.Enabled = true;
-                this.txtMAVT.Enabled = false;
+                this.txtMaterialID.Enabled = false;
             }
         }
 
@@ -128,17 +128,17 @@ namespace QLTVT
 
         }
 
-        private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*
             /*Neu combobox khong co so lieu thi ket thuc luon*/
-            if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
+            if (cmbBranch.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
-            Program.serverName = cmbCHINHANH.SelectedValue.ToString();
+            Program.serverName = cmbBranch.SelectedValue.ToString();
 
             /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
-            if (cmbCHINHANH.SelectedIndex != Program.brand)
+            if (cmbBranch.SelectedIndex != Program.brand)
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
@@ -174,7 +174,7 @@ namespace QLTVT
             }
         }
 
-        private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
             /*lấy vị trí hiện tại của con trỏ*/
@@ -186,18 +186,18 @@ namespace QLTVT
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bdsVatTu.AddNew();
-            txtSOLUONGTON.Value = 1;
+            txtRemainQuantity.Value = 1;
 
 
             /*Step 3*/
-            this.txtMAVT.Enabled = true;
-            this.btnTHEM.Enabled = false;
-            this.btnXOA.Enabled = false;
-            this.btnGHI.Enabled = true;
+            this.txtMaterialID.Enabled = true;
+            this.btnAdd.Enabled = false;
+            this.btnDelete.Enabled = false;
+            this.btnSave.Enabled = true;
 
-            this.btnHOANTAC.Enabled = true;
-            this.btnLAMMOI.Enabled = false;
-            this.btnTHOAT.Enabled = false;
+            this.btnUndo.Enabled = true;
+            this.btnRefresh.Enabled = false;
+            this.btnExit.Enabled = false;
 
 
             this.gcVATTU.Enabled = false;
@@ -218,21 +218,21 @@ namespace QLTVT
          * Step 1: kiểm tra undoList có trông hay không ?
          * Step 2: Neu undoList khong trống thì lấy ra khôi phục
          *********************************************************************/
-        private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 */
-            if (dangThemMoi == true && this.btnTHEM.Enabled == false)
+            if (dangThemMoi == true && this.btnAdd.Enabled == false)
             {
                 dangThemMoi = false;
 
-                this.txtMAVT.Enabled = false;
-                this.btnTHEM.Enabled = true;
-                this.btnXOA.Enabled = true;
-                this.btnGHI.Enabled = true;
+                this.txtMaterialID.Enabled = false;
+                this.btnAdd.Enabled = true;
+                this.btnDelete.Enabled = true;
+                this.btnSave.Enabled = true;
 
-                this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnUndo.Enabled = false;
+                this.btnRefresh.Enabled = true;
+                this.btnExit.Enabled = true;
 
 
                 this.gcVATTU.Enabled = true;
@@ -250,7 +250,7 @@ namespace QLTVT
             if (undoList.Count == 0)
             {
                 MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
-                btnHOANTAC.Enabled = false;
+                btnUndo.Enabled = false;
                 return;
             }
 
@@ -270,73 +270,73 @@ namespace QLTVT
         private bool kiemTraDuLieuDauVao()
         {
             /*Kiem tra txtMAVT*/
-            if (txtMAVT.Text == "")
+            if (txtMaterialID.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã vật tư", "Thông báo", MessageBoxButtons.OK);
-                txtMAVT.Focus();
+                txtMaterialID.Focus();
                 return false;
             }
 
-            if (Regex.IsMatch(txtMAVT.Text, @"^[a-zA-Z0-9]+$") == false)
+            if (Regex.IsMatch(txtMaterialID.Text, @"^[a-zA-Z0-9]+$") == false)
             {
                 MessageBox.Show("Mã vật tư chỉ có chữ cái và số", "Thông báo", MessageBoxButtons.OK);
-                txtMAVT.Focus();
+                txtMaterialID.Focus();
                 return false;
             }
 
-            if (txtMAVT.Text.Length > 4)
+            if (txtMaterialID.Text.Length > 4)
             {
                 MessageBox.Show("Mã vật tư không quá 4 kí tự", "Thông báo", MessageBoxButtons.OK);
-                txtMAVT.Focus();
+                txtMaterialID.Focus();
                 return false;
             }
             /*Kiem tra txtTENVT*/
-            if (txtTENVT.Text == "")
+            if (txtMaterialName.Text == "")
             {
                 MessageBox.Show("Không bỏ trống tên vật tư", "Thông báo", MessageBoxButtons.OK);
-                txtTENVT.Focus();
+                txtMaterialName.Focus();
                 return false;
             }
             
-            if (Regex.IsMatch(txtTENVT.Text, @"^[a-zA-Z0-9 ]+$") == false)
+            if (Regex.IsMatch(txtMaterialName.Text, @"^[a-zA-Z0-9 ]+$") == false)
             {
                 MessageBox.Show("Tên vật tư chỉ chấp nhận chữ, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
-                txtTENVT.Focus();
+                txtMaterialName.Focus();
                 return false;
             }
             
-            if (txtTENVT.Text.Length > 30)
+            if (txtMaterialName.Text.Length > 30)
             {
                 MessageBox.Show("Tên vật tư không quá 30 kí tự", "Thông báo", MessageBoxButtons.OK);
-                txtTENVT.Focus();
+                txtMaterialName.Focus();
                 return false;
             }
             /*Kiem tra txtDONVIVATTU*/
-            if (txtDONVIVATTU.Text == "")
+            if (txtUnit.Text == "")
             {
                 MessageBox.Show("Không bỏ trống đơn vị tính", "Thông báo", MessageBoxButtons.OK);
-                txtDONVIVATTU.Focus();
+                txtUnit.Focus();
                 return false;
             }
 
-            if (Regex.IsMatch(txtDONVIVATTU.Text, @"^[a-zA-Z ]+$") == false)
+            if (Regex.IsMatch(txtUnit.Text, @"^[a-zA-Z ]+$") == false)
             {
                 MessageBox.Show("Đơn vị vật tư chỉ có chữ cái", "Thông báo", MessageBoxButtons.OK);
-                txtDONVIVATTU.Focus();
+                txtUnit.Focus();
                 return false;
             }
 
-            if (txtDONVIVATTU.Text.Length > 15)
+            if (txtUnit.Text.Length > 15)
             {
                 MessageBox.Show("Đơn vị vật tự không quá 15 kí tự", "Thông báo", MessageBoxButtons.OK);
-                txtDONVIVATTU.Focus();
+                txtUnit.Focus();
                 return false;
             }
             /*Kiem tra txtSOLUONGTON*/
-            if (txtSOLUONGTON.Value < 0)
+            if (txtRemainQuantity.Value < 0)
             {
                 MessageBox.Show("Sô lượng tồn phải ít nhất bằng 0", "Thông báo", MessageBoxButtons.OK);
-                txtSOLUONGTON.Focus();
+                txtRemainQuantity.Focus();
                 return false;
             }
 
@@ -361,7 +361,7 @@ namespace QLTVT
          *          
          * Step 3 : Neu khong phai TH0 thi cac TH1 - TH2 - TH3 deu hop le 
          ***********************************************************************/
-        private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 */
             bool ketQua = kiemTraDuLieuDauVao();
@@ -371,7 +371,7 @@ namespace QLTVT
 
             /*Step 1*/
             /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC*/
-            String maVatTu = txtMAVT.Text.Trim();// Trim() de loai bo khoang trang thua
+            String maVatTu = txtMaterialID.Text.Trim();// Trim() de loai bo khoang trang thua
             DataRowView drv = ((DataRowView)bdsVatTu[bdsVatTu.Position]);
             String tenVatTu = drv["TENVT"].ToString();
             String donViTinh = drv["DVT"].ToString();
@@ -412,7 +412,7 @@ namespace QLTVT
 
             /*Step 2*/
             int viTriConTro = bdsVatTu.Position;
-            int viTriMaVatTu = bdsVatTu.Find("MAVT", txtMAVT.Text);
+            int viTriMaVatTu = bdsVatTu.Find("MAVT", txtMaterialID.Text);
            
             if (result == 1 && viTriConTro != viTriMaVatTu)
             {
@@ -428,16 +428,16 @@ namespace QLTVT
                     try
                     {
                         /*bật các nút về ban đầu*/
-                        btnTHEM.Enabled = true;
-                        btnXOA.Enabled = true;
-                        btnGHI.Enabled = true;
-                        btnHOANTAC.Enabled = true;
+                        btnAdd.Enabled = true;
+                        btnDelete.Enabled = true;
+                        btnSave.Enabled = true;
+                        btnUndo.Enabled = true;
 
-                        btnLAMMOI.Enabled = true;
+                        btnRefresh.Enabled = true;
                         btnCHUYENCHINHANH.Enabled = true;
-                        btnTHOAT.Enabled = true;
+                        btnExit.Enabled = true;
 
-                        this.txtMAVT.Enabled = false;
+                        this.txtMaterialID.Enabled = false;
                         this.gcVATTU.Enabled = true;
 
                         /*lưu 1 câu truy vấn để hoàn tác yêu cầu*/
@@ -447,7 +447,7 @@ namespace QLTVT
                         {
                             cauTruyVanHoanTac = "" +
                                 "DELETE DBO.VATTU " +
-                                "WHERE MAVT = '" + txtMAVT.Text.Trim()+"'";
+                                "WHERE MAVT = '" + txtMaterialID.Text.Trim()+"'";
                         }
                         /*trước khi ấn btnGHI là sửa thông tin nhân viên*/
                         else
@@ -486,7 +486,7 @@ namespace QLTVT
             }
         }
 
-        private void btnLAMMOI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
@@ -554,12 +554,12 @@ namespace QLTVT
          * Step 1: Kiem tra du lieu dau vao
          * Step 2: Them cau lenh hoan tac neu can
          ***************************************************************************/
-        private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
             if (bdsVatTu.Count == 0)
             {
-                btnXOA.Enabled = false;
+                btnDelete.Enabled = false;
             }
 
             if (bdsCTDDH.Count > 0)
@@ -583,7 +583,7 @@ namespace QLTVT
 
 
             /*kiem tra xem no co dang duoc su dung tai chi nhanh khac hay khong ?*/
-            String maVatTu = txtMAVT.Text.Trim();// Trim() de loai bo khoang trang thua
+            String maVatTu = txtMaterialID.Text.Trim();// Trim() de loai bo khoang trang thua
             int ketQua = kiemTraVatTuCoSuDungTaiChiNhanhKhac(maVatTu);
 
             if( ketQua == 1)
@@ -601,10 +601,10 @@ namespace QLTVT
 
             string cauTruyVanHoanTac =
             "INSERT INTO DBO.VATTU( MAVT,TENVT,DVT,SOLUONGTON) " +
-            " VALUES( '" + txtMAVT.Text + "','" +
-                        txtTENVT.Text + "','" +
-                        txtDONVIVATTU.Text + "', " +
-                        txtSOLUONGTON.Value + " ) ";
+            " VALUES( '" + txtMaterialID.Text + "','" +
+                        txtMaterialName.Text + "','" +
+                        txtUnit.Text + "', " +
+                        txtRemainQuantity.Value + " ) ";
 
             Console.WriteLine(cauTruyVanHoanTac);
             undoList.Push(cauTruyVanHoanTac);
@@ -623,7 +623,7 @@ namespace QLTVT
                     this.vattuTableAdapter.Update(this.dataSet.Vattu);
 
                     MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
-                    this.btnHOANTAC.Enabled = true;
+                    this.btnUndo.Enabled = true;
                 }
                 catch (Exception ex)
                 {

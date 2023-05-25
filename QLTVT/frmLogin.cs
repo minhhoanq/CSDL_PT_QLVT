@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace QLTVT
 {
-    public partial class frmLogin : DevExpress.XtraEditors.XtraForm
+    public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
     {
         private SqlConnection connPublisher = new SqlConnection();
 
@@ -37,7 +37,7 @@ namespace QLTVT
             cmbBranch.DisplayMember = "TENCN";
             cmbBranch.ValueMember = "TENSERVER";
         }
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
         }
@@ -152,13 +152,13 @@ namespace QLTVT
             //Program.formChinh.HOTEN.Text = "HỌ TÊN: " + Program.staff;
             //Program.formChinh.NHOM.Text = "VAI TRÒ: " + Program.role;
 
-            Program.formChinh = new FormChinh();
-            Program.formChinh.Activate();
-            Program.formChinh.Show();
+            Program.frmMain = new FrmMain();
+            Program.frmMain.Activate();
+            Program.frmMain.Show();
 
             /* Step 6*/
             this.Visible = false;
-            Program.formChinh.enableButtons();
+            Program.frmMain.enableButtons();
         }
 
         private void label1_Click(object sender, EventArgs e)

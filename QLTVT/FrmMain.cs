@@ -13,12 +13,12 @@ using System.Windows.Forms;
 namespace QLTVT
 {
 
-    public partial class FormChinh : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         //public System.Windows.Forms.ToolStripStatusLabel MANHANVIEN { get; set; }
         //public System.Windows.Forms.ToolStripStatusLabel HOTEN { get; set; }
         //public System.Windows.Forms.ToolStripStatusLabel NHOM { get; set; }
-        public FormChinh()
+        public FrmMain()
         {
             InitializeComponent();
         }
@@ -91,14 +91,14 @@ namespace QLTVT
             pageDetails.Visible = false;
             //pageTaiKhoan.Visible = false;
 
-            Form f = this.CheckExists(typeof(frmLogin));
+            Form f = this.CheckExists(typeof(FrmLogin));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                frmLogin form = new frmLogin();
+                FrmLogin form = new FrmLogin();
                 //form.MdiParent = this;
                 form.Show();
             }
@@ -131,15 +131,15 @@ namespace QLTVT
         //    }
         //}
 
-        private void FormChinh_Load(object sender, EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
             //this.TopMost = true;
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
 
-            Program.formChinh.MANHANVIEN.Text = "ID : " + Program.userName;
-            Program.formChinh.HOTEN.Text = "Full name : " + Program.staff;
-            Program.formChinh.NHOM.Text = "Role : " + Program.role;
+            Program.frmMain.MANHANVIEN.Text = "ID : " + Program.userName;
+            Program.frmMain.HOTEN.Text = "Full name : " + Program.staff;
+            Program.frmMain.NHOM.Text = "Role : " + Program.role;
             
         }
 
@@ -166,14 +166,14 @@ namespace QLTVT
 
         private void btnStaff_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(frmStaff));
+            Form f = this.CheckExists(typeof(FrmStaff));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                frmStaff form = new frmStaff();
+                FrmStaff form = new FrmStaff();
                 form.MdiParent = this;
                 form.Show();
             }
@@ -181,14 +181,14 @@ namespace QLTVT
 
         private void btnVatTu_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormVatTu));
+            Form f = this.CheckExists(typeof(FrmMaterial));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormVatTu form = new FormVatTu();
+                FrmMaterial form = new FrmMaterial();
                 form.MdiParent = this;
                 form.Show();
             }
@@ -196,14 +196,14 @@ namespace QLTVT
 
         private void btnKho_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormKho));
+            Form f = this.CheckExists(typeof(FrmWareHouse));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormKho form = new FormKho();
+                FrmWareHouse form = new FrmWareHouse();
                 form.MdiParent = this;
                 form.Show();
             }

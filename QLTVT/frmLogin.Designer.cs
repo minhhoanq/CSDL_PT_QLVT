@@ -1,7 +1,7 @@
 ﻿
 namespace QLTVT
 {
-    partial class frmLogin
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.

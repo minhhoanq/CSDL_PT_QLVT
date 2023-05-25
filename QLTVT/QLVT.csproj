@@ -78,17 +78,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormChinh.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChinh.Designer.cs">
-      <DependentUpon>FormChinh.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDonDatHang.cs">
       <SubType>Form</SubType>
@@ -96,17 +96,17 @@
     <Compile Include="FormDonDatHang.Designer.cs">
       <DependentUpon>FormDonDatHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKho.cs">
+    <Compile Include="FrmWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKho.Designer.cs">
-      <DependentUpon>FormKho.cs</DependentUpon>
+    <Compile Include="FrmWareHouse.Designer.cs">
+      <DependentUpon>FrmWareHouse.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStaff.cs">
+    <Compile Include="FrmStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStaff.Designer.cs">
-      <DependentUpon>frmStaff.cs</DependentUpon>
+    <Compile Include="FrmStaff.Designer.cs">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPhieuNhap.cs">
       <SubType>Form</SubType>
@@ -126,11 +126,11 @@
     <Compile Include="FormTaoTaiKhoan.Designer.cs">
       <DependentUpon>FormTaoTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVatTu.cs">
+    <Compile Include="FrmMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVatTu.Designer.cs">
-      <DependentUpon>FormVatTu.cs</DependentUpon>
+    <Compile Include="FrmMaterial.Designer.cs">
+      <DependentUpon>FrmMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -242,20 +242,20 @@
     <Compile Include="SubForm\FormChuyenChiNhanh.Designer.cs">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormChinh.resx">
-      <DependentUpon>FormChinh.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDonDatHang.resx">
       <DependentUpon>FormDonDatHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKho.resx">
-      <DependentUpon>FormKho.cs</DependentUpon>
+    <EmbeddedResource Include="FrmWareHouse.resx">
+      <DependentUpon>FrmWareHouse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStaff.resx">
-      <DependentUpon>frmStaff.cs</DependentUpon>
+    <EmbeddedResource Include="FrmStaff.resx">
+      <DependentUpon>FrmStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPhieuNhap.resx">
       <DependentUpon>FormPhieuNhap.cs</DependentUpon>
@@ -266,8 +266,8 @@
     <EmbeddedResource Include="FormTaoTaiKhoan.resx">
       <DependentUpon>FormTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVatTu.resx">
-      <DependentUpon>FormVatTu.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMaterial.resx">
+      <DependentUpon>FrmMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
