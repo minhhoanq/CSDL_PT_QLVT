@@ -25,11 +25,11 @@ namespace QLTVT.SubForm
         { 
             /*Lấy dữ liệu từ form đăng nhập đổ vào nhưng chỉ lấn đúng danh sách
              phân mảnh mà thôi*/
-            cmbCHINHANH.DataSource  = Program.bindingSource.DataSource;
+            cmbBranch.DataSource  = Program.bindingSource.DataSource;
             /*sao chep bingding source tu form dang nhap*/
-            cmbCHINHANH.DisplayMember = "tencn";
-            cmbCHINHANH.ValueMember = "tenserver";
-            cmbCHINHANH.SelectedIndex = Program.brand;
+            cmbBranch.DisplayMember = "tencn";
+            cmbBranch.ValueMember = "tenserver";
+            cmbBranch.SelectedIndex = Program.brand;
 
         }
         private Form CheckExists(Type ftype)
@@ -39,9 +39,8 @@ namespace QLTVT.SubForm
                     return f;
             return null;
         }
-        private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,11 +56,11 @@ namespace QLTVT.SubForm
          * là tên server được chọn ở formChuyenChiNhanh này. Để gọi được hàm chuyển chi nhánh ở frmStaff
          * Chúng ta khai báo 1 delete là branchTransfer để gọi hàm chuyển chi nhánh về form này
          *************************************************************/
-        public delegate void MyDelegate(string chiNhanh);
+        public delegate void MyDelegate(string chiNhanh, Form form);
         public MyDelegate branchTransfer;
-        private void btnXACNHAN_Click(object sender, EventArgs e)
+        private void btnComfirm_Click(object sender, EventArgs e)
         {
-            if (cmbCHINHANH.Text.Trim().Equals(""))
+            if (cmbBranch.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Vui lòng chọn chi nhánh", "Thông báo", MessageBoxButtons.OK);
                 return;
@@ -71,10 +70,11 @@ namespace QLTVT.SubForm
 
             if( dialogResult == DialogResult.OK)
             {
-                branchTransfer(cmbCHINHANH.SelectedValue.ToString());
+                branchTransfer(cmbBranch.SelectedValue.ToString(), this);
+            } else
+            {
+                return;
             }
-                
-            this.Dispose();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -87,6 +87,9 @@ namespace QLTVT.SubForm
 
         }
 
-        
+        private void btnTHOAT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

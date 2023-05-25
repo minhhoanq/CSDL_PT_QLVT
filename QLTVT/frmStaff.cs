@@ -113,23 +113,23 @@ namespace QLTVT
             /*van con ton tai loi chua sua duoc*/
             maChiNhanh = ((DataRowView)bdsNhanVien[0])["MACN"].ToString();
             /*Step 2*/
-            cmbCHINHANH.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbCHINHANH.DisplayMember = "TENCN";
-            cmbCHINHANH.ValueMember = "TENSERVER";
-            cmbCHINHANH.SelectedIndex = Program.brand;
+            cmbBranch.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbBranch.DisplayMember = "TENCN";
+            cmbBranch.ValueMember = "TENSERVER";
+            cmbBranch.SelectedIndex = Program.brand;
             
             /*Step 3*/
             /*CONG TY chi xem du lieu*/
             if( Program.role == "CONGTY")
             {
-                cmbCHINHANH.Enabled = true;
+                cmbBranch.Enabled = true;
 
                 this.btnAdd.Enabled = false;
                 this.btnDelete.Enabled = false;
                 this.btnSave.Enabled = false;
 
                 this.btnUndo.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnRefresh.Enabled = true;
                 this.btnBranchTransfer.Enabled = false;
                 this.btnExit.Enabled = true;
 
@@ -140,14 +140,14 @@ namespace QLTVT
              chuyen sang chi nhanh khac*/
             if( Program.role == "CHINHANH" || Program.role == "USER")
             {
-                cmbCHINHANH.Enabled = false;
+                cmbBranch.Enabled = false;
 
                 this.btnAdd.Enabled = true;
                 this.btnDelete.Enabled = true;
                 this.btnSave.Enabled = true;
 
                 this.btnUndo.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnRefresh.Enabled = true;
                 this.btnBranchTransfer.Enabled = true;
                 this.btnExit.Enabled = true;
 
@@ -201,7 +201,7 @@ namespace QLTVT
             this.btnSave.Enabled = true;
 
             this.btnUndo.Enabled = true;
-            this.btnLAMMOI.Enabled = false;
+            this.btnRefresh.Enabled = false;
             this.btnBranchTransfer.Enabled = false;
             this.btnExit.Enabled = false;
             this.cbDStatus.Checked = false;
@@ -237,7 +237,7 @@ namespace QLTVT
                 this.btnSave.Enabled = true;
 
                 this.btnUndo.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnRefresh.Enabled = true;
                 this.btnBranchTransfer.Enabled = true;
                 this.btnExit.Enabled = true;
                 this.cbDStatus.Checked = false;
@@ -323,7 +323,7 @@ namespace QLTVT
              */
         }
 
-        private void btnLAMMOI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
            try
            {
@@ -432,17 +432,17 @@ namespace QLTVT
             }    
         }
 
-        private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*
             /*Neu combobox khong co so lieu thi ket thuc luon*/
-            if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
+            if (cmbBranch.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
-            Program.serverName = cmbCHINHANH.SelectedValue.ToString();
+            Program.serverName = cmbBranch.SelectedValue.ToString();
 
             /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
-            if( cmbCHINHANH.SelectedIndex != Program.brand )
+            if( cmbBranch.SelectedIndex != Program.brand )
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
@@ -659,8 +659,6 @@ namespace QLTVT
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
             Program.myReader.Close();
 
-
-
             /*Step 2*/
             int viTriConTro = bdsNhanVien.Position;
             int viTriMaNhanVien = bdsNhanVien.Find("MANV", txtIDStaff.Text);
@@ -684,7 +682,7 @@ namespace QLTVT
                         btnSave.Enabled = true;
                         btnUndo.Enabled = true;
 
-                        btnLAMMOI.Enabled = true;
+                        btnRefresh.Enabled = true;
                         btnBranchTransfer.Enabled = true;
                         btnExit.Enabled = true;
 
@@ -736,12 +734,10 @@ namespace QLTVT
             }
             
         }
-
         private void dteNGAYSINH_Validating(object sender, CancelEventArgs e)
         {
             
         }
-
 
         /**************************************************************
          * Step 1: kiêm tra xem có nằm trên cùng chi nhánh không
@@ -749,7 +745,7 @@ namespace QLTVT
          * Step 3: trước khi thực hiện, lưu sẵn câu lệnh hoàn tác vào undoList + tên chi nhánh tới
          * Step 4: thực hiện chuyển chi nhánh với sp_ChuyenChiNhanh
          **************************************************************/
-        public void chuyenChiNhanh(String chiNhanh )
+        public void chuyenChiNhanh(String chiNhanh, Form form )
         {
             //Console.WriteLine("Chi nhánh được chọn là " + chiNhanh);
             
@@ -759,8 +755,6 @@ namespace QLTVT
                 MessageBox.Show("Hãy chọn chi nhánh khác chi nhánh bạn đang đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
-
 
             /*Step 2*/
             String maChiNhanhHienTai = "";
@@ -786,16 +780,12 @@ namespace QLTVT
             Console.WriteLine("Ma chi nhanh hien tai : " + maChiNhanhHienTai);
             Console.WriteLine("Ma chi nhanh Moi : " + maChiNhanhMoi);
 
-
-
             /*Step 3*/
             String cauTruyVanHoanTac = "EXEC sp_ChuyenChiNhanh "+maNhanVien+",'"+maChiNhanhHienTai+"'";
             undoList.Push(cauTruyVanHoanTac);
            
             Program.serverNameLeft = chiNhanh; /*Lấy tên chi nhánh tới để làm tính năng hoàn tác*/
             Console.WriteLine("Ten server con lai" + Program.serverNameLeft);
-
-
 
             /*Step 4*/
             String cauTruyVan = "EXEC sp_ChuyenChiNhanh " + maNhanVien + ",'" + maChiNhanhMoi + "'";
@@ -807,7 +797,8 @@ namespace QLTVT
             {
                 Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
                 MessageBox.Show("Chuyển chi nhánh thành công", "thông báo", MessageBoxButtons.OK);
-
+                
+                form.Dispose();
                 if (Program.myReader == null)
                 {
                     return;/*khong co ket qua tra ve thi ket thuc luon*/
