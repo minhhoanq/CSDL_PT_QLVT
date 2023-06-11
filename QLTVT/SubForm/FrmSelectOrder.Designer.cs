@@ -1,7 +1,7 @@
 ﻿
 namespace QLTVT.SubForm
 {
-    partial class FormChonDonDatHang
+    partial class FrmSelectOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -36,13 +36,13 @@ namespace QLTVT.SubForm
             this.tableAdapterManager = new QLTVT.DataSetTableAdapters.TableAdapterManager();
             this.datHangGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnCHON = new System.Windows.Forms.Button();
-            this.btnTHOAT = new System.Windows.Forms.Button();
             this.colMasoDDH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNhaCC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDonDatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datHangGridControl)).BeginInit();
@@ -101,35 +101,9 @@ namespace QLTVT.SubForm
             this.gridView1.GridControl = this.datHangGridControl;
             this.gridView1.Name = "gridView1";
             // 
-            // btnCHON
-            // 
-            this.btnCHON.BackColor = System.Drawing.Color.Blue;
-            this.btnCHON.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCHON.ForeColor = System.Drawing.Color.White;
-            this.btnCHON.Location = new System.Drawing.Point(93, 341);
-            this.btnCHON.Name = "btnCHON";
-            this.btnCHON.Size = new System.Drawing.Size(178, 41);
-            this.btnCHON.TabIndex = 2;
-            this.btnCHON.Text = "CHỌN";
-            this.btnCHON.UseVisualStyleBackColor = false;
-            this.btnCHON.Click += new System.EventHandler(this.btnCHON_Click);
-            // 
-            // btnTHOAT
-            // 
-            this.btnTHOAT.BackColor = System.Drawing.Color.Red;
-            this.btnTHOAT.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTHOAT.ForeColor = System.Drawing.Color.White;
-            this.btnTHOAT.Location = new System.Drawing.Point(473, 341);
-            this.btnTHOAT.Name = "btnTHOAT";
-            this.btnTHOAT.Size = new System.Drawing.Size(178, 41);
-            this.btnTHOAT.TabIndex = 3;
-            this.btnTHOAT.Text = "THOÁT";
-            this.btnTHOAT.UseVisualStyleBackColor = false;
-            this.btnTHOAT.Click += new System.EventHandler(this.btnTHOAT_Click);
-            // 
             // colMasoDDH
             // 
-            this.colMasoDDH.Caption = "Mã Đơn Đặt Hàng";
+            this.colMasoDDH.Caption = "Order ID";
             this.colMasoDDH.FieldName = "MasoDDH";
             this.colMasoDDH.MinWidth = 25;
             this.colMasoDDH.Name = "colMasoDDH";
@@ -140,7 +114,7 @@ namespace QLTVT.SubForm
             // 
             // colNGAY
             // 
-            this.colNGAY.Caption = "Ngày";
+            this.colNGAY.Caption = "Day";
             this.colNGAY.FieldName = "NGAY";
             this.colNGAY.MinWidth = 25;
             this.colNGAY.Name = "colNGAY";
@@ -151,7 +125,7 @@ namespace QLTVT.SubForm
             // 
             // colNhaCC
             // 
-            this.colNhaCC.Caption = "Nhà Cung Cấp";
+            this.colNhaCC.Caption = "Provider";
             this.colNhaCC.FieldName = "NhaCC";
             this.colNhaCC.MinWidth = 25;
             this.colNhaCC.Name = "colNhaCC";
@@ -162,7 +136,7 @@ namespace QLTVT.SubForm
             // 
             // colMANV
             // 
-            this.colMANV.Caption = "Mã Nhân Viên";
+            this.colMANV.Caption = "Staff ID";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
@@ -173,7 +147,7 @@ namespace QLTVT.SubForm
             // 
             // colMAKHO
             // 
-            this.colMAKHO.Caption = "Mã Kho";
+            this.colMAKHO.Caption = "WareHouse ID";
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.MinWidth = 25;
             this.colMAKHO.Name = "colMAKHO";
@@ -182,18 +156,44 @@ namespace QLTVT.SubForm
             this.colMAKHO.VisibleIndex = 4;
             this.colMAKHO.Width = 94;
             // 
-            // FormChonDonDatHang
+            // btnOK
+            // 
+            this.btnOK.BackColor = System.Drawing.Color.Lime;
+            this.btnOK.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.ForeColor = System.Drawing.Color.White;
+            this.btnOK.Location = new System.Drawing.Point(93, 341);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(178, 41);
+            this.btnOK.TabIndex = 2;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(473, 341);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(178, 41);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // FrmSelectOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 418);
-            this.Controls.Add(this.btnTHOAT);
-            this.Controls.Add(this.btnCHON);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.datHangGridControl);
-            this.Name = "FormChonDonDatHang";
+            this.Name = "FrmSelectOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chọn Đơn Đặt Hàng";
-            this.Load += new System.EventHandler(this.FormChonDonDatHang_Load);
+            this.Text = "Select Order";
+            this.Load += new System.EventHandler(this.FrmSelectOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDonDatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datHangGridControl)).EndInit();
@@ -210,8 +210,8 @@ namespace QLTVT.SubForm
         private DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl datHangGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private System.Windows.Forms.Button btnCHON;
-        private System.Windows.Forms.Button btnTHOAT;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnCancel;
         private DevExpress.XtraGrid.Columns.GridColumn colMasoDDH;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAY;
         private DevExpress.XtraGrid.Columns.GridColumn colNhaCC;

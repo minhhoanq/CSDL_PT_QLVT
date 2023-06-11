@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace QLTVT.SubForm
 {
-    public partial class FormChonDonDatHang : Form
+    public partial class FrmSelectOrder : Form
     {
-        public FormChonDonDatHang()
+        public FrmSelectOrder()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace QLTVT.SubForm
 
         }
 
-        private void FormChonDonDatHang_Load(object sender, EventArgs e)
+        private void FrmSelectOrder_Load(object sender, EventArgs e)
         {
             /*không kiểm tra khóa ngoại nữa*/
             dataSet.EnforceConstraints = false;
@@ -35,7 +35,7 @@ namespace QLTVT.SubForm
             this.datHangTableAdapter.Fill(this.dataSet.DatHang);
         }
 
-        private void btnTHOAT_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
@@ -88,7 +88,7 @@ namespace QLTVT.SubForm
          * 2.Ma Nhan Vien
          * 3.Ma Kho
          ********************************************************/
-        private void btnCHON_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             DataRowView drv = ((DataRowView)(bdsDonDatHang.Current));
             string maNhanVien = drv["MANV"].ToString().Trim();

@@ -1,7 +1,7 @@
 ﻿
 namespace QLTVT.SubForm
 {
-    partial class FormChuyenChiNhanh
+    partial class FrmBranchTransfer
     {
         /// <summary>
         /// Required designer variable.
@@ -67,7 +67,7 @@ namespace QLTVT.SubForm
             this.btnComfirm.UseVisualStyleBackColor = false;
             this.btnComfirm.Click += new System.EventHandler(this.btnComfirm_Click);
             // 
-            // FormChuyenChiNhanh
+            // FrmBranchTransfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -75,10 +75,10 @@ namespace QLTVT.SubForm
             this.Controls.Add(this.btnComfirm);
             this.Controls.Add(this.cmbBranch);
             this.Controls.Add(this.label1);
-            this.Name = "FormChuyenChiNhanh";
+            this.Name = "FrmBranchTransfer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chuyển Chi Nhánh";
-            this.Load += new System.EventHandler(this.FormChuyenChiNhanh_Load);
+            this.Text = "Branch Transfer";
+            this.Load += new System.EventHandler(this.FrmBranchTransfer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

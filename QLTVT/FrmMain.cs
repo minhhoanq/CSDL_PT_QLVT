@@ -55,7 +55,7 @@ namespace QLTVT
             {
                 btnLapTaiKhoan.Enabled = false;
             }    
-
+            
             //pageTaiKhoan.Visible = true;
 
 
@@ -209,46 +209,46 @@ namespace QLTVT
             }
         }
 
-        private void btnDonDatHang_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnOrderOption_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormDonDatHang));
+            Form f = this.CheckExists(typeof(FrmTheOrder));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormDonDatHang form = new FormDonDatHang();
+                FrmTheOrder form = new FrmTheOrder();
                 form.MdiParent = this;
                 form.Show();
             }
         }
 
-        private void btnPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnImportInvoice_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormPhieuNhap));
+            Form f = this.CheckExists(typeof(FrmImportInvoice));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormPhieuNhap form = new FormPhieuNhap();
+                FrmImportInvoice form = new FrmImportInvoice();
                 form.MdiParent = this;
                 form.Show();
             }
         }
 
-        private void btnPhieuXuat_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnExportInvoice_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormPhieuXuat));
+            Form f = this.CheckExists(typeof(FrmExportInvoice));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormPhieuXuat form = new FormPhieuXuat();
+                FrmExportInvoice form = new FrmExportInvoice();
                 form.MdiParent = this;
                 form.Show();
             }
@@ -346,14 +346,14 @@ namespace QLTVT
 
         private void btnLapTaiKhoan_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormTaoTaiKhoan));
+            Form f = this.CheckExists(typeof(FrmSignUp));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormTaoTaiKhoan form = new FormTaoTaiKhoan();
+                FrmSignUp form = new FrmSignUp();
                 //form.MdiParent = this;
                 form.Show();
             }
@@ -371,14 +371,14 @@ namespace QLTVT
 
         private void btnRegister_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormTaoTaiKhoan));
+            Form f = this.CheckExists(typeof(FrmSignUp));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormTaoTaiKhoan form = new FormTaoTaiKhoan();
+                FrmSignUp form = new FrmSignUp();
                 //form.MdiParent = this;
                 form.Show();
             }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLTVT.SubForm
 {
-    public partial class FormChonKhoHang : Form
+    public partial class FrmSelectWareHouse : Form
     {
-        public FormChonKhoHang()
+        public FrmSelectWareHouse()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace QLTVT.SubForm
 
         }
 
-        private void FormChonKhoHang_Load(object sender, EventArgs e)
+        private void FrmSelectWareHouse_Load(object sender, EventArgs e)
         {
             /*không kiểm tra khóa ngoại nữa*/
             dataSet.EnforceConstraints = false;

@@ -137,17 +137,17 @@ namespace QLTVT
         public static FrmMain frmMain;
         public static FrmStaff frmStaff;
 
-        public static FormChuyenChiNhanh formChuyenChiNhanh;
+        public static FrmBranchTransfer frmBranchTransfer;
         public static FrmMaterial frmMaterial;
         public static FrmWareHouse frmWareHouse;
 
-        public static FormDonDatHang formDonDatHang;
-        public static FormChonKhoHang formChonKhoHang;
-        public static FormPhieuNhap formPhieuNhap;
+        public static FrmTheOrder frmTheOrder;
+        public static SubForm.FrmSelectWareHouse frmSelectWareHouse;
+        public static FrmImportInvoice frmImportInvoice;
 
-        public static FormChonDonDatHang formChonDonDatHang;
-        public static FormChonChiTietDonHang formChonChiTietDonHang;
-        public static FormPhieuXuat formPhieuXuat;
+        public static FrmSelectOrder frmSelectOrder;
+        public static FrmSelectOrderDetail frmSelectOrderDetail;
+        public static FrmExportInvoice frmExportInvoice;
 
         public static FormDanhSachNhanVien formDanhSachNhanVien;
         public static FormDanhSachVatTu formDanhSachVatTu;

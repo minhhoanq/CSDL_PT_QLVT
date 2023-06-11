@@ -48,9 +48,9 @@ namespace QLTVT
             this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoaTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnMENU = new DevExpress.XtraBars.BarSubItem();
-            this.btnDonDatHang = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPhieuXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOrderOption = new DevExpress.XtraBars.BarButtonItem();
+            this.btnImportInvoice = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExportInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnLapTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnRegister = new DevExpress.XtraBars.BarButtonItem();
@@ -94,9 +94,9 @@ namespace QLTVT
             this.btnXoaTaiKhoan,
             this.btnMENU,
             this.barButtonItem2,
-            this.btnDonDatHang,
-            this.btnPhieuNhap,
-            this.btnPhieuXuat,
+            this.btnOrderOption,
+            this.btnImportInvoice,
+            this.btnExportInvoice,
             this.btnLapTaiKhoan,
             this.btnRegister,
             this.btnLogout});
@@ -121,7 +121,6 @@ namespace QLTVT
             // 
             // btnVatTu
             // 
-            this.btnVatTu.ActAsDropDown = true;
             this.btnVatTu.Caption = "MATERIAL";
             this.btnVatTu.Id = 2;
             this.btnVatTu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnVatTu.ImageOptions.SvgImage")));
@@ -239,34 +238,34 @@ namespace QLTVT
             this.btnMENU.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMENU.ImageOptions.SvgImage")));
             this.btnMENU.LargeWidth = 100;
             this.btnMENU.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDonDatHang),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhieuNhap),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhieuXuat)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnOrderOption),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnImportInvoice),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnExportInvoice)});
             this.btnMENU.Name = "btnMENU";
             // 
-            // btnDonDatHang
+            // btnOrderOption
             // 
-            this.btnDonDatHang.Caption = "Đơn Đặt Hàng";
-            this.btnDonDatHang.Id = 24;
-            this.btnDonDatHang.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDonDatHang.ImageOptions.SvgImage")));
-            this.btnDonDatHang.Name = "btnDonDatHang";
-            this.btnDonDatHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDonDatHang_ItemClick);
+            this.btnOrderOption.Caption = "Order Option";
+            this.btnOrderOption.Id = 24;
+            this.btnOrderOption.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnOrderOption.ImageOptions.SvgImage")));
+            this.btnOrderOption.Name = "btnOrderOption";
+            this.btnOrderOption.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOrderOption_ItemClick);
             // 
-            // btnPhieuNhap
+            // btnImportInvoice
             // 
-            this.btnPhieuNhap.Caption = "Phiếu Nhập";
-            this.btnPhieuNhap.Id = 25;
-            this.btnPhieuNhap.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhieuNhap.ImageOptions.SvgImage")));
-            this.btnPhieuNhap.Name = "btnPhieuNhap";
-            this.btnPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuNhap_ItemClick);
+            this.btnImportInvoice.Caption = "Import Invoice";
+            this.btnImportInvoice.Id = 25;
+            this.btnImportInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnImportInvoice.ImageOptions.SvgImage")));
+            this.btnImportInvoice.Name = "btnImportInvoice";
+            this.btnImportInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportInvoice_ItemClick);
             // 
-            // btnPhieuXuat
+            // btnExportInvoice
             // 
-            this.btnPhieuXuat.Caption = "Phiếu Xuất";
-            this.btnPhieuXuat.Id = 26;
-            this.btnPhieuXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhieuXuat.ImageOptions.SvgImage")));
-            this.btnPhieuXuat.Name = "btnPhieuXuat";
-            this.btnPhieuXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuXuat_ItemClick);
+            this.btnExportInvoice.Caption = "Export Invoice";
+            this.btnExportInvoice.Id = 26;
+            this.btnExportInvoice.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExportInvoice.ImageOptions.SvgImage")));
+            this.btnExportInvoice.Name = "btnExportInvoice";
+            this.btnExportInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExportInvoice_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -350,11 +349,11 @@ namespace QLTVT
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 854);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 852);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(6);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1598, 30);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1598, 32);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -367,7 +366,7 @@ namespace QLTVT
             this.MANHANVIEN,
             this.HOTEN,
             this.NHOM});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 828);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 826);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1598, 26);
             this.statusStrip1.TabIndex = 3;
@@ -392,7 +391,7 @@ namespace QLTVT
             this.NHOM.Size = new System.Drawing.Size(46, 20);
             this.NHOM.Text = "Role :";
             // 
-            // FormChinh
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -446,9 +445,9 @@ namespace QLTVT
         public System.Windows.Forms.ToolStripStatusLabel HOTEN;
         public System.Windows.Forms.ToolStripStatusLabel NHOM;
         private DevExpress.XtraBars.BarSubItem btnMENU;
-        private DevExpress.XtraBars.BarButtonItem btnDonDatHang;
-        private DevExpress.XtraBars.BarButtonItem btnPhieuNhap;
-        private DevExpress.XtraBars.BarButtonItem btnPhieuXuat;
+        private DevExpress.XtraBars.BarButtonItem btnOrderOption;
+        private DevExpress.XtraBars.BarButtonItem btnImportInvoice;
+        private DevExpress.XtraBars.BarButtonItem btnExportInvoice;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem btnLapTaiKhoan;
         private DevExpress.XtraBars.BarButtonItem btnRegister;

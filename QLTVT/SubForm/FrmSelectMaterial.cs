@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLTVT.SubForm
 {
-    public partial class FormChonVatTu : Form
+    public partial class FrmSelectMaterial : Form
     {
-        public FormChonVatTu()
+        public FrmSelectMaterial()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace QLTVT.SubForm
 
         }
 
-        private void FormChonVatTu_Load(object sender, EventArgs e)
+        private void FrmSelectMaterial_Load(object sender, EventArgs e)
         {
             /*không kiểm tra khóa ngoại nữa*/
             dataSet.EnforceConstraints = false;

@@ -1,7 +1,7 @@
 ﻿
 namespace QLTVT.SubForm
 {
-    partial class FormChonNhanVien
+    partial class FrmSelectStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -46,9 +46,9 @@ namespace QLTVT.SubForm
             this.colTrangThaiXoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbCHINHANH = new System.Windows.Forms.ComboBox();
-            this.btnCHON = new System.Windows.Forms.Button();
-            this.btnTHOAT = new System.Windows.Forms.Button();
+            this.cmbBranch = new System.Windows.Forms.ComboBox();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienGridControl)).BeginInit();
@@ -113,7 +113,7 @@ namespace QLTVT.SubForm
             // 
             // colMANV
             // 
-            this.colMANV.Caption = "Mã Nhân Viên";
+            this.colMANV.Caption = "Staff ID";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
@@ -124,7 +124,7 @@ namespace QLTVT.SubForm
             // 
             // colHO
             // 
-            this.colHO.Caption = "Họ";
+            this.colHO.Caption = "First Name";
             this.colHO.FieldName = "HO";
             this.colHO.MinWidth = 25;
             this.colHO.Name = "colHO";
@@ -135,7 +135,7 @@ namespace QLTVT.SubForm
             // 
             // colTEN
             // 
-            this.colTEN.Caption = "Tên";
+            this.colTEN.Caption = "Full Name";
             this.colTEN.FieldName = "TEN";
             this.colTEN.MinWidth = 25;
             this.colTEN.Name = "colTEN";
@@ -146,7 +146,7 @@ namespace QLTVT.SubForm
             // 
             // colDIACHI
             // 
-            this.colDIACHI.Caption = "Địa Chỉ";
+            this.colDIACHI.Caption = "Address";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
@@ -157,7 +157,7 @@ namespace QLTVT.SubForm
             // 
             // colNGAYSINH
             // 
-            this.colNGAYSINH.Caption = "Ngày Sinh";
+            this.colNGAYSINH.Caption = "BirthDay";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -168,7 +168,7 @@ namespace QLTVT.SubForm
             // 
             // colLUONG
             // 
-            this.colLUONG.Caption = "Lương";
+            this.colLUONG.Caption = "Salary";
             this.colLUONG.FieldName = "LUONG";
             this.colLUONG.MinWidth = 25;
             this.colLUONG.Name = "colLUONG";
@@ -179,7 +179,7 @@ namespace QLTVT.SubForm
             // 
             // colMACN
             // 
-            this.colMACN.Caption = "Mã Chi Nhánh";
+            this.colMACN.Caption = "Branch ID";
             this.colMACN.FieldName = "MACN";
             this.colMACN.MinWidth = 25;
             this.colMACN.Name = "colMACN";
@@ -190,7 +190,7 @@ namespace QLTVT.SubForm
             // 
             // colTrangThaiXoa
             // 
-            this.colTrangThaiXoa.Caption = "Trạng Thái Xóa";
+            this.colTrangThaiXoa.Caption = "Delete Status";
             this.colTrangThaiXoa.FieldName = "TrangThaiXoa";
             this.colTrangThaiXoa.MinWidth = 25;
             this.colTrangThaiXoa.Name = "colTrangThaiXoa";
@@ -202,7 +202,7 @@ namespace QLTVT.SubForm
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.label2);
-            this.panelControl1.Controls.Add(this.cmbCHINHANH);
+            this.panelControl1.Controls.Add(this.cmbBranch);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(8);
@@ -217,61 +217,61 @@ namespace QLTVT.SubForm
             this.label2.Location = new System.Drawing.Point(95, 36);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 29);
+            this.label2.Size = new System.Drawing.Size(83, 28);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Chi Nhánh";
+            this.label2.Text = "Branch";
             // 
-            // cmbCHINHANH
+            // cmbBranch
             // 
-            this.cmbCHINHANH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCHINHANH.Enabled = false;
-            this.cmbCHINHANH.FormattingEnabled = true;
-            this.cmbCHINHANH.Location = new System.Drawing.Point(289, 41);
-            this.cmbCHINHANH.Margin = new System.Windows.Forms.Padding(8);
-            this.cmbCHINHANH.Name = "cmbCHINHANH";
-            this.cmbCHINHANH.Size = new System.Drawing.Size(432, 24);
-            this.cmbCHINHANH.TabIndex = 1;
-            this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged);
+            this.cmbBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBranch.Enabled = false;
+            this.cmbBranch.FormattingEnabled = true;
+            this.cmbBranch.Location = new System.Drawing.Point(200, 40);
+            this.cmbBranch.Margin = new System.Windows.Forms.Padding(8);
+            this.cmbBranch.Name = "cmbBranch";
+            this.cmbBranch.Size = new System.Drawing.Size(432, 24);
+            this.cmbBranch.TabIndex = 1;
+            this.cmbBranch.SelectedIndexChanged += new System.EventHandler(this.cmbBranch_SelectedIndexChanged);
             // 
-            // btnCHON
+            // btnOK
             // 
-            this.btnCHON.BackColor = System.Drawing.Color.Blue;
-            this.btnCHON.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCHON.ForeColor = System.Drawing.Color.White;
-            this.btnCHON.Location = new System.Drawing.Point(253, 477);
-            this.btnCHON.Name = "btnCHON";
-            this.btnCHON.Size = new System.Drawing.Size(122, 32);
-            this.btnCHON.TabIndex = 7;
-            this.btnCHON.Text = "CHỌN";
-            this.btnCHON.UseVisualStyleBackColor = false;
-            this.btnCHON.Click += new System.EventHandler(this.btnCHON_Click);
+            this.btnOK.BackColor = System.Drawing.Color.Lime;
+            this.btnOK.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.ForeColor = System.Drawing.Color.White;
+            this.btnOK.Location = new System.Drawing.Point(253, 477);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(122, 32);
+            this.btnOK.TabIndex = 7;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // btnTHOAT
+            // btnCancel
             // 
-            this.btnTHOAT.BackColor = System.Drawing.Color.Red;
-            this.btnTHOAT.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTHOAT.ForeColor = System.Drawing.Color.White;
-            this.btnTHOAT.Location = new System.Drawing.Point(533, 477);
-            this.btnTHOAT.Name = "btnTHOAT";
-            this.btnTHOAT.Size = new System.Drawing.Size(122, 32);
-            this.btnTHOAT.TabIndex = 8;
-            this.btnTHOAT.Text = "THOÁT";
-            this.btnTHOAT.UseVisualStyleBackColor = false;
-            this.btnTHOAT.Click += new System.EventHandler(this.btnTHOAT_Click);
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(533, 477);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(122, 32);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // FormChonNhanVien
+            // FrmSelectStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 580);
-            this.Controls.Add(this.btnTHOAT);
-            this.Controls.Add(this.btnCHON);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.nhanVienGridControl);
-            this.Name = "FormChonNhanVien";
+            this.Name = "FrmSelectStaff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chọn Nhân Viên";
-            this.Load += new System.EventHandler(this.FormChonNhanVien_Load);
+            this.Text = "Select Staff";
+            this.Load += new System.EventHandler(this.FrmSelectStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienGridControl)).EndInit();
@@ -300,8 +300,8 @@ namespace QLTVT.SubForm
         private DevExpress.XtraGrid.Columns.GridColumn colTrangThaiXoa;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbCHINHANH;
-        private System.Windows.Forms.Button btnCHON;
-        private System.Windows.Forms.Button btnTHOAT;
+        private System.Windows.Forms.ComboBox cmbBranch;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

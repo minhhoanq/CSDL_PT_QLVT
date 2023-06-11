@@ -90,11 +90,11 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDonDatHang.cs">
+    <Compile Include="FrmTheOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDonDatHang.Designer.cs">
-      <DependentUpon>FormDonDatHang.cs</DependentUpon>
+    <Compile Include="FrmTheOrder.Designer.cs">
+      <DependentUpon>FrmTheOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmWareHouse.cs">
       <SubType>Form</SubType>
@@ -108,23 +108,23 @@
     <Compile Include="FrmStaff.Designer.cs">
       <DependentUpon>FrmStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPhieuNhap.cs">
+    <Compile Include="FrmImportInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPhieuNhap.Designer.cs">
-      <DependentUpon>FormPhieuNhap.cs</DependentUpon>
+    <Compile Include="FrmImportInvoice.Designer.cs">
+      <DependentUpon>FrmImportInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPhieuXuat.cs">
+    <Compile Include="FrmExportInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPhieuXuat.Designer.cs">
-      <DependentUpon>FormPhieuXuat.cs</DependentUpon>
+    <Compile Include="FrmExportInvoice.Designer.cs">
+      <DependentUpon>FrmExportInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTaoTaiKhoan.cs">
+    <Compile Include="FrmSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTaoTaiKhoan.Designer.cs">
-      <DependentUpon>FormTaoTaiKhoan.cs</DependentUpon>
+    <Compile Include="FrmSignUp.Designer.cs">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMaterial.cs">
       <SubType>Form</SubType>
@@ -206,41 +206,41 @@
     <Compile Include="ReportForm\ReportTongHopNhapXuat.Designer.cs">
       <DependentUpon>ReportTongHopNhapXuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormChonChiTietDonHang.cs">
+    <Compile Include="SubForm\FrmSelectOrderDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormChonChiTietDonHang.Designer.cs">
-      <DependentUpon>FormChonChiTietDonHang.cs</DependentUpon>
+    <Compile Include="SubForm\FrmSelectOrderDetail.Designer.cs">
+      <DependentUpon>FrmSelectOrderDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormChonDonDatHang.cs">
+    <Compile Include="SubForm\FrmSelectOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormChonDonDatHang.Designer.cs">
-      <DependentUpon>FormChonDonDatHang.cs</DependentUpon>
+    <Compile Include="SubForm\FrmSelectOrder.Designer.cs">
+      <DependentUpon>FrmSelectOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormChonKhoHang.cs">
+    <Compile Include="SubForm\FrmSelectWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormChonKhoHang.Designer.cs">
-      <DependentUpon>FormChonKhoHang.cs</DependentUpon>
+    <Compile Include="SubForm\FrmSelectWareHouse.Designer.cs">
+      <DependentUpon>FrmSelectWareHouse.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormChonNhanVien.cs">
+    <Compile Include="SubForm\FrmSelectStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormChonNhanVien.Designer.cs">
-      <DependentUpon>FormChonNhanVien.cs</DependentUpon>
+    <Compile Include="SubForm\FrmSelectStaff.Designer.cs">
+      <DependentUpon>FrmSelectStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormChonVatTu.cs">
+    <Compile Include="SubForm\FrmSelectMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormChonVatTu.Designer.cs">
-      <DependentUpon>FormChonVatTu.cs</DependentUpon>
+    <Compile Include="SubForm\FrmSelectMaterial.Designer.cs">
+      <DependentUpon>FrmSelectMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubForm\FormChuyenChiNhanh.cs">
+    <Compile Include="SubForm\FrmBranchTransfer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubForm\FormChuyenChiNhanh.Designer.cs">
-      <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
+    <Compile Include="SubForm\FrmBranchTransfer.Designer.cs">
+      <DependentUpon>FrmBranchTransfer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -248,8 +248,8 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDonDatHang.resx">
-      <DependentUpon>FormDonDatHang.cs</DependentUpon>
+    <EmbeddedResource Include="FrmTheOrder.resx">
+      <DependentUpon>FrmTheOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmWareHouse.resx">
       <DependentUpon>FrmWareHouse.cs</DependentUpon>
@@ -257,14 +257,14 @@
     <EmbeddedResource Include="FrmStaff.resx">
       <DependentUpon>FrmStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPhieuNhap.resx">
-      <DependentUpon>FormPhieuNhap.cs</DependentUpon>
+    <EmbeddedResource Include="FrmImportInvoice.resx">
+      <DependentUpon>FrmImportInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPhieuXuat.resx">
-      <DependentUpon>FormPhieuXuat.cs</DependentUpon>
+    <EmbeddedResource Include="FrmExportInvoice.resx">
+      <DependentUpon>FrmExportInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTaoTaiKhoan.resx">
-      <DependentUpon>FormTaoTaiKhoan.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSignUp.resx">
+      <DependentUpon>FrmSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMaterial.resx">
       <DependentUpon>FrmMaterial.cs</DependentUpon>
@@ -315,23 +315,23 @@
     <EmbeddedResource Include="ReportForm\ReportTongHopNhapXuat.resx">
       <DependentUpon>ReportTongHopNhapXuat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormChonChiTietDonHang.resx">
-      <DependentUpon>FormChonChiTietDonHang.cs</DependentUpon>
+    <EmbeddedResource Include="SubForm\FrmSelectOrderDetail.resx">
+      <DependentUpon>FrmSelectOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormChonDonDatHang.resx">
-      <DependentUpon>FormChonDonDatHang.cs</DependentUpon>
+    <EmbeddedResource Include="SubForm\FrmSelectOrder.resx">
+      <DependentUpon>FrmSelectOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormChonKhoHang.resx">
-      <DependentUpon>FormChonKhoHang.cs</DependentUpon>
+    <EmbeddedResource Include="SubForm\FrmSelectWareHouse.resx">
+      <DependentUpon>FrmSelectWareHouse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormChonNhanVien.resx">
-      <DependentUpon>FormChonNhanVien.cs</DependentUpon>
+    <EmbeddedResource Include="SubForm\FrmSelectStaff.resx">
+      <DependentUpon>FrmSelectStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormChonVatTu.resx">
-      <DependentUpon>FormChonVatTu.cs</DependentUpon>
+    <EmbeddedResource Include="SubForm\FrmSelectMaterial.resx">
+      <DependentUpon>FrmSelectMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubForm\FormChuyenChiNhanh.resx">
-      <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>
+    <EmbeddedResource Include="SubForm\FrmBranchTransfer.resx">
+      <DependentUpon>FrmBranchTransfer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DataSet.xsc">

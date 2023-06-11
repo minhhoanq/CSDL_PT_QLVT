@@ -1,7 +1,7 @@
 ﻿
 namespace QLTVT.SubForm
 {
-    partial class FormChonKhoHang
+    partial class FrmSelectWareHouse
     {
         /// <summary>
         /// Required designer variable.
@@ -102,7 +102,7 @@ namespace QLTVT.SubForm
             // 
             // colMAKHO
             // 
-            this.colMAKHO.Caption = "Mã Kho";
+            this.colMAKHO.Caption = "WareHouse ID";
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.MinWidth = 25;
             this.colMAKHO.Name = "colMAKHO";
@@ -113,7 +113,7 @@ namespace QLTVT.SubForm
             // 
             // colTENKHO
             // 
-            this.colTENKHO.Caption = "Tên Kho";
+            this.colTENKHO.Caption = "WareHouse Name";
             this.colTENKHO.FieldName = "TENKHO";
             this.colTENKHO.MinWidth = 25;
             this.colTENKHO.Name = "colTENKHO";
@@ -124,7 +124,7 @@ namespace QLTVT.SubForm
             // 
             // colDIACHI
             // 
-            this.colDIACHI.Caption = "Địa Chỉ";
+            this.colDIACHI.Caption = "Address";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
@@ -135,7 +135,7 @@ namespace QLTVT.SubForm
             // 
             // colMACN
             // 
-            this.colMACN.Caption = "Mã Chi Nhánh";
+            this.colMACN.Caption = "Branch ID";
             this.colMACN.FieldName = "MACN";
             this.colMACN.MinWidth = 25;
             this.colMACN.Name = "colMACN";
@@ -146,14 +146,14 @@ namespace QLTVT.SubForm
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(172, 267);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 37);
             this.button1.TabIndex = 2;
-            this.button1.Text = "CHỌN";
+            this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -166,11 +166,11 @@ namespace QLTVT.SubForm
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 37);
             this.button2.TabIndex = 3;
-            this.button2.Text = "THOÁT";
+            this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // FormChonKhoHang
+            // FrmSelectWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -178,10 +178,10 @@ namespace QLTVT.SubForm
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.khoGridControl);
-            this.Name = "FormChonKhoHang";
+            this.Name = "FrmSelectWareHouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Chọn Kho Hàng";
-            this.Load += new System.EventHandler(this.FormChonKhoHang_Load);
+            this.Text = "Select WareHouse";
+            this.Load += new System.EventHandler(this.FrmSelectWareHouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKhoHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khoGridControl)).EndInit();

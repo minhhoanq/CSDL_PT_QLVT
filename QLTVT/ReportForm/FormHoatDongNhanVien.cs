@@ -22,7 +22,7 @@ namespace QLTVT.ReportForm
 
         private void btnChonNhanVien_Click(object sender, EventArgs e)
         {
-            FormChonNhanVien form = new FormChonNhanVien();
+            FrmSelectStaff form = new FrmSelectStaff();
             form.ShowDialog();
 
             txtMaNhanVien.Text = Program.maNhanVienDuocChon;

@@ -1,7 +1,7 @@
 ﻿
 namespace QLTVT.SubForm
 {
-    partial class FormChonVatTu
+    partial class FrmSelectMaterial
     {
         /// <summary>
         /// Required designer variable.
@@ -101,7 +101,7 @@ namespace QLTVT.SubForm
             // 
             // colMAVT
             // 
-            this.colMAVT.Caption = "Mã Vật Tư";
+            this.colMAVT.Caption = "Material ID";
             this.colMAVT.FieldName = "MAVT";
             this.colMAVT.MinWidth = 25;
             this.colMAVT.Name = "colMAVT";
@@ -112,7 +112,7 @@ namespace QLTVT.SubForm
             // 
             // colTENVT
             // 
-            this.colTENVT.Caption = "Tên Vật Tư";
+            this.colTENVT.Caption = "Material Name";
             this.colTENVT.FieldName = "TENVT";
             this.colTENVT.MinWidth = 25;
             this.colTENVT.Name = "colTENVT";
@@ -123,7 +123,7 @@ namespace QLTVT.SubForm
             // 
             // colDVT
             // 
-            this.colDVT.Caption = "Đơn Vị Tính";
+            this.colDVT.Caption = "Unit";
             this.colDVT.FieldName = "DVT";
             this.colDVT.MinWidth = 25;
             this.colDVT.Name = "colDVT";
@@ -134,7 +134,7 @@ namespace QLTVT.SubForm
             // 
             // colSOLUONGTON
             // 
-            this.colSOLUONGTON.Caption = "Số Lượng Tồn";
+            this.colSOLUONGTON.Caption = "Remained Quantity";
             this.colSOLUONGTON.FieldName = "SOLUONGTON";
             this.colSOLUONGTON.MinWidth = 25;
             this.colSOLUONGTON.Name = "colSOLUONGTON";
@@ -145,14 +145,14 @@ namespace QLTVT.SubForm
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(145, 270);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 41);
             this.button1.TabIndex = 2;
-            this.button1.Text = "CHỌN";
+            this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -165,27 +165,26 @@ namespace QLTVT.SubForm
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(161, 41);
             this.button2.TabIndex = 3;
-            this.button2.Text = "THOÁT";
+            this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // FormChonVatTu
-            // 
+            //
+            // FrmSelectMaterial
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 344);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.vattuGridControl);
-            this.Name = "FormChonVatTu";
-            this.Text = "FormChonVatTu";
-            this.Load += new System.EventHandler(this.FormChonVatTu_Load);
+            this.Name = "FrmSelectMaterial";
+            this.Text = "Select Material";
+            this.Load += new System.EventHandler(this.FrmSelectMaterial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

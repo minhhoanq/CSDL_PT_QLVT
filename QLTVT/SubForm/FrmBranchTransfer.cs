@@ -12,16 +12,16 @@ using System.Windows.Forms;
 
 namespace QLTVT.SubForm
 {
-    public partial class FormChuyenChiNhanh : DevExpress.XtraEditors.XtraForm
+    public partial class FrmBranchTransfer : DevExpress.XtraEditors.XtraForm
     {
         
-        public FormChuyenChiNhanh()
+        public FrmBranchTransfer()
         {
             InitializeComponent();
         }
        
 
-        private void FormChuyenChiNhanh_Load(object sender, EventArgs e)
+        private void FrmBranchTransfer_Load(object sender, EventArgs e)
         { 
             /*Lấy dữ liệu từ form đăng nhập đổ vào nhưng chỉ lấn đúng danh sách
              phân mảnh mà thôi*/
@@ -47,8 +47,6 @@ namespace QLTVT.SubForm
         {
             this.Dispose();
         }
-
-
 
         /************************************************************
          * tạo delegate - một cái biến mà khi được gọi, nó sẽ thực hiện 1 hàm(function) khác

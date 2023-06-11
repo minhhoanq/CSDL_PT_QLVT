@@ -620,10 +620,6 @@ C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\bin\Debug\QLTVT.pdb
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLVT.csproj.AssemblyReference.cache
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLVT.csproj.SuggestedBindingRedirects.cache
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormDonDatHang.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormPhieuNhap.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormPhieuXuat.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FormTaoTaiKhoan.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.Properties.Resources.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.ReportForm.FormChiTietSoLuongTriGiaHangHoaNhapXuat.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.ReportForm.FormDanhSachNhanVien.resources
@@ -637,12 +633,6 @@ C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.ReportForm.ReportDonHangKhongPhieuNhap.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.ReportForm.ReportHoatDongNhanVien.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.ReportForm.ReportTongHopNhapXuat.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FormChonChiTietDonHang.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FormChonDonDatHang.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FormChonKhoHang.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FormChonNhanVien.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FormChonVatTu.resources
-C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FormChuyenChiNhanh.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLVT.csproj.GenerateResource.cache
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.exe.licenses
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLVT.csproj.CoreCompileInputs.cache
@@ -725,3 +715,13 @@ C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FrmMain.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FrmMaterial.resources
 C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FrmWareHouse.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FrmTheOrder.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FrmImportInvoice.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FrmExportInvoice.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FrmBranchTransfer.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.FrmSignUp.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FrmSelectWareHouse.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FrmSelectStaff.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FrmSelectMaterial.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FrmSelectOrderDetail.resources
+C:\Users\Minh Hoanfg\Downloads\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master (1)\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu-master\QLTVT\obj\Debug\QLTVT.SubForm.FrmSelectOrder.resources

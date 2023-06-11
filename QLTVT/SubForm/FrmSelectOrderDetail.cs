@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLTVT.SubForm
 {
-    public partial class FormChonChiTietDonHang : Form
+    public partial class FrmSelectOrderDetail : Form
     {
-        public FormChonChiTietDonHang()
+        public FrmSelectOrderDetail()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace QLTVT.SubForm
 
         }
 
-        private void FormChonChiTietDonHang_Load(object sender, EventArgs e)
+        private void FrmSelectOrderDetail_Load(object sender, EventArgs e)
         {
             dataSet.EnforceConstraints = false;
             this.cTDDHTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -46,7 +46,7 @@ namespace QLTVT.SubForm
          * 
          * 2 mã này phải giống nhau thì mới cho phép ghi
          */
-        private void btnCHON_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             DataRowView drv = ((DataRowView)(bdsChiTietDonHang.Current));
             string maDonHang = drv["MasoDDH"].ToString().Trim();
@@ -75,7 +75,7 @@ namespace QLTVT.SubForm
             this.Close();
         }
 
-        private void btnTHOAT_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

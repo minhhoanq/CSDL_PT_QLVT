@@ -838,17 +838,17 @@ namespace QLTVT
 
 
             /*Step 2 Kiem tra xem form da co trong bo nho chua*/
-            Form f = this.CheckExists(typeof(FormChuyenChiNhanh));
+            Form f = this.CheckExists(typeof(FrmBranchTransfer));
             if (f != null)
             {
                 f.Activate();
             }
-            FormChuyenChiNhanh form = new FormChuyenChiNhanh();
+            FrmBranchTransfer form = new FrmBranchTransfer();
             form.Show();
 
             /*Step 3*/
             /*đóng gói hàm chuyenChiNhanh từ frmStaff đem về formChuyenChiNhanh để làm việc*/
-            form.branchTransfer = new FormChuyenChiNhanh.MyDelegate(chuyenChiNhanh);
+            form.branchTransfer = new FrmBranchTransfer.MyDelegate(chuyenChiNhanh);
             
             /*Step 4*/
             this.btnUndo.Enabled = true;

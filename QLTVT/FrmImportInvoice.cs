@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace QLTVT
 {
-    public partial class FormPhieuNhap : Form
+    public partial class FrmImportInvoice : Form
     {
         /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
@@ -68,7 +68,7 @@ namespace QLTVT
                     return f;
             return null;
         }
-        public FormPhieuNhap()
+        public FrmImportInvoice()
         {
             InitializeComponent();
         }
@@ -81,7 +81,7 @@ namespace QLTVT
 
         }
 
-        private void FormPhieuNhap_Load(object sender, EventArgs e)
+        private void FrmImportInvoice_Load(object sender, EventArgs e)
         {
             /*Step 1*/
             /*không kiểm tra khóa ngoại nữa*/
@@ -97,10 +97,10 @@ namespace QLTVT
             //maChiNhanh = ((DataRowView)bdsVatTu[0])["MACN"].ToString();
 
             /*Step 2*/
-            cmbCHINHANH.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbCHINHANH.DisplayMember = "TENCN";
-            cmbCHINHANH.ValueMember = "TENSERVER";
-            cmbCHINHANH.SelectedIndex = Program.brand;
+            cmbBranch.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbBranch.DisplayMember = "TENCN";
+            cmbBranch.ValueMember = "TENSERVER";
+            cmbBranch.SelectedIndex = Program.brand;
         }
 
         private void groupBoxDonDatHang_Enter(object sender, EventArgs e)
@@ -123,17 +123,17 @@ namespace QLTVT
 
         }
 
-        private void cmbCHINHANH_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void cmbBranch_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             /*
             /*Neu combobox khong co so lieu thi ket thuc luon*/
-            if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
+            if (cmbBranch.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
-            Program.serverName = cmbCHINHANH.SelectedValue.ToString();
+            Program.serverName = cmbBranch.SelectedValue.ToString();
 
             /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
-            if (cmbCHINHANH.SelectedIndex != Program.brand)
+            if (cmbBranch.SelectedIndex != Program.brand)
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
@@ -159,10 +159,10 @@ namespace QLTVT
             }
         }
 
-        private void btnCheDoPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnImportInvoice_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 0*/
-            btnMENU.Links[0].Caption = "Phiếu Nhập";
+            btnMENU.Links[0].Caption = "Import Invoice";
 
             /*Step 1*/
             bds = bdsPhieuNhap;
@@ -171,20 +171,20 @@ namespace QLTVT
             
             /*Step 2*/
             /*Bat chuc nang cua phieu nhap*/
-            txtMaPhieuNhap.Enabled = false;
-            dteNgay.Enabled = false;
+            txtIImvoiceID.Enabled = false;
+            dteDay.Enabled = false;
 
             txtMaDonDatHang.Enabled = false;
-            btnChonDonHang.Enabled = false;
+            btnEnterOrder.Enabled = false;
 
-            txtMaNhanVien.Enabled = false;
-            txtMaKho.Enabled = false;
+            txtStaffID.Enabled = false;
+            txtMaterialID.Enabled = false;
 
-            btnChonChiTietDonHang.Enabled = false;
+            btnEnterOrderDetail.Enabled = false;
 
             /*Tat chuc nang cua chi tiet phieu nhap*/
-            txtMaVatChiTietPhieuNhap.Enabled = false;
-            txtSoLuongChiTietPhieuNhap.Enabled = false;
+            txtMaterialIDInvoice.Enabled = false;
+            txtQuantity.Enabled = false;
             txtDonGiaChiTietPhieuNhap.Enabled = false;
 
             /*Bat cac grid control len*/
@@ -197,16 +197,16 @@ namespace QLTVT
             if (Program.role == "CONGTY")
             {
        
-                cmbCHINHANH.Enabled = true;
+                cmbBranch.Enabled = true;
 
-                this.btnTHEM.Enabled = false;
-                this.btnXOA.Enabled = false;
-                this.btnGHI.Enabled = false;
+                this.btnAdd.Enabled = false;
+                this.btnDelete.Enabled = false;
+                this.btnSave.Enabled = false;
 
-                this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnUndo.Enabled = false;
+                this.btnRefresh.Enabled = true;
                 this.btnMENU.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnExit.Enabled = true;
 
                 this.groupBoxPhieuNhap.Enabled = false;
 
@@ -217,27 +217,27 @@ namespace QLTVT
              chuyen sang chi nhanh khac*/
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
-                cmbCHINHANH.Enabled = false;
+                cmbBranch.Enabled = false;
 
-                this.btnTHEM.Enabled = true;
+                this.btnAdd.Enabled = true;
                 bool turnOn = (bdsPhieuNhap.Count > 0) ? true : false;
-                this.btnXOA.Enabled = turnOn;
-                this.btnGHI.Enabled = true;
+                this.btnDelete.Enabled = turnOn;
+                this.btnSave.Enabled = true;
 
-                this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnUndo.Enabled = false;
+                this.btnRefresh.Enabled = true;
                 this.btnMENU.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnExit.Enabled = true;
 
                 //this.txtMaDonDatHang.Enabled = false;
 
             }
         }
 
-        private void btnCheDoChiTietPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnImportInvoiceDetail_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 0*/
-            btnMENU.Links[0].Caption = "Chi Tiết Phiếu Nhập";
+            btnMENU.Links[0].Caption = "Import Invoice Detail";
 
             /*Step 1*/
             bds = bdsChiTietPhieuNhap;
@@ -245,21 +245,21 @@ namespace QLTVT
 
             /*Step 2*/
             /*Tat chuc nang cua chi tiet phieu nhap*/
-            txtMaPhieuNhap.Enabled = false;
-            dteNgay.Enabled = false;
+            txtIImvoiceID.Enabled = false;
+            dteDay.Enabled = false;
 
             txtMaDonDatHang.Enabled = false;
-            btnChonDonHang.Enabled = false;
+            btnEnterOrder.Enabled = false;
 
-            txtMaNhanVien.Enabled = false;
-            txtMaKho.Enabled = false;
+            txtStaffID.Enabled = false;
+            txtMaterialID.Enabled = false;
 
             /*Bat chuc nang cua chi tiet don hang*/
             txtMaVatTu.Enabled = false;
-            txtSoLuongChiTietPhieuNhap.Enabled = false;
+            txtQuantity.Enabled = false;
             txtDonGiaChiTietPhieuNhap.Enabled = false;
 
-            btnChonChiTietDonHang.Enabled = false;
+            btnEnterOrderDetail.Enabled = false;
 
             /*Bat cac grid control len*/
             gcPhieuNhap.Enabled = true;
@@ -269,49 +269,49 @@ namespace QLTVT
             /*CONG TY chi xem du lieu*/
             if (Program.role == "CONGTY")
             {
-                cmbCHINHANH.Enabled = true;
+                cmbBranch.Enabled = true;
 
-                this.btnTHEM.Enabled = false;
-                this.btnXOA.Enabled = false;
-                this.btnGHI.Enabled = false;
+                this.btnAdd.Enabled = false;
+                this.btnDelete.Enabled = false;
+                this.btnSave.Enabled = false;
 
-                this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnUndo.Enabled = false;
+                this.btnRefresh.Enabled = true;
                 this.btnMENU.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnExit.Enabled = true;
             }
 
             /* CHI NHANH & USER co the xem - xoa - sua du lieu nhung khong the 
              chuyen sang chi nhanh khac*/
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
-                cmbCHINHANH.Enabled = false;
+                cmbBranch.Enabled = false;
 
-                this.btnTHEM.Enabled = true;
+                this.btnAdd.Enabled = true;
                 //bool turnOn = (bdsChiTietPhieuNhap.Count > 0) ? true : false;
-                this.btnXOA.Enabled = false;
-                this.btnGHI.Enabled = true;
+                this.btnDelete.Enabled = false;
+                this.btnSave.Enabled = true;
 
-                this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnUndo.Enabled = false;
+                this.btnRefresh.Enabled = true;
                 this.btnMENU.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnExit.Enabled = true;
             }
         }
 
         /***************************************************
          * Hiện mã đơn hàng , mã kho được chọn
          ***************************************************/
-        private void btnChonDonHang_Click(object sender, EventArgs e)
+        private void btnEnterOrder_Click(object sender, EventArgs e)
         {
-            FormChonDonDatHang form = new FormChonDonDatHang();
+            FrmSelectOrder form = new FrmSelectOrder();
             form.ShowDialog();
 
             this.txtMaDonDatHang.Text = Program.maDonDatHangDuocChon;
-            this.txtMaKho.Text = Program.maKhoDuocChon;
+            this.txtMaterialID.Text = Program.maKhoDuocChon;
         }
 
-        private void btnTHEM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
             /*lấy vị trí hiện tại của con trỏ*/
@@ -322,18 +322,18 @@ namespace QLTVT
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bds.AddNew();
-            if (btnMENU.Links[0].Caption == "Phiếu Nhập")
+            if (btnMENU.Links[0].Caption == "Import Invoice")
             { 
-                this.txtMaPhieuNhap.Enabled = true;
+                this.txtIImvoiceID.Enabled = true;
 
-                this.dteNgay.EditValue = DateTime.Now;
-                this.dteNgay.Enabled = false;
+                this.dteDay.EditValue = DateTime.Now;
+                this.dteDay.Enabled = false;
 
                 this.txtMaDonDatHang.Enabled = false;
-                this.btnChonDonHang.Enabled = true;
+                this.btnEnterOrder.Enabled = true;
 
-                this.txtMaNhanVien.Text = Program.userName;
-                this.txtMaKho.Text = Program.maKhoDuocChon;
+                this.txtStaffID.Text = Program.userName;
+                this.txtMaterialID.Text = Program.maKhoDuocChon;
          
 
                 /*Gan tu dong may truong du lieu nay*/
@@ -345,7 +345,7 @@ namespace QLTVT
 
             }
 
-            if (btnMENU.Links[0].Caption == "Chi Tiết Phiếu Nhập")
+            if (btnMENU.Links[0].Caption == "Import Invoice Detail")
             {
                 DataRowView drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
                 String maNhanVien = drv["MANV"].ToString();
@@ -366,7 +366,7 @@ namespace QLTVT
                     Program.donGia;
 
                 this.txtMaVatTu.Enabled = false;
-                this.btnChonChiTietDonHang.Enabled = true;
+                this.btnEnterOrderDetail.Enabled = true;
 
                 this.txtSoLuong.Enabled = true;
                 this.txtSoLuong.EditValue = 1;
@@ -374,31 +374,31 @@ namespace QLTVT
                 this.txtDonGia.Enabled = true;
                 this.txtDonGia.EditValue = 1;
 
-                this.txtSoLuongChiTietPhieuNhap.Enabled = true;
+                this.txtQuantity.Enabled = true;
                 this.txtDonGiaChiTietPhieuNhap.Enabled = true;
             }
 
 
             /*Step 3*/
-            this.btnTHEM.Enabled = false;
-            this.btnXOA.Enabled = false;
-            this.btnGHI.Enabled = true;
+            this.btnAdd.Enabled = false;
+            this.btnDelete.Enabled = false;
+            this.btnSave.Enabled = true;
 
-            this.btnHOANTAC.Enabled = true;
-            this.btnLAMMOI.Enabled = false;
+            this.btnUndo.Enabled = true;
+            this.btnRefresh.Enabled = false;
             this.btnMENU.Enabled = false;
-            this.btnTHOAT.Enabled = false;
+            this.btnExit.Enabled = false;
 
             gcPhieuNhap.Enabled = false;
             gcChiTietPhieuNhap.Enabled = false;
         }
 
-        private void btnTHOAT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Dispose();
         }
 
-        private void btnLAMMOI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
@@ -429,23 +429,21 @@ namespace QLTVT
          * 
          * 2 mã này phải giống nhau thì mới cho phép ghi
          */
-        private void btnChonChiTietDonHang_Click(object sender, EventArgs e)
+        private void btnEnterOrderDetail_Click(object sender, EventArgs e)
         {
             /*Lay MasoDDH hien tai cua gcPhieuNhap de so sanh voi MasoDDH se duoc chon*/
             Program.maDonDatHangDuocChon = ((DataRowView)(bdsPhieuNhap.Current))["MasoDDH"].ToString().Trim();
 
             //Console.WriteLine(Program.maDonDatHangDuocChon);
-            FormChonChiTietDonHang form = new FormChonChiTietDonHang();
+            FrmSelectOrderDetail form = new FrmSelectOrderDetail();
             form.ShowDialog(); 
 
             
 
-            this.txtMaVatChiTietPhieuNhap.Text = Program.maVatTuDuocChon;
-            this.txtSoLuongChiTietPhieuNhap.Value = Program.soLuongVatTu;
+            this.txtMaterialIDInvoice.Text = Program.maVatTuDuocChon;
+            this.txtQuantity.Value = Program.soLuongVatTu;
             this.txtDonGiaChiTietPhieuNhap.Value = Program.donGia;
         }
-
-
 
         /**********************************************************************
          * moi lan nhan btnHOANTAC thi nen nhan them btnLAMMOI de 
@@ -459,46 +457,46 @@ namespace QLTVT
          * Step 1: kiểm tra undoList có trông hay không ?
          * Step 2: Neu undoList khong trống thì lấy ra khôi phục
          *********************************************************************/
-        private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 */
-            if (dangThemMoi == true && this.btnTHEM.Enabled == false)
+            if (dangThemMoi == true && this.btnAdd.Enabled == false)
             {
                 dangThemMoi = false;
 
                 /*dang o che do Phiếu Nhập*/
-                if (btnMENU.Links[0].Caption == "Phiếu Nhập")
+                if (btnMENU.Links[0].Caption == "Import Invoice")
                 {
                     this.txtMaDonDatHang.Enabled = false;
-                    dteNgay.Enabled = false;
+                    dteDay.Enabled = false;
 
                     txtMaDonDatHang.Enabled = false;
-                    txtMaKho.Enabled = false;
+                    txtMaterialID.Enabled = false;
 
-                    btnChonDonHang.Enabled = false;
+                    btnEnterOrder.Enabled = false;
                     txtMaDonDatHang.Enabled = false;
                 }
                 /*dang o che do Chi Tiết Phiếu Nhập*/
-                if (btnMENU.Links[0].Caption == "Chi Tiết Phiếu Nhập")
+                if (btnMENU.Links[0].Caption == "Import Invoice Detail")
                 {
                     this.txtMaDonDatHang.Enabled = false;
-                    this.btnChonChiTietDonHang.Enabled = false;
+                    this.btnEnterOrderDetail.Enabled = false;
 
-                    this.txtMaVatChiTietPhieuNhap.Enabled = false;
-                    this.txtSoLuongChiTietPhieuNhap.Enabled = false;
+                    this.txtMaterialIDInvoice.Enabled = false;
+                    this.txtQuantity.Enabled = false;
                     this.txtDonGiaChiTietPhieuNhap.Enabled = false;
 
-                    this.btnXOA.Enabled = false;
+                    this.btnDelete.Enabled = false;
                 }
 
-                this.btnTHEM.Enabled = true;
-                this.btnXOA.Enabled = true;
-                this.btnGHI.Enabled = true;
+                this.btnAdd.Enabled = true;
+                this.btnDelete.Enabled = true;
+                this.btnSave.Enabled = true;
 
                 //this.btnHOANTAC.Enabled = false;
-                this.btnLAMMOI.Enabled = true;
+                this.btnRefresh.Enabled = true;
                 this.btnMENU.Enabled = true;
-                this.btnTHOAT.Enabled = true;
+                this.btnExit.Enabled = true;
 
                 this.gcPhieuNhap.Enabled = true;
                 this.gcChiTietPhieuNhap.Enabled = true;
@@ -515,7 +513,7 @@ namespace QLTVT
             if (undoList.Count == 0)
             {
                 MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
-                btnHOANTAC.Enabled = false;
+                btnUndo.Enabled = false;
                 return;
             }
 
@@ -548,25 +546,25 @@ namespace QLTVT
             DataRowView drv;
 
             /*TH1: dang sua phieu nhap - nhung ko co truong du lieu nao co the cho sua duoc ca*/
-            if(cheDo == "Phiếu Nhập" && dangThemMoi == false)
+            if(cheDo == "Import Invoice" && dangThemMoi == false)
             {
                 // khong co gi ca
             }
 
             /*TH2: them moi phieu nhap*/
-            if(cheDo == "Phiếu Nhập" && dangThemMoi == true)
+            if(cheDo == "Import Invoice" && dangThemMoi == true)
             {
                 // tao trong btnGHI thi hon
             }
 
             /*TH3: them moi chi tiet phieu nhap*/
-            if (cheDo == "Chi Tiết Phiếu Nhập" && dangThemMoi == true)
+            if (cheDo == "Import Invoice Detail" && dangThemMoi == true)
             {
                 // tao trong btnGHI thi hon
             }
 
             /*TH4: dang sua chi tiet phieu nhap*/
-            if (cheDo == "Chi Tiết Phiếu Nhập" && dangThemMoi == false)
+            if (cheDo == "Import Invoice Detail" && dangThemMoi == false)
             {
                 drv = ((DataRowView)(bdsChiTietPhieuNhap.Current));
                 int soLuong = int.Parse(drv["SOLUONG"].ToString().Trim());
@@ -586,23 +584,23 @@ namespace QLTVT
         }
         private bool kiemTraDuLieuDauVao(String cheDo)
         {
-            if( cheDo == "Phiếu Nhập")
+            if( cheDo == "Import Invoice")
             {
-                if( txtMaPhieuNhap.Text == "")
+                if( txtIImvoiceID.Text == "")
                 {
                     MessageBox.Show("Không bỏ trống mã phiếu nhập !","Thông báo",MessageBoxButtons.OK);
-                    txtMaPhieuNhap.Focus();
+                    txtIImvoiceID.Focus();
                     return false;
                 }
 
 
-                if (txtMaNhanVien.Text == "")
+                if (txtStaffID.Text == "")
                 {
                     MessageBox.Show("Không bỏ trống mã nhân viên !", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
 
-                if (txtMaKho.Text == "")
+                if (txtMaterialID.Text == "")
                 {
                     MessageBox.Show("Không bỏ trống mã kho !", "Thông báo", MessageBoxButtons.OK);
                     return false;
@@ -615,7 +613,7 @@ namespace QLTVT
                 }
             }
 
-            if (cheDo == "Chi Tiết Phiếu Nhập")
+            if (cheDo == "Import Invoice Detail")
             {
                 /*Do chung khoa chinh cua no la MAPN + MAVT*/
                 /* tạo 2 phiếu nhập cùng mã đơn hàng thì bị lỗi do maDonHang trong phiếu 
@@ -629,17 +627,17 @@ namespace QLTVT
                     return false;
                 }*/
 
-                if (txtMaVatChiTietPhieuNhap.Text == "")
+                if (txtMaterialIDInvoice.Text == "")
                 {
                     MessageBox.Show("Không bỏ trống mã vật tư !", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
 
-                if (txtSoLuongChiTietPhieuNhap.Value < 0 || 
-                    txtSoLuongChiTietPhieuNhap.Value > Program.soLuongVatTu)
+                if (txtQuantity.Value < 0 || 
+                    txtQuantity.Value > Program.soLuongVatTu)
                 {
                     MessageBox.Show("Số lượng vật tư không thể lớn hơn số lượng vật tư trong chi tiết đơn hàng !", "Thông báo", MessageBoxButtons.OK);
-                    txtSoLuongChiTietPhieuNhap.Focus();
+                    txtQuantity.Focus();
                     return false;
                 }
 
@@ -666,7 +664,7 @@ namespace QLTVT
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
-            String cheDo = (btnMENU.Links[0].Caption == "Phiếu Nhập") ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
+            String cheDo = (btnMENU.Links[0].Caption == "Import Invoice") ? "Import Invoice" : "Import Invoice Detail";
 
 
             /*Step 2*/
@@ -680,7 +678,7 @@ namespace QLTVT
 
            
             /*Step 4*/
-            String maPhieuNhap = txtMaPhieuNhap.Text.Trim();
+            String maPhieuNhap = txtIImvoiceID.Text.Trim();
             //Console.WriteLine(maPhieuNhap);
             String cauTruyVan =
                     "DECLARE	@result int " +
@@ -714,10 +712,10 @@ namespace QLTVT
             int viTriMaPhieuNhap = bdsPhieuNhap.Find("MAPN", maPhieuNhap);
 
             /*Dang them moi phieu nhap*/
-            if( result == 1 && cheDo == "Phiếu Nhập" && viTriMaPhieuNhap != viTriConTro)
+            if( result == 1 && cheDo == "Import Invoice" && viTriMaPhieuNhap != viTriConTro)
             {
                 MessageBox.Show("Mã phiếu nhập đã được sử dụng !", "Thông báo", MessageBoxButtons.OK);
-                txtMaPhieuNhap.Focus();
+                txtIImvoiceID.Focus();
                 return;
             }
             else
@@ -730,7 +728,7 @@ namespace QLTVT
                     {
                         //Console.WriteLine(txtMaNhanVien.Text);
                         /*TH1: them moi phieu nhap*/
-                        if (cheDo == "Phiếu Nhập" && dangThemMoi == true)
+                        if (cheDo == "Import Invoice" && dangThemMoi == true)
                         {
                             cauTruyVanHoanTac =
                                 "DELETE FROM DBO.PHIEUNHAP " +
@@ -738,15 +736,15 @@ namespace QLTVT
                         }
 
                         /*TH2: them moi chi tiet don hang*/
-                        if (cheDo == "Chi Tiết Phiếu Nhập" && dangThemMoi == true)
+                        if (cheDo == "Import Invoice Detail" && dangThemMoi == true)
                         {
                             cauTruyVanHoanTac =
                                 "DELETE FROM DBO.CTPN " +
                                 "WHERE MAPN = '" + maPhieuNhap + "' " +
                                 "AND MAVT = '" + Program.maVatTuDuocChon + "'";
 
-                            string maVatTu = txtMaVatChiTietPhieuNhap.Text.Trim();
-                            int soLuong = (int)txtSoLuongChiTietPhieuNhap.Value;
+                            string maVatTu = txtMaterialIDInvoice.Text.Trim();
+                            int soLuong = (int)txtQuantity.Value;
                      
                             capNhatSoLuongVatTu(maVatTu, soLuong);
                         }
@@ -763,19 +761,19 @@ namespace QLTVT
                         this.phieuNhapTableAdapter.Update(this.dataSet.PhieuNhap);
                         this.chiTietPhieuNhapTableAdapter.Update(this.dataSet.CTPN);
 
-                        this.btnTHEM.Enabled = true;
-                        this.btnXOA.Enabled = true;
-                        this.btnGHI.Enabled = true;
+                        this.btnAdd.Enabled = true;
+                        this.btnDelete.Enabled = true;
+                        this.btnSave.Enabled = true;
 
-                        this.btnHOANTAC.Enabled = true;
-                        this.btnLAMMOI.Enabled = true;
+                        this.btnUndo.Enabled = true;
+                        this.btnRefresh.Enabled = true;
                         this.btnMENU.Enabled = true;
-                        this.btnTHOAT.Enabled = true;
+                        this.btnExit.Enabled = true;
 
                         this.gcPhieuNhap.Enabled = true;
                         this.gcChiTietPhieuNhap.Enabled = true;
 
-                        this.txtSoLuongChiTietPhieuNhap.Enabled = false;
+                        this.txtQuantity.Enabled = false;
                         this.txtDonGiaChiTietPhieuNhap.Enabled = false;
                         /*cập nhật lại trạng thái thêm mới cho chắc*/
                         dangThemMoi = false;
@@ -801,15 +799,15 @@ namespace QLTVT
          * Step 3: nạp câu truy vấn hoàn tác vào undolist
          * Step 4: Thực hiện xóa nếu OK
          */
-        private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             DataRowView drv;
             string cauTruyVanHoanTac = "";
-            string cheDo = (btnMENU.Links[0].Caption == "Phiếu Nhập") ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
+            string cheDo = (btnMENU.Links[0].Caption == "Import Invoice") ? "Import Invoice" : "Import Invoice Detail";
             
 
 
-            if (cheDo == "Phiếu Nhập")
+            if (cheDo == "Import Invoice")
             {
                 drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
                 String maNhanVien = drv["MANV"].ToString();
@@ -837,7 +835,7 @@ namespace QLTVT
                     
             }
 
-            if(cheDo == "Chi Tiết Phiếu Nhập")
+            if(cheDo == "Import Invoice Detail")
             {
                 drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
                 String maNhanVien = drv["MANV"].ToString();
@@ -868,11 +866,11 @@ namespace QLTVT
                 {
                     /*Step 3*/
                     viTri = bds.Position;
-                    if (cheDo == "Phiếu Nhập")
+                    if (cheDo == "Import Invoice")
                     {
                         bdsPhieuNhap.RemoveCurrent();
                     }
-                    if (cheDo == "Chi Tiết Phiếu Nhập")
+                    if (cheDo == "Import Invoice Detail")
                     {
                         bdsChiTietPhieuNhap.RemoveCurrent();
                     }
@@ -888,7 +886,7 @@ namespace QLTVT
                     /*Cap nhat lai do ben tren can tao cau truy van nen da dat dangThemMoi = true*/
                     dangThemMoi = false;
                     MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
-                    this.btnHOANTAC.Enabled = true;
+                    this.btnUndo.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -910,6 +908,16 @@ namespace QLTVT
                 // xoa cau truy van hoan tac di
                 undoList.Pop();
             }
+        }
+
+        private void labelDay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dONGIALabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,13 +13,13 @@ using System.Windows.Forms;
 
 namespace QLTVT
 {
-    public partial class FormTaoTaiKhoan : DevExpress.XtraEditors.XtraForm
+    public partial class FrmSignUp : DevExpress.XtraEditors.XtraForm
     {
         private string taiKhoan = "";
         private string matKhau = "";
         private string maNhanVien = "";
         private string vaiTro = "";
-        public FormTaoTaiKhoan()
+        public FrmSignUp()
         {
             InitializeComponent();
         }
@@ -29,35 +29,35 @@ namespace QLTVT
             this.Dispose();
         }
 
-        private void btnChonNhanVien_Click(object sender, EventArgs e)
+        private void btnStaff_Click(object sender, EventArgs e)
         {
-            FormChonNhanVien form = new FormChonNhanVien();
+            FrmSelectStaff form = new FrmSelectStaff();
             form.ShowDialog();
 
-            txtMaNhanVien.Text = Program.maNhanVienDuocChon;
+            txtStaffID.Text = Program.maNhanVienDuocChon;
         }
 
         private bool kiemTraDuLieuDauVao()
         {
-            if( txtMaNhanVien.Text == "")
+            if( txtStaffID.Text == "")
             {
                 MessageBox.Show("Thiếu mã nhân viên","Thông báo", MessageBoxButtons.OK);
                 return false;
             }
 
-            if( txtMatKhau.Text == "" )
+            if( txtPassword.Text == "" )
             {
                 MessageBox.Show("Thiếu mật khẩu", "Thông báo", MessageBoxButtons.OK);
                 return false;
             }
 
-            if (txtXacNhanMatKhau.Text == "")
+            if (txtConfirmPassword.Text == "")
             {
                 MessageBox.Show("Thiếu mật khẩu xác nhận", "Thông báo", MessageBoxButtons.OK);
                 return false;
             }
 
-            if( txtMatKhau.Text != txtXacNhanMatKhau.Text)
+            if( txtPassword.Text != txtConfirmPassword.Text)
             {
                 MessageBox.Show("Mật khẩu không khớp với mật khẩu xác nhận", "Thông báo", MessageBoxButtons.OK);
                 return false;
@@ -72,9 +72,9 @@ namespace QLTVT
             if (ketQua == false) return;
 
              taiKhoan = Program.hoTen;
-             matKhau = txtMatKhau.Text;
+             matKhau = txtPassword.Text;
              maNhanVien = Program.maNhanVienDuocChon;
-             vaiTro = (rdChiNhanh.Checked == true) ? "CHINHANH" : "USER";
+             vaiTro = (rdBranch.Checked == true) ? "CHINHANH" : "USER";
 
             Console.WriteLine(taiKhoan);
             Console.WriteLine(matKhau);
@@ -117,16 +117,66 @@ namespace QLTVT
 
         }
 
-        private void FormTaoTaiKhoan_Load(object sender, EventArgs e)
+        private void FrmSignUp_Load(object sender, EventArgs e)
         {
             if( Program.role == "CONGTY")
             {
                 vaiTro = "CONGTY";
-                rdChiNhanh.Enabled = false;
+                rdBranch.Enabled = false;
                 rdUser.Enabled = false;
             }
-            rdChiNhanh.Enabled = true;
+            rdBranch.Enabled = true;
             rdUser.Enabled = true;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdChiNhanh_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMatKhau_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtXacNhanMatKhau_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaNhanVien_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdUser_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

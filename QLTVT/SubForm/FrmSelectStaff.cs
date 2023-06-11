@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace QLTVT.SubForm
 {
-    public partial class FormChonNhanVien : DevExpress.XtraEditors.XtraForm
+    public partial class FrmSelectStaff : DevExpress.XtraEditors.XtraForm
     {
-        public FormChonNhanVien()
+        public FrmSelectStaff()
         {
             InitializeComponent();
         }
@@ -26,35 +26,35 @@ namespace QLTVT.SubForm
 
         }
 
-        private void FormChonNhanVien_Load(object sender, EventArgs e)
+        private void FrmSelectStaff_Load(object sender, EventArgs e)
         {
             dataSet.EnforceConstraints = false;
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.dataSet.NhanVien);
 
-            cmbCHINHANH.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
-            cmbCHINHANH.DisplayMember = "TENCN";
-            cmbCHINHANH.ValueMember = "TENSERVER";
-            cmbCHINHANH.SelectedIndex = Program.brand;
+            cmbBranch.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbBranch.DisplayMember = "TENCN";
+            cmbBranch.ValueMember = "TENSERVER";
+            cmbBranch.SelectedIndex = Program.brand;
 
             if( Program.role == "CONGTY")
             {
-                cmbCHINHANH.Enabled = true;
+                cmbBranch.Enabled = true;
             }   
 
         }
 
-        private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*
             /*Neu combobox khong co so lieu thi ket thuc luon*/
-            if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
+            if (cmbBranch.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
-            Program.serverName = cmbCHINHANH.SelectedValue.ToString();
+            Program.serverName = cmbBranch.SelectedValue.ToString();
 
             /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
-            if (cmbCHINHANH.SelectedIndex != Program.brand)
+            if (cmbBranch.SelectedIndex != Program.brand)
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
@@ -77,7 +77,7 @@ namespace QLTVT.SubForm
             }
         }
 
-        private void btnCHON_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             DataRowView drv = ((DataRowView)(bdsNhanVien.Current));
             string maNhanVien = drv["MANV"].ToString().Trim();
@@ -98,7 +98,7 @@ namespace QLTVT.SubForm
             this.Close();
         }
 
-        private void btnTHOAT_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
