@@ -68,7 +68,6 @@ namespace QLTVT.ReportForm
 
         private void FormDanhSachVatTu_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet.Vattu' table. You can move, or remove it, as needed.
 
             this.vattuTableAdapter.Connection.ConnectionString = Program.connstr;
             this.vattuTableAdapter.Fill(this.dataSet.Vattu);

@@ -28,7 +28,6 @@ namespace QLTVT.SubForm
 
         private void FrmSelectOrder_Load(object sender, EventArgs e)
         {
-            /*không kiểm tra khóa ngoại nữa*/
             dataSet.EnforceConstraints = false;
 
             this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -40,14 +39,6 @@ namespace QLTVT.SubForm
             this.Dispose();
         }
 
-
-
-        /*Kiem tra xem don hang co phieu nhap chua. Moi don hang thi
-         * chi co duy nhat mot phieu nhap 
-         * 
-         * Tra ve 0 neu don hang chua co phieu nhap
-         * Tra ve 1 neu don hang da co phieu nhap | xay ra loi bat ki
-         */
         private int kiemTraDonHangCoPhieuNhap(String maDonHang)
         {
 
@@ -61,7 +52,6 @@ namespace QLTVT.SubForm
             try
             {
                 Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
-                /*khong co ket qua tra ve thi ket thuc luon*/
                 if (Program.myReader == null)
                 {
                     return 1;
@@ -76,18 +66,10 @@ namespace QLTVT.SubForm
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine(result);
             Program.myReader.Close();
 
             return result;
         }
-
-        /********************************************************
-         * tao phieu nhap thi can tu dong dien cac truong sau
-         * 1.Ma Don Dat Hang
-         * 2.Ma Nhan Vien
-         * 3.Ma Kho
-         ********************************************************/
         private void btnOK_Click(object sender, EventArgs e)
         {
             DataRowView drv = ((DataRowView)(bdsDonDatHang.Current));
@@ -111,10 +93,6 @@ namespace QLTVT.SubForm
 
             Program.maDonDatHangDuocChon = maDonHang;
             Program.maKhoDuocChon = maKho;
-
-            //Console.WriteLine("Don dat hang duoc chon");
-            //Console.WriteLine(maDonHang);
-            //Console.WriteLine(maKho);
 
             this.Close();
         }

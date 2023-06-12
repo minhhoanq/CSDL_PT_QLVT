@@ -22,11 +22,8 @@ namespace QLTVT.SubForm
        
 
         private void FrmBranchTransfer_Load(object sender, EventArgs e)
-        { 
-            /*Lấy dữ liệu từ form đăng nhập đổ vào nhưng chỉ lấn đúng danh sách
-             phân mảnh mà thôi*/
+        {
             cmbBranch.DataSource  = Program.bindingSource.DataSource;
-            /*sao chep bingding source tu form dang nhap*/
             cmbBranch.DisplayMember = "tencn";
             cmbBranch.ValueMember = "tenserver";
             cmbBranch.SelectedIndex = Program.brand;
@@ -47,13 +44,6 @@ namespace QLTVT.SubForm
         {
             this.Dispose();
         }
-
-        /************************************************************
-         * tạo delegate - một cái biến mà khi được gọi, nó sẽ thực hiện 1 hàm(function) khác
-         * Ví dụ: ở class frmStaff, ta có hàm chuyển chi nhánh, hàm này cần 1 tham số, chính
-         * là tên server được chọn ở formChuyenChiNhanh này. Để gọi được hàm chuyển chi nhánh ở frmStaff
-         * Chúng ta khai báo 1 delete là branchTransfer để gọi hàm chuyển chi nhánh về form này
-         *************************************************************/
         public delegate void MyDelegate(string chiNhanh, Form form);
         public MyDelegate branchTransfer;
         private void btnComfirm_Click(object sender, EventArgs e)
@@ -63,7 +53,6 @@ namespace QLTVT.SubForm
                 MessageBox.Show("Vui lòng chọn chi nhánh", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-            /*Step 2*/
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn chuyển nhân viên này đi ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if( dialogResult == DialogResult.OK)

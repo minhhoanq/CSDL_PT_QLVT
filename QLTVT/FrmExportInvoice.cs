@@ -16,37 +16,11 @@ namespace QLTVT
 {
     public partial class FrmExportInvoice : Form
     {
-        /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
-        /********************************************
-         * đang thêm mới -> true -> đang dùng btnTHEM
-         *              -> false -> có thể là btnGHI( chỉnh sửa) hoặc btnXOA
-         *              
-         * Mục đích: dùng biến này để phân biệt giữa btnTHEM - thêm mới hoàn toàn
-         * và việc chỉnh sửa nhân viên( do mình ko dùng thêm btnXOA )
-         * Trạng thái true or false sẽ được sử dụng 
-         * trong btnGHI - việc này để phục vụ cho btnHOANTAC
-         ********************************************/
         bool dangThemMoi = false;
         public string makho = "";
         string maChiNhanh = "";
-        /**********************************************************
-         * undoList - phục vụ cho btnHOANTAC -  chứa các thông tin của đối tượng bị tác động 
-         * 
-         * nó là nơi lưu trữ các đối tượng cần thiết để hoàn tác các thao tác
-         * 
-         * nếu btnGHI sẽ ứng với INSERT
-         * nếu btnXOA sẽ ứng với DELETE
-         * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
-         **********************************************************/
         Stack undoList = new Stack();
-
-
-
-        /********************************************************
-         * chứa những dữ liệu hiện tại đang làm việc
-         * gc chứa grid view đang làm việc
-         ********************************************************/
         BindingSource bds = null;
         GridControl gc = null;
         string type = "";
@@ -65,8 +39,6 @@ namespace QLTVT
 
         private void FrmExportInvoice_Load(object sender, EventArgs e)
         {
-            /*Step 1*/
-            /*không kiểm tra khóa ngoại nữa*/
             dataSet.EnforceConstraints = false;
 
             this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -75,8 +47,7 @@ namespace QLTVT
             this.chiTietPhieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
             this.chiTietPhieuXuatTableAdapter.Fill(this.dataSet.CTPX);
 
-            /*Step 2*/
-            cmbBranch.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbBranch.DataSource = Program.bindingSource;
             cmbBranch.DisplayMember = "TENCN";
             cmbBranch.ValueMember = "TENSERVER";
             cmbBranch.SelectedIndex = Program.brand;
@@ -89,16 +60,11 @@ namespace QLTVT
 
         private void btnExportInvoiceOption_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
             btnMENU.Links[0].Caption = "Export Invoice";
 
-            /*Step 1*/
             bds = bdsPhieuXuat;
             gc = gcChiTietPhieuXuat;
 
-
-            /*Step 2*/
-            /*Bat chuc nang cua phieu xuat*/
             txtEInvoiceID.Enabled = false;
             dteDay.Enabled = false;
 
@@ -108,20 +74,14 @@ namespace QLTVT
             btnEnterWareHouse.Enabled = true;
             txtMaterialID.Enabled = false;
 
-
-            /*Tat chuc nang cua chi tiet phieu nhap*/
             txtMaterialIDEIDetail.Enabled = false;
             btnEnterMaterial.Enabled = false;
             txtQuantityEIDetail.Enabled = false;
             txtUnitPriceEIDetail.Enabled = false;
 
-            /*Bat cac grid control len*/
             gcPhieuXuat.Enabled = true;
             gcChiTietPhieuXuat.Enabled = true;
 
-
-            /*Step 3*/
-            /*CONG TY chi xem du lieu*/
             if (Program.role == "CONGTY")
             {
                 cmbBranch.Enabled = true;
@@ -140,8 +100,6 @@ namespace QLTVT
 
             }
 
-            /* CHI NHANH & USER co the xem - xoa - sua du lieu nhung khong the 
-             chuyen sang chi nhanh khac*/
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
                 cmbBranch.Enabled = false;
@@ -156,23 +114,15 @@ namespace QLTVT
                 this.btnMENU.Enabled = true;
                 this.btnExit.Enabled = true;
 
-                //this.txtMaDonDatHang.Enabled = false;
-
             }
         }
 
         private void btnEInvoiceDetailOption_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 0*/
             btnMENU.Links[0].Caption = "Export Invoice Detail";
 
-            /*Step 1*/
             bds = bdsChiTietPhieuXuat;
-            //gc = gcChiTietPhieuXuat;
 
-
-            /*Step 2*/
-            /*Tat het chuc nang cua phieu xuat*/
             txtEInvoiceID.Enabled = false;
             dteDay.Enabled = false;
 
@@ -182,19 +132,13 @@ namespace QLTVT
             btnEnterWareHouse.Enabled = false;
             txtMaterialID.Enabled = false;
 
-
-            /*Bat chuc nang cua chi tiet phieu nhap*/
             txtMaterialIDEIDetail.Enabled = false;
             txtQuantityEIDetail.Enabled = false;
             txtUnitPriceEIDetail.Enabled = false;
 
-            /*Bat cac grid control len*/
             gcPhieuXuat.Enabled = true;
             gcChiTietPhieuXuat.Enabled = true;
 
-
-            /*Step 3*/
-            /*CONG TY chi xem du lieu*/
             if (Program.role == "CONGTY")
             {
                 cmbBranch.Enabled = true;
@@ -213,8 +157,6 @@ namespace QLTVT
 
             }
 
-            /* CHI NHANH & USER co the xem - xoa - sua du lieu nhung khong the 
-             chuyen sang chi nhanh khac*/
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
                 cmbBranch.Enabled = false;
@@ -228,27 +170,22 @@ namespace QLTVT
                 this.btnRefresh.Enabled = true;
                 this.btnMENU.Enabled = true;
                 this.btnExit.Enabled = true;
-
-                //this.txtMaDonDatHang.Enabled = false;
             }
         }
 
         private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            /*Neu combobox khong co so lieu thi ket thuc luon*/
             if (cmbBranch.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
             Program.serverName = cmbBranch.SelectedValue.ToString();
 
-            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
             if (cmbBranch.SelectedIndex != Program.brand)
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
             }
-            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
+
             else
             {
                 Program.loginName = Program.currentLogin;
@@ -271,13 +208,9 @@ namespace QLTVT
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {            
-            /*Step 1*/
-            /*lấy vị trí hiện tại của con trỏ*/
             viTri = bds.Position;
             dangThemMoi = true;
 
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bds.AddNew();
             if (btnMENU.Links[0].Caption == "Export Invoice")
             {
@@ -297,7 +230,6 @@ namespace QLTVT
                 this.txtQuantityEIDetail.Enabled = false;
                 this.txtUnitPriceEIDetail.Enabled = false;
                 
-                /*Gan tu dong may truong du lieu nay*/
                 ((DataRowView)(bdsPhieuXuat.Current))["NGAY"] = DateTime.Now;
                 ((DataRowView)(bdsPhieuXuat.Current))["MANV"] = Program.userName;
                 ((DataRowView)(bdsPhieuXuat.Current))["MAKHO"] =
@@ -316,7 +248,6 @@ namespace QLTVT
                     return;
                 }
 
-               /*Gan tu dong may truong du lieu nay*/
                ((DataRowView)(bdsChiTietPhieuXuat.Current))["MAPX"] = ((DataRowView)(bdsPhieuXuat.Current))["MAPX"];
                 ((DataRowView)(bdsChiTietPhieuXuat.Current))["MAVT"] =
                     Program.maVatTuDuocChon;
@@ -334,9 +265,6 @@ namespace QLTVT
                 this.txtUnitPriceEIDetail.EditValue = 1;
             }
 
-            
-
-            /*Step 3*/
             this.btnAdd.Enabled = false;
             this.btnDelete.Enabled = false;
             this.btnSave.Enabled = true;
@@ -476,7 +404,6 @@ namespace QLTVT
             String cauTruyVan = "";
             DataRowView drv;
             
-            /*TH1: dang sua phieu xuat*/
             if (cheDo == "Export Invoice" && dangThemMoi == false)
             {
                 drv = ((DataRowView)(bdsPhieuXuat.Current));
@@ -492,19 +419,14 @@ namespace QLTVT
                     "WHERE MAPX = '" + drv["MAPX"].ToString().Trim() + "' "; 
             }
 
-            /*TH2: them moi phieu xuat*/
             if (cheDo == "Export Invoice" && dangThemMoi == true)
             {
-                // tao trong btnGHI thi hon
             }
 
-            /*TH3: them moi chi tiet phieu xuat*/
             if (cheDo == "Export Invoice Detail" && dangThemMoi == true)
             {
-                // tao trong btnGHI thi hon
             }
 
-            /*TH4: dang sua chi tiet phieu nhap*/
             if (cheDo == "Export Invoice Detail" && dangThemMoi == false)
             {
                 drv = ((DataRowView)(bdsChiTietPhieuXuat.Current));
@@ -533,36 +455,17 @@ namespace QLTVT
 
 
             int n = Program.ExecSqlNonQuery(cauTruyVan);
-            //Console.WriteLine("Line 536");
-            //Console.WriteLine(cauTruyVan);
         }
-        /*
-         *Step 1: xac dinh xem minh dang GHI o che do nao
-         *Step 2: kiem tra du lieu dau vao
-         *Step 3: tao cau truy van hoan tac
-         *Step 4: dung stored procedure kiem tra xem phieu nhap da ton tai chua ?
-         *Step 5: xu ly du lieu neu co
-         */
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 1*/
             String cheDo = (btnMENU.Links[0].Caption == "Export Invoice") ? "Export Invoice" : "Export Invoice Detail";
 
-            /*Step 2*/
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
 
-            
-
-            /*Step 3*/
             string cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
-            //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-            //Console.WriteLine(cauTruyVanHoanTac);
 
-
-            /*Step 4*/
             String maPhieuXuat = txtEInvoiceID.Text.Trim();
-            //Console.WriteLine(maPhieuNhap);
             String cauTruyVan =
                     "DECLARE	@result int " +
                     "EXEC @result = sp_KiemTraMaPhieuXuat '" +
@@ -572,7 +475,6 @@ namespace QLTVT
             try
             {
                 Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
-                /*khong co ket qua tra ve thi ket thuc luon*/
                 if (Program.myReader == null)
                 {
                     return;
@@ -589,11 +491,9 @@ namespace QLTVT
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
             Program.myReader.Close();
 
-            /*Step 5*/
             int viTriConTro = bdsPhieuXuat.Position;
             int viTriMaPhieuXuat = bdsPhieuXuat.Find("MAPX", maPhieuXuat);
 
-            /*Dang them moi phieu nhap*/
             if (result == 1 && cheDo == "Export Invoice" && viTriMaPhieuXuat != viTriConTro)
             {
                 MessageBox.Show("Mã phiếu xuất đã được sử dụng !", "Thông báo", MessageBoxButtons.OK);
@@ -608,7 +508,6 @@ namespace QLTVT
                 {
                     try
                     {
-                        /*TH1: them moi phieu nhap*/
                         if (cheDo == "Export Invoice" && dangThemMoi == true)
                         {
                             cauTruyVanHoanTac =
@@ -616,7 +515,6 @@ namespace QLTVT
                                 "WHERE MAPX = '" + maPhieuXuat + "'";
                         }
 
-                        /*TH2: them moi chi tiet don hang*/
                         if (cheDo == "Export Invoice Detail" && dangThemMoi == true)
                         {
                             cauTruyVanHoanTac =
@@ -630,9 +528,6 @@ namespace QLTVT
                             capNhatSoLuongVatTu(maVatTu, soLuong);
                         }
 
-                        /*TH3: chinh sua phieu nhap -> chang co gi co the chinh sua
-                         * duoc -> chang can xu ly*/
-                        /*TH4: chinh sua chi tiet phieu nhap - > thi chi can may dong lenh duoi la xong*/
                         undoList.Push(cauTruyVanHoanTac);
                         Console.WriteLine("cau truy van hoan tac");
                         Console.WriteLine(cauTruyVanHoanTac);
@@ -655,7 +550,7 @@ namespace QLTVT
 
                         this.gcPhieuXuat.Enabled = true;
                         this.gcChiTietPhieuXuat.Enabled = true;
-                        /*cập nhật lại trạng thái thêm mới cho chắc*/
+
                         dangThemMoi = false;
                         MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);
                     }
@@ -671,28 +566,12 @@ namespace QLTVT
             }
         }
 
-
-
-        /**********************************************************************
-         * moi lan nhan btnHOANTAC thi nen nhan them btnLAMMOI de 
-         * tranh bi loi khi an btnTHEM lan nua
-         * 
-         * statement: chua cau y nghia chuc nang ngay truoc khi an btnHOANTAC.
-         * Vi du: statement = INSERT | DELETE | CHANGEBRAND
-         * 
-         * bdsNhanVien.CancelEdit() - phuc hoi lai du lieu neu chua an btnGHI
-         * Step 0: trường hợp đã ấn btnTHEM nhưng chưa ấn btnGHI
-         * Step 1: kiểm tra undoList có trông hay không ?
-         * Step 2: Neu undoList khong trống thì lấy ra khôi phục
-         *********************************************************************/
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
             if (dangThemMoi == true && this.btnAdd.Enabled == false)
             {
                 dangThemMoi = false;
 
-                /*dang o che do Phiếu Nhập*/
                 if (btnMENU.Links[0].Caption == "Export Invoice")
                 {
                     this.txtEInvoiceID.Enabled = false;
@@ -704,7 +583,7 @@ namespace QLTVT
                     this.txtMaterialID.Enabled = false;
                     this.btnEnterWareHouse.Enabled = true;
                 }
-                /*dang o che do Chi Tiết Phiếu Nhập*/
+
                 if (btnMENU.Links[0].Caption == "Chi Tiết Phiếu Nhập")
                 {
                     this.txtEInvoiceID.Enabled = false;
@@ -719,7 +598,6 @@ namespace QLTVT
                 this.btnDelete.Enabled = true;
                 this.btnSave.Enabled = true;
 
-                //this.btnHOANTAC.Enabled = false;
                 this.btnRefresh.Enabled = true;
                 this.btnMENU.Enabled = true;
                 this.btnExit.Enabled = true;
@@ -728,14 +606,11 @@ namespace QLTVT
                 this.gcChiTietPhieuXuat.Enabled = true;
 
                 bds.CancelEdit();
-                /*xoa dong hien tai*/
                 bds.RemoveCurrent();
-                /* trở về lúc đầu con trỏ đang đứng*/
                 bds.Position = viTri;
                 return;
             }
 
-            /*Step 1*/
             if (undoList.Count == 0)
             {
                 MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
@@ -743,7 +618,6 @@ namespace QLTVT
                 return;
             }
 
-            /*Step 2*/
             bds.CancelEdit();
             String cauTruyVanHoanTac = undoList.Pop().ToString();
 
@@ -822,17 +696,11 @@ namespace QLTVT
             }
 
             undoList.Push(cauTruyVanHoanTac);
-            //Console.WriteLine("Line 825");
-            //Console.WriteLine(cauTruyVanHoanTac);
-
-
-            /*Step 2*/
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo",
                 MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    /*Step 3*/
                     viTri = bds.Position;
                     if (cheDo == "Export Invoice")
                     {
@@ -850,30 +718,24 @@ namespace QLTVT
                     this.chiTietPhieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.chiTietPhieuXuatTableAdapter.Update(this.dataSet.CTPX);
 
-                    //bdsPhieuNhap.Position = viTri;
-                    /*Cap nhat lai do ben tren can tao cau truy van nen da dat dangThemMoi = true*/
                     dangThemMoi = false;
                     MessageBox.Show("Xóa thành công ", "Thông báo", MessageBoxButtons.OK);
                     this.btnUndo.Enabled = true;
                 }
                 catch (Exception ex)
                 {
-                    /*Step 4*/
                     MessageBox.Show("Lỗi xóa nhân viên. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.phieuXuatTableAdapter.Update(this.dataSet.PhieuXuat);
 
                     this.chiTietPhieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.chiTietPhieuXuatTableAdapter.Update(this.dataSet.CTPX);
-                    // tro ve vi tri cua nhan vien dang bi loi
                     bds.Position = viTri;
-                    //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
                     return;
                 }
             }
             else
             {
-                // xoa cau truy van hoan tac di
                 undoList.Pop();
             }
         }

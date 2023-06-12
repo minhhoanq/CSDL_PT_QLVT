@@ -15,31 +15,10 @@ namespace QLTVT
 {
     public partial class FrmWareHouse : Form
     {
-        /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
-        /********************************************
-         * đang thêm mới -> true -> đang dùng btnTHEM
-         *              -> false -> có thể là btnGHI( chỉnh sửa) hoặc btnXOA
-         *              
-         * Mục đích: dùng biến này để phân biệt giữa btnTHEM - thêm mới hoàn toàn
-         * và việc chỉnh sửa nhân viên( do mình ko dùng thêm btnXOA )
-         * Trạng thái true or false sẽ được sử dụng 
-         * trong btnGHI - việc này để phục vụ cho btnHOANTAC
-         ********************************************/
         bool dangThemMoi = false;
-
         String maChiNhanh = "";
-        /**********************************************************
-         * undoList - phục vụ cho btnHOANTAC -  chứa các thông tin của đối tượng bị tác động 
-         * 
-         * nó là nơi lưu trữ các đối tượng cần thiết để hoàn tác các thao tác
-         * 
-         * nếu btnGHI sẽ ứng với INSERT
-         * nếu btnXOA sẽ ứng với DELETE
-         * nếu btnCHUYENCHINHANH sẽ ứng với CHANGEBRAND
-         **********************************************************/
         Stack undoList = new Stack();
-
 
         public FrmWareHouse()
         {
@@ -52,15 +31,8 @@ namespace QLTVT
             this.bdsKho.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dataSet);
         }
-        /*
-         *Step 1: tat kiem tra khoa ngoai & do du lieu vao form
-         *Step 2: lay du lieu dang nhap tu form dang nhap
-         *Step 3: bat cac nut chuc nang theo nhom quyen
-         */
         private void FormKho_Load(object sender, EventArgs e)
         {
-            /*Step 1*/
-            /*không kiểm tra khóa ngoại nữa*/
             dataSet.EnforceConstraints = false;
 
             this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -75,16 +47,12 @@ namespace QLTVT
             this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khoTableAdapter.Fill(this.dataSet.Kho);
 
-            /*van con ton tai loi chua sua duoc*/
             maChiNhanh = ((DataRowView)bdsKho[0])["MACN"].ToString();
-            /*Step 2*/
-            cmbBranch.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbBranch.DataSource = Program.bindingSource;
             cmbBranch.DisplayMember = "TENCN";
             cmbBranch.ValueMember = "TENSERVER";
             cmbBranch.SelectedIndex = Program.brand;
 
-            /*Step 3*/
-            /*CONG TY chi xem du lieu*/
             if (Program.role == "CONGTY")
             {
                 cmbBranch.Enabled = true;
@@ -101,8 +69,6 @@ namespace QLTVT
                 this.panelNhapLieu.Enabled = false;
             }
 
-            /* CHI NHANH & USER co the xem - xoa - sua du lieu nhung khong the 
-             chuyen sang chi nhanh khac*/
             if (Program.role == "CHINHANH" || Program.role == "USER")
             {
                 cmbBranch.Enabled = false;
@@ -123,20 +89,16 @@ namespace QLTVT
 
         private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            /*Neu combobox khong co so lieu thi ket thuc luon*/
             if (cmbBranch.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
             Program.serverName = cmbBranch.SelectedValue.ToString();
 
-            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
             if (cmbBranch.SelectedIndex != Program.brand)
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
             }
-            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
             else
             {
                 Program.loginName = Program.currentLogin;
@@ -165,17 +127,12 @@ namespace QLTVT
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 1*/
-            /*lấy vị trí hiện tại của con trỏ*/
             viTri = bdsKho.Position;
             this.panelNhapLieu.Enabled = true;
             dangThemMoi = true;
-            /*Step 2*/
-            /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bdsKho.AddNew();
             txtBranchID.Text = maChiNhanh;
 
-            /*Step 3*/
             this.txtWareHouseID.Enabled = true;
             this.btnAdd.Enabled = false;
             this.btnDelete.Enabled = false;
@@ -211,7 +168,6 @@ namespace QLTVT
 
         private bool kiemTraDuLieuDauVao()
         {
-            /*kiem tra txtMAKHO*/
             if (txtWareHouseID.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã kho hàng", "Thông báo", MessageBoxButtons.OK);
@@ -232,7 +188,6 @@ namespace QLTVT
                 txtWareHouseID.Focus();
                 return false;
             }
-            /*kiem tra txtTenKho*/
             if (txtWareHouseName.Text == "")
             {
                 MessageBox.Show("Không bỏ trống tên kho hàng", "Thông báo", MessageBoxButtons.OK);
@@ -253,7 +208,6 @@ namespace QLTVT
                 txtWareHouseName.Focus();
                 return false;
             }
-            /*kiem tra txtDiaChi*/
             if (txtAddress.Text == "")
             {
                 MessageBox.Show("Không bỏ trống địa chỉ kho hàng", "Thông báo", MessageBoxButtons.OK);
@@ -280,21 +234,15 @@ namespace QLTVT
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
             bool ketQua = kiemTraDuLieuDauVao();
             if (ketQua == false)
                 return;
 
-            /*Step 1*/
-            /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC*/
-            String maKhoHang = txtWareHouseID.Text.Trim();// Trim() de loai bo khoang trang thua
+            String maKhoHang = txtWareHouseID.Text.Trim();
             DataRowView drv = ((DataRowView)bdsKho[bdsKho.Position]);
             String tenKhoHang = drv["TENKHO"].ToString();
             String diaChi = drv["DIACHI"].ToString();
 
-            /*declare @returnedResult int
-              exec @returnedResult = sp_KiemTraMaVatTu '20'
-              select @returnedResult*/
             String cauTruyVan =
                     "DECLARE	@result int " +
                     "EXEC @result = sp_TraCuu_KiemTraMaKho '" +
@@ -304,7 +252,6 @@ namespace QLTVT
             try
             {
                 Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
-                /*khong co ket qua tra ve thi ket thuc luon*/
                 if (Program.myReader == null)
                 {
                     return;
@@ -319,10 +266,8 @@ namespace QLTVT
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine(result);
             Program.myReader.Close();
 
-            /*Step 2*/
             int viTriConTro = bdsKho.Position;
             int viTriMaKhoHang = bdsKho.Find("MAKHO", txtWareHouseID.Text);
 
@@ -339,7 +284,6 @@ namespace QLTVT
                 {
                     try
                     {
-                        /*bật các nút về ban đầu*/
                         btnAdd.Enabled = true;
                         btnDelete.Enabled = true;
                         btnSave.Enabled = true;
@@ -352,16 +296,13 @@ namespace QLTVT
                         this.txtWareHouseID.Enabled = false;
                         this.gcKHO.Enabled = true;
 
-                        /*lưu 1 câu truy vấn để hoàn tác yêu cầu*/
                         String cauTruyVanHoanTac = "";
-                        /*trước khi ấn btnGHI là btnTHEM*/
                         if (dangThemMoi == true)
                         {
                             cauTruyVanHoanTac = "" +
                                 "DELETE DBO.KHO " +
                                 "WHERE MAKHO = '" + txtWareHouseID.Text.Trim() + "'";
                         }
-                        /*trước khi ấn btnGHI là sửa thông tin kho*/
                         else
                         {
                             cauTruyVanHoanTac =
@@ -371,16 +312,11 @@ namespace QLTVT
                                 "DIACHI = '" + diaChi + "'" +
                                 "WHERE MAKHO = '" + maKhoHang + "'";
                         }
-                        //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-                        //Console.WriteLine(cauTruyVanHoanTac);
 
-                        /*Đưa câu truy vấn hoàn tác vào undoList 
-                         * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
                         undoList.Push(cauTruyVanHoanTac);
 
                         this.bdsKho.EndEdit();
                         this.khoTableAdapter.Update(this.dataSet.Kho);
-                        /*cập nhật lại trạng thái thêm mới cho chắc*/
                         dangThemMoi = false;
                         MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);
                     }
@@ -398,7 +334,6 @@ namespace QLTVT
 
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /* Step 0 */
             if (dangThemMoi == true && this.btnAdd.Enabled == false)
             {
                 dangThemMoi = false;
@@ -417,14 +352,11 @@ namespace QLTVT
                 this.panelNhapLieu.Enabled = true;
 
                 bdsKho.CancelEdit();
-                /*xoa dong hien tai*/
                 bdsKho.RemoveCurrent();
-                /* trở về lúc đầu con trỏ đang đứng*/
                 bdsKho.Position = viTri;
                 return;
             }
 
-            /*Step 1*/
             if (undoList.Count == 0)
             {
                 MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
@@ -432,7 +364,6 @@ namespace QLTVT
                 return;
             }
 
-            /*Step 2*/
             bdsKho.CancelEdit();
             String cauTruyVanHoanTac = undoList.Pop().ToString();
             Console.WriteLine(cauTruyVanHoanTac);
@@ -443,7 +374,6 @@ namespace QLTVT
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            /*Step 1*/
             if (bdsKho.Count == 0)
             {
                 btnDelete.Enabled = false;
@@ -467,11 +397,6 @@ namespace QLTVT
                 return;
             }
 
-            /* Phần này phục vụ tính năng hoàn tác
-                    * Đưa câu truy vấn hoàn tác vào undoList 
-                    * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
-
-
             string cauTruyVanHoanTac =
             "INSERT INTO DBO.KHO( MAKHO,TENKHO,DIACHI,MACN) " +
             " VALUES( '" + txtWareHouseID.Text + "','" +
@@ -482,13 +407,11 @@ namespace QLTVT
             Console.WriteLine(cauTruyVanHoanTac);
             undoList.Push(cauTruyVanHoanTac);
 
-            /*Step 2*/
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không ?", "Thông báo",
                 MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    /*Step 3*/
                     viTri = bdsKho.Position;
                     bdsKho.RemoveCurrent();
 
@@ -500,7 +423,6 @@ namespace QLTVT
                 }
                 catch (Exception ex)
                 {
-                    /*Step 4*/
                     MessageBox.Show("Lỗi xóa nhân viên. Hãy thử lại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.khoTableAdapter.Fill(this.dataSet.Kho);
                     bdsKho.Position = viTri;
@@ -509,7 +431,6 @@ namespace QLTVT
             }
             else
             {
-                // xoa cau truy van hoan tac di
                 undoList.Pop();
             }
         }

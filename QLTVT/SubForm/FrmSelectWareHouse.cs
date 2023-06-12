@@ -27,7 +27,6 @@ namespace QLTVT.SubForm
 
         private void FrmSelectWareHouse_Load(object sender, EventArgs e)
         {
-            /*không kiểm tra khóa ngoại nữa*/
             dataSet.EnforceConstraints = false;
             this.khoHangTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khoHangTableAdapter.Fill(this.dataSet.Kho);
@@ -48,10 +47,6 @@ namespace QLTVT.SubForm
         private void button1_Click(object sender, EventArgs e)
         {
             string maKhoHang =  ((DataRowView)bdsKhoHang.Current)["MAKHO"].ToString();
-
-            /*Cach nay phai tuy bien ban moi chay duoc*/
-            //Program.formDonDatHang.txtMaKho.Text = maKhoHang;
-
 
             Program.maKhoDuocChon = maKhoHang;
             this.Close(); 

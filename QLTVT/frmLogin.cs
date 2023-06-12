@@ -23,9 +23,7 @@ namespace QLTVT
                 connPublisher.Open();
             }
             DataTable dt = new DataTable();
-            // adapter dùng để đưa dữ liệu từ view sang database
             SqlDataAdapter da = new SqlDataAdapter(cmd, connPublisher);
-            // dùng adapter thì mới đổ vào data table được
             da.Fill(dt);
 
 
@@ -42,14 +40,6 @@ namespace QLTVT
             InitializeComponent();
         }
 
-
-        /******************************************************************
-         * Để tránh việc người dùng ấn vào 1 form đến 2 lần chúng ta 
-         * cần sử dụng hàm này để kiểm tra xem cái form hiện tại đã 
-         * có trong bộ nhớ chưa
-         * Nếu có trả về "f"
-         * Nếu không trả về "null"
-         ******************************************************************/
         private Form CheckExists(Type ftype)
         {
             foreach (Form f in this.MdiChildren)
@@ -58,13 +48,6 @@ namespace QLTVT
             return null;
         }
 
-
-
-        /******************************************************************
-         * mở kết nối tới server 
-         * @return trả về 1 nếu thành công
-         *         trả về 0 nếu thất bại
-         ******************************************************************/
         private int KetNoiDatabaseGoc()
         {
             if (connPublisher != null && connPublisher.State == ConnectionState.Open)
@@ -83,60 +66,38 @@ namespace QLTVT
             }
         }
 
-
-
-
         private void FormDangNhap_Load(object sender, EventArgs e)
         {
-            // đặt sẵn mật khẩu để đỡ nhập lại nhiều lần
-            txtAccount.Text = "LT";// nguyen long - chi nhanh
+            txtAccount.Text = "LT";
             txtPassword.Text = "123";
             if ( KetNoiDatabaseGoc() == 0 )
                 return;
-            //Lấy 2 cái đầu tiên của danh sách
             layDanhSachPhanManh("SELECT TOP 2 * FROM view_DanhSachPhanManh");
             cmbBranch.SelectedIndex = 1;
             cmbBranch.SelectedIndex = 0;
         }
 
-
-        /**
-         * Step 1: Kiểm tra tài khoản & mật khẩu xem có bị trống không ?
-         * Step 2: gán loginName & loginPassword với tài khoản mật khẩu được nhập
-         * loginName và loginPassword dùng để đăng nhập vào phân mảnh này
-         * Step 3: cập nhật currentLogin & currentPassword
-         * Step 4: chạy stored procedure DANG NHAP de lay thong tin nguoi dung
-         * Step 5: gán giá trị Mã nhân viên - họ tên - vai trò ở góc màn hình
-         * Step 6: ẩn form hiện tại & hiện các nút chức năng còn lại
-         */
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            /* Step 1*/
             if (txtAccount.Text.Trim() == "" || txtPassword.Text.Trim() == "")
             {
                 MessageBox.Show("Tài khoản & mật khẩu không thể bỏ trống", "Thông Báo", MessageBoxButtons.OK);
                 return;
             }
-            /* Step 2*/
             Program.loginName = txtAccount.Text.Trim();
             Program.loginPassword = txtPassword.Text.Trim();
             if (Program.KetNoi() == 0)
                 return;
-            /* Step 3*/
             Program.brand = cmbBranch.SelectedIndex;
             Program.currentLogin = Program.loginName;
             Program.currentPassword = Program.loginPassword;
-
-            /* Step 4*/
-            String statement = "EXEC sp_DangNhap '"+Program.loginName + "'";// exec sp_DangNhap 'TP'
+            String statement = "EXEC sp_DangNhap '"+Program.loginName + "'";
             Program.myReader = Program.ExecSqlDataReader(statement);
             if (Program.myReader == null)
                 return;
-            // đọc một dòng của myReader - điều này là hiển nhiên vì kết quả chỉ có 1 dùng duy nhất
             Program.myReader.Read();
 
-            /* Step 5*/
-            Program.userName = Program.myReader.GetString(0);// lấy userName
+            Program.userName = Program.myReader.GetString(0);
             if( Convert.IsDBNull(Program.userName) )
             {
                 MessageBox.Show("Tài khoản này không có quyền truy cập \n Hãy thử tài khoản khác","Thông Báo",MessageBoxButtons.OK);
@@ -156,7 +117,6 @@ namespace QLTVT
             Program.frmMain.Activate();
             Program.frmMain.Show();
 
-            /* Step 6*/
             this.Visible = false;
             Program.frmMain.enableButtons();
         }
@@ -171,7 +131,6 @@ namespace QLTVT
             try
             {
                 Program.serverName = cmbBranch.SelectedValue.ToString();
-                //Console.WriteLine(cmbCHINHANH.SelectedValue.ToString());
             }
             catch( Exception )
             {

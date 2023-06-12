@@ -32,7 +32,7 @@ namespace QLTVT.SubForm
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.dataSet.NhanVien);
 
-            cmbBranch.DataSource = Program.bindingSource;/*sao chep bingding source tu form dang nhap*/
+            cmbBranch.DataSource = Program.bindingSource;
             cmbBranch.DisplayMember = "TENCN";
             cmbBranch.ValueMember = "TENSERVER";
             cmbBranch.SelectedIndex = Program.brand;
@@ -46,20 +46,17 @@ namespace QLTVT.SubForm
 
         private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            /*Neu combobox khong co so lieu thi ket thuc luon*/
             if (cmbBranch.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
             Program.serverName = cmbBranch.SelectedValue.ToString();
 
-            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
             if (cmbBranch.SelectedIndex != Program.brand)
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
             }
-            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
+
             else
             {
                 Program.loginName = Program.currentLogin;
@@ -91,7 +88,6 @@ namespace QLTVT.SubForm
             
             Program.maNhanVienDuocChon = maNhanVien;
             Program.hoTen = hoTen;
-            //Console.WriteLine(Program.hoTen);
             Program.ngaySinh = ngaySinh;
             Program.diaChi = diaChi;
 

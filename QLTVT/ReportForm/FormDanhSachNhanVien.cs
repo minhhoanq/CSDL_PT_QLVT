@@ -25,9 +25,7 @@ namespace QLTVT.ReportForm
                 connPublisher.Open();
             }
             DataTable dt = new DataTable();
-            // adapter dùng để đưa dữ liệu từ view sang database
             SqlDataAdapter da = new SqlDataAdapter(cmd, connPublisher);
-            // dùng adapter thì mới đổ vào data table được
             da.Fill(dt);
 
 
@@ -44,11 +42,6 @@ namespace QLTVT.ReportForm
         {
             InitializeComponent();
         }
-        /******************************************************************
-         * mở kết nối tới server 
-         * @return trả về 1 nếu thành công
-         *         trả về 0 nếu thất bại
-         ******************************************************************/
         private int KetNoiDatabaseGoc()
         {
             if (connPublisher != null && connPublisher.State == ConnectionState.Open)
@@ -70,7 +63,6 @@ namespace QLTVT.ReportForm
         private void button1_Click(object sender, EventArgs e)
         {
             ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
-            /*GAN TEN CHI NHANH CHO BAO CAO*/
             report.txtChiNhanh.Text = chiNhanh.ToUpper();
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
@@ -81,7 +73,6 @@ namespace QLTVT.ReportForm
             try
             {
                 ReportDanhSachNhanVien report = new ReportDanhSachNhanVien();
-                /*GAN TEN CHI NHANH CHO BAO CAO*/
                 report.txtChiNhanh.Text = chiNhanh.ToUpper();
                 if (File.Exists(@"D:\ReportDanhSachNhanVien.pdf"))
                 {
@@ -116,7 +107,6 @@ namespace QLTVT.ReportForm
             {
                 this.cmbCHINHANH.Enabled = true;
             }    
-            // TODO: This line of code loads data into the 'dataSet.NhanVien' table. You can move, or remove it, as needed.
             dataSet.EnforceConstraints = false;
             
             if (KetNoiDatabaseGoc() == 0)
@@ -129,20 +119,16 @@ namespace QLTVT.ReportForm
 
         private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            /*Neu combobox khong co so lieu thi ket thuc luon*/
             if (cmbCHINHANH.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
             Program.serverName = cmbCHINHANH.SelectedValue.ToString();
 
-            /*Neu chon sang chi nhanh khac voi chi nhanh hien tai*/
             if (cmbCHINHANH.SelectedIndex != Program.brand)
             {
                 Program.loginName = Program.remoteLogin;
                 Program.loginPassword = Program.remotePassword;
             }
-            /*Neu chon trung voi chi nhanh dang dang nhap o formDangNhap*/
             else
             {
                 Program.loginName = Program.currentLogin;

@@ -38,10 +38,6 @@ namespace QLTVT
             this.btnDonHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnDanhSachNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnDanhSachVatTu = new DevExpress.XtraBars.BarButtonItem();
-            this.btnChiTietNhapXuat = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDonHangKhongPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
-            this.btnHoatDongNhanVien = new DevExpress.XtraBars.BarButtonItem();
-            this.btnTongHopNhapXuat = new DevExpress.XtraBars.BarButtonItem();
             this.btn = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -83,10 +79,6 @@ namespace QLTVT
             this.btnDonHang,
             this.btnDanhSachNhanVien,
             this.btnDanhSachVatTu,
-            this.btnChiTietNhapXuat,
-            this.btnDonHangKhongPhieuNhap,
-            this.btnHoatDongNhanVien,
-            this.btnTongHopNhapXuat,
             this.btn,
             this.barButtonItem12,
             this.barButtonItem1,
@@ -159,42 +151,6 @@ namespace QLTVT
             this.btnDanhSachVatTu.LargeWidth = 100;
             this.btnDanhSachVatTu.Name = "btnDanhSachVatTu";
             this.btnDanhSachVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachVatTu_ItemClick);
-            // 
-            // btnChiTietNhapXuat
-            // 
-            this.btnChiTietNhapXuat.Caption = "IMPORT EXPORT";
-            this.btnChiTietNhapXuat.Id = 7;
-            this.btnChiTietNhapXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnChiTietNhapXuat.ImageOptions.SvgImage")));
-            this.btnChiTietNhapXuat.LargeWidth = 100;
-            this.btnChiTietNhapXuat.Name = "btnChiTietNhapXuat";
-            this.btnChiTietNhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChiTietNhapXuat_ItemClick);
-            // 
-            // btnDonHangKhongPhieuNhap
-            // 
-            this.btnDonHangKhongPhieuNhap.Caption = "NON-IMPORT INVOICE";
-            this.btnDonHangKhongPhieuNhap.Id = 8;
-            this.btnDonHangKhongPhieuNhap.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDonHangKhongPhieuNhap.ImageOptions.SvgImage")));
-            this.btnDonHangKhongPhieuNhap.LargeWidth = 100;
-            this.btnDonHangKhongPhieuNhap.Name = "btnDonHangKhongPhieuNhap";
-            this.btnDonHangKhongPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDonHangKhongPhieuNhap_ItemClick);
-            // 
-            // btnHoatDongNhanVien
-            // 
-            this.btnHoatDongNhanVien.Caption = "STAFF ACTIVITY";
-            this.btnHoatDongNhanVien.Id = 9;
-            this.btnHoatDongNhanVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHoatDongNhanVien.ImageOptions.SvgImage")));
-            this.btnHoatDongNhanVien.LargeWidth = 100;
-            this.btnHoatDongNhanVien.Name = "btnHoatDongNhanVien";
-            this.btnHoatDongNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoatDongNhanVien_ItemClick);
-            // 
-            // btnTongHopNhapXuat
-            // 
-            this.btnTongHopNhapXuat.Caption = "TOTAL IM/EXPORT";
-            this.btnTongHopNhapXuat.Id = 10;
-            this.btnTongHopNhapXuat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTongHopNhapXuat.ImageOptions.SvgImage")));
-            this.btnTongHopNhapXuat.LargeWidth = 100;
-            this.btnTongHopNhapXuat.Name = "btnTongHopNhapXuat";
-            this.btnTongHopNhapXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTongHopNhapXuat_ItemClick);
             // 
             // btn
             // 
@@ -273,16 +229,6 @@ namespace QLTVT
             this.barButtonItem2.Id = 23;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
-            // btnLapTaiKhoan
-            // 
-            this.btnLapTaiKhoan.Caption = "TẠO TÀI KHOẢN";
-            this.btnLapTaiKhoan.Enabled = false;
-            this.btnLapTaiKhoan.Id = 27;
-            this.btnLapTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLapTaiKhoan.ImageOptions.SvgImage")));
-            this.btnLapTaiKhoan.LargeWidth = 100;
-            this.btnLapTaiKhoan.Name = "btnLapTaiKhoan";
-            this.btnLapTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapTaiKhoan_ItemClick);
-            // 
             // btnRegister
             // 
             this.btnRegister.Caption = "REGISTER";
@@ -340,20 +286,16 @@ namespace QLTVT
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnDanhSachNhanVien);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnDanhSachVatTu);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnChiTietNhapXuat);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnDonHangKhongPhieuNhap);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnHoatDongNhanVien);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnTongHopNhapXuat);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "DETAIL MANAGEMENT";
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 856);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 854);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(6);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1598, 28);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1598, 30);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -366,7 +308,7 @@ namespace QLTVT
             this.MANHANVIEN,
             this.HOTEN,
             this.NHOM});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 830);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 828);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1598, 26);
             this.statusStrip1.TabIndex = 3;
@@ -427,10 +369,6 @@ namespace QLTVT
         private DevExpress.XtraBars.BarButtonItem btnDonHang;
         private DevExpress.XtraBars.BarButtonItem btnDanhSachNhanVien;
         private DevExpress.XtraBars.BarButtonItem btnDanhSachVatTu;
-        private DevExpress.XtraBars.BarButtonItem btnChiTietNhapXuat;
-        private DevExpress.XtraBars.BarButtonItem btnDonHangKhongPhieuNhap;
-        private DevExpress.XtraBars.BarButtonItem btnHoatDongNhanVien;
-        private DevExpress.XtraBars.BarButtonItem btnTongHopNhapXuat;
         private DevExpress.XtraBars.BarButtonItem btn;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
         private DevExpress.XtraBars.Ribbon.RibbonPage pageDetails;
