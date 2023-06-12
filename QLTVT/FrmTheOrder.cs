@@ -19,6 +19,7 @@ namespace QLTVT
     {
         /* vị trí của con trỏ trên grid view*/
         int viTri = 0;
+        public static String MADDH_temp = "";
         /********************************************
          * đang thêm mới -> true -> đang dùng btnTHEM
          *              -> false -> có thể là btnGHI( chỉnh sửa) hoặc btnXOA
@@ -73,7 +74,6 @@ namespace QLTVT
         {
             InitializeComponent();
         }
-
         private void datHangBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -276,7 +276,7 @@ namespace QLTVT
             /*lấy vị trí hiện tại của con trỏ*/
             viTri = bds.Position;
             dangThemMoi = true;
-
+            MADDH_temp = txtTheOrderID.Text;
 
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/

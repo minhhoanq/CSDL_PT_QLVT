@@ -783,7 +783,7 @@ namespace QLTVT
             /*Step 3*/
             String cauTruyVanHoanTac = "EXEC sp_ChuyenChiNhanh "+maNhanVien+",'"+maChiNhanhHienTai+"'";
             undoList.Push(cauTruyVanHoanTac);
-           
+            
             Program.serverNameLeft = chiNhanh; /*Lấy tên chi nhánh tới để làm tính năng hoàn tác*/
             Console.WriteLine("Ten server con lai" + Program.serverNameLeft);
 

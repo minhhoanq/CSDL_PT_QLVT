@@ -264,7 +264,7 @@ namespace QLTVT
             else
             {
                 FormDanhSachNhanVien form = new FormDanhSachNhanVien();
-                //form.MdiParent = this;
+                form.MdiParent = this;
                 form.Show();
             }
         }
@@ -279,7 +279,7 @@ namespace QLTVT
             else
             {
                 FormDanhSachVatTu form = new FormDanhSachVatTu();
-                //form.MdiParent = this;
+                form.MdiParent = this;
                 form.Show();
             }
         }

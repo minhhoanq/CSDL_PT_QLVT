@@ -154,7 +154,7 @@ namespace QLTVT.ReportForm
                 MessageBox.Show("Xảy ra lỗi kết nối với chi nhánh hiện tại", "Thông báo", MessageBoxButtons.OK);
             }
 
-            chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Helsinki" : "Lisbon";
+            chiNhanh = cmbCHINHANH.SelectedValue.ToString().Contains("1") ? "Chi nhánh 1" : "Chi nhánh 2";
 
             this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nhanVienTableAdapter.Fill(this.dataSet.NhanVien);

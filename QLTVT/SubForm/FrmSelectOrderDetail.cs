@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -53,7 +54,7 @@ namespace QLTVT.SubForm
             string maVatTu = drv["MaVT"].ToString().Trim();
             int soLuong = int.Parse( drv["SOLUONG"].ToString().Trim() );
             int donGia = int.Parse( drv["DONGIA"].ToString().Trim());
-
+            
 
             /*Kiem tra xem ma don hang cua gcPhieuNhap co trung voi ma don hang duoc chon hay khong ?*/
             Program.maDonDatHangDuocChonChiTiet = maDonHang;
@@ -67,6 +68,53 @@ namespace QLTVT.SubForm
              * Viết 1 đoạn code chạy stored procedure kiểm tra xem mã PN10 và mã vật tư W8
              * đã tồn tại hay chưa ???
              */
+
+            //String maPhieuNhap = txtIImvoiceID.Text.Trim();
+
+            String cauTruyVan =
+/*                    "DECLARE	@result int " +
+                    "EXEC @result = sp_KiemTraCTPN '" +
+                    FrmImportInvoice.MAPN_temp + "," + maVatTu +
+                    "SELECT 'Value' = @result";*/
+            "DECLARE	@result int " +
+                    "EXEC @result = sp_KiemTraCTPN '" +
+                    FrmImportInvoice.MAPN_temp + "','" + maVatTu + "' " +
+                    "SELECT 'Value' = @result";
+            SqlCommand sqlCommand = new SqlCommand(cauTruyVan, Program.conn);
+            try
+            {
+                Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
+                /*khong co ket qua tra ve thi ket thuc luon*/
+                if (Program.myReader == null)
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+                return;
+            }
+            Program.myReader.Read();
+            int result = int.Parse(Program.myReader.GetValue(0).ToString());
+            Program.myReader.Close();
+
+
+            /*Step 5*/
+            //int viTriConTro = bdsPhieuNhap.Position;
+            //int viTriMaPhieuNhap = bdsPhieuNhap.Find("MAPN", maPhieuNhap);
+
+            /*Dang them moi phieu nhap*/
+            if (result == 1)
+            {
+                MessageBox.Show("Mã phiếu nhập đã được sử dụng !", "Thông báo", MessageBoxButtons.OK);
+                //txtIImvoiceID.Focus();
+                return;
+            }
+
+            //
 
 
             Program.maVatTuDuocChon = maVatTu;

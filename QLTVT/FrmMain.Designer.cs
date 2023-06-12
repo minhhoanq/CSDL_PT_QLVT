@@ -349,11 +349,11 @@ namespace QLTVT
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 852);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 856);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(6);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1598, 32);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1598, 28);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -366,7 +366,7 @@ namespace QLTVT
             this.MANHANVIEN,
             this.HOTEN,
             this.NHOM});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 826);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 830);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1598, 26);
             this.statusStrip1.TabIndex = 3;

@@ -30,6 +30,7 @@ namespace QLTVT
         bool dangThemMoi = false;
         public string makho = "";
         string maChiNhanh = "";
+        public static String MAPN_temp = "";
         /**********************************************************
          * undoList - phục vụ cho btnHOANTAC -  chứa các thông tin của đối tượng bị tác động 
          * 
@@ -317,7 +318,7 @@ namespace QLTVT
             /*lấy vị trí hiện tại của con trỏ*/
             viTri = bds.Position;
             dangThemMoi = true;
-
+            MAPN_temp = txtIImvoiceID.Text.Trim();
 
             /*Step 2*/
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
@@ -436,7 +437,7 @@ namespace QLTVT
 
             //Console.WriteLine(Program.maDonDatHangDuocChon);
             FrmSelectOrderDetail form = new FrmSelectOrderDetail();
-            form.ShowDialog(); 
+            form.ShowDialog();
 
             
 

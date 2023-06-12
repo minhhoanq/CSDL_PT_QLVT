@@ -638,7 +638,7 @@ namespace QLTVT
             this.gvCTDDH.OptionsBehavior.Editable = false;
             this.gvCTDDH.OptionsView.ShowGroupPanel = false;
             this.gvCTDDH.OptionsView.ShowViewCaption = true;
-            this.gvCTDDH.ViewCaption = "Import Invoice Detail";
+            this.gvCTDDH.ViewCaption = "Import Invoice ID";
             // 
             // colMAPN1
             // 
